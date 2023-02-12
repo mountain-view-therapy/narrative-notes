@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build/static/*.map
+/build
 
 # misc
 .DS_Store
