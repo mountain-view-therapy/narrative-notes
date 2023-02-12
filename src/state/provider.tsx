@@ -54,6 +54,8 @@ export const root = RootModel.create({
       ptsdSymptoms: [],
       otherSymptoms: '',
       groupSymptomsTogether: false,
+      selfCareSymptoms: [],
+      otherSelfCareSymptoms: "",
     }
   },
 })

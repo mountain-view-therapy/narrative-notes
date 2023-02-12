@@ -71,8 +71,8 @@ person-served is only eating 1 meal per day
 person-served is only showering twice a week when they'd prefer to shower daily
 Other
 
-Occupational (at work)
 
+Occupational (at work)
 
 person-served is getting in frequent arguments with coworkers
 person-served is frequently late to work

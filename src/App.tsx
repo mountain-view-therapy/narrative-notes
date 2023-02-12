@@ -3,10 +3,10 @@ import { Container } from "@mui/system";
 import * as React from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
   import MeetingLogistics from "./sections/meetingLogistics/MeetingLogistics";
-import MentalStatusExam from "./sections/MetalStatusExam/MentalStatusExam";
+import MentalStatusExam from "./sections/mentalStatusExam/MentalStatusExam";
 import Note from "./sections/note/Note";
-import Problems from "./sections/Problems/Problems";
-import Symptoms from "./sections/Symptoms/Symptoms";
+import Problems from "./sections/problems/Problems";
+import Symptoms from "./sections/symptoms/Symptoms";
 
 
 export default function App() {

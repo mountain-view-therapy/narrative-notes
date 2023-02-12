@@ -110,14 +110,22 @@ export const possiblePTSDSymptoms = [
 ]
 type PossiblePTSDSymptom = typeof possiblePTSDSymptoms[number]
 
+export const possibleSelfCareSymptoms = [
+    'person-served is getting inadequate sleep, only 5 hours per night',
+    'person-served is only eating 1 meal per day',
+    'person-served is only showering twice a week when they\'d prefer to shower daily',
+]
+type PossibleSelfCareSymptom = typeof possibleSelfCareSymptoms[number]
+
 const SymptomsModel = types.model('SymptomsModel', {
     anxietySymptoms: types.array(types.string),
     depressionSymptoms: types.array(types.string),
     ptsdSymptoms: types.array(types.string),
     otherSymptoms: types.string,
     groupSymptomsTogether: types.boolean,
+    selfCareSymptoms: types.array(types.string),
+    otherSelfCareSymptoms: types.string,
 })
-
 
 const MeetingLogisticsModel = types.model('MeetingLogisticsModel', {
     telehealthPlatform: types.enumeration('telehealthPlatform', ['Simple Practice', 'Google Meet']),
@@ -161,8 +169,8 @@ const MentalStatusExamModel = types.model('MentalStatusExamModel', {
     dangerToSelf: types.boolean,
     dangerToOthers: types.boolean,
     otherRisk: types.boolean,
-    dangerToSelfRisk: types.enumeration('dangerToSelfRisk',['Low','Medium','High']),
-    dangerToOthersRisk: types.enumeration('dangerToOthersRisk',['Low','Medium','High']),
+    dangerToSelfRisk: types.enumeration('dangerToSelfRisk', ['Low', 'Medium', 'High']),
+    dangerToOthersRisk: types.enumeration('dangerToOthersRisk', ['Low', 'Medium', 'High']),
     dangerToSelfEvidence: types.string,
     dangerToOthersEvidence: types.string,
     dangerToSelfPlan: types.string,
@@ -299,21 +307,21 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
         },
         toggleAnxietySymptom(symptom: PossibleAnxietySymptom): void {
             if (self.symptoms.anxietySymptoms.includes(symptom)) {
-                self.symptoms.anxietySymptoms.replace(self.symptoms.anxietySymptoms.filter(s =>  s !== symptom))
+                self.symptoms.anxietySymptoms.replace(self.symptoms.anxietySymptoms.filter(s => s !== symptom))
             } else {
                 self.symptoms.anxietySymptoms.push(symptom)
             }
         },
         toggleDepressionSymptom(symptom: PossibleDepressionSymptom): void {
             if (self.symptoms.depressionSymptoms.includes(symptom)) {
-                self.symptoms.depressionSymptoms.replace(self.symptoms.depressionSymptoms.filter(s =>  s !== symptom))
+                self.symptoms.depressionSymptoms.replace(self.symptoms.depressionSymptoms.filter(s => s !== symptom))
             } else {
                 self.symptoms.depressionSymptoms.push(symptom)
             }
         },
         togglePTSDSymptom(symptom: PossiblePTSDSymptom): void {
             if (self.symptoms.ptsdSymptoms.includes(symptom)) {
-                self.symptoms.ptsdSymptoms.replace(self.symptoms.ptsdSymptoms.filter(s =>  s !== symptom))
+                self.symptoms.ptsdSymptoms.replace(self.symptoms.ptsdSymptoms.filter(s => s !== symptom))
             } else {
                 self.symptoms.ptsdSymptoms.push(symptom)
             }
@@ -323,6 +331,16 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
         },
         setGroupSystemsTogether(groupSymptomsTogether: boolean): void {
             self.symptoms.groupSymptomsTogether = groupSymptomsTogether
+        },
+        toggleSelfCareSymptom(symptom: PossibleSelfCareSymptom): void {
+            if (self.symptoms.selfCareSymptoms.includes(symptom)) {
+                self.symptoms.selfCareSymptoms.replace(self.symptoms.selfCareSymptoms.filter(s => s !== symptom))
+            } else {
+                self.symptoms.selfCareSymptoms.push(symptom)
+            }
+        },
+        setOtherSelfCareSymptoms(symptoms: string): void {
+            self.symptoms.otherSelfCareSymptoms = symptoms
         },
     }
 })

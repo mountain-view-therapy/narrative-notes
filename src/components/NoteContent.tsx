@@ -172,7 +172,7 @@ const NoteContent = () => {
                 <div>
                     <b>Symptoms addressed during this meeting include: </b>
                     <ul>
-                        {groupSymptomsTogether ? (
+                        {anxietySymptoms.length && groupSymptomsTogether ? (
                             <li>Anxiety Symptoms <ul>
                                 {
                                     anxietySymptoms.map(symptom => <li>{symptom}</li>)
@@ -185,7 +185,7 @@ const NoteContent = () => {
 
 
                         }
-                        {groupSymptomsTogether ? (
+                        {depressionSymptoms.length && groupSymptomsTogether ? (
                             <li>Depression Symptoms <ul>
                                 {
                                     depressionSymptoms.map(symptom => <li>{symptom}</li>)
@@ -195,7 +195,7 @@ const NoteContent = () => {
                             :
                             depressionSymptoms.map(symptom => <li>{symptom}</li>)
                         }
-                        {groupSymptomsTogether ? (
+                        {ptsdSymptoms.length && groupSymptomsTogether ? (
                             <li>PTSD Symptoms <ul>
                                 {
                                     ptsdSymptoms.map(symptom => <li>{symptom}</li>)
@@ -204,6 +204,14 @@ const NoteContent = () => {
                         )
                             :
                             ptsdSymptoms.map(symptom => <li>{symptom}</li>)
+                        }
+                        {otherSymptoms.length && groupSymptomsTogether ? (
+                            <li>Other Symptoms <ul>
+                                <li>{otherSymptoms}</li>
+                            </ul></li>
+                        )
+                            :
+                                <li>{otherSymptoms}</li>
                         }
 
                     </ul>
