@@ -54,14 +54,28 @@ export const root = RootModel.create({
       ptsdSymptoms: [],
       otherSymptoms: '',
       groupSymptomsTogether: false,
+      selfCareAffected: false,
       selfCareSymptoms: [],
       otherSelfCareSymptoms: "",
+      occupationAffected: false,
+      occupationSymptoms: [],
+      otherOccupationSymptoms: "",
+      academicAffected: false,
+      academicSymptoms: [],
+      otherAcademicSymptoms: "",
+      interpersonalAffected: false,
+      interpersonalSymptoms: [],
+      otherInterpersonalSymptoms: "",
+      communitylAffected: false,
+      communitySymptoms: [],
+      otherCommunitySymptoms: "",
     }
   },
+  currentTab: "/meeting-logstics",
 })
 
 
-persist('root3', root, {
+persist('root4', root, {
   storage: localForage,  // or AsyncStorage in react-native.
   // default: localStorage
   jsonify: false,  // if you use AsyncStorage, this shoud be true

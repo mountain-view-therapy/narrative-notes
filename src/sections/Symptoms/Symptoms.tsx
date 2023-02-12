@@ -1,113 +1,57 @@
 import { Button, ButtonGroup, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, InputLabel, NativeSelect, Radio, RadioGroup, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { affectStates, cognitiveFunctioningStates, functionalStatusStates, interpersonalStates, moodStates, possibleAnxietySymptoms, possibleDepressionSymptoms, possiblePTSDSymptoms, riskLevels } from '../../models/MeetingInformationModel';
+import { affectStates, cognitiveFunctioningStates, functionalStatusStates, interpersonalStates, moodStates, possibleAcademicSymptoms, possibleAnxietySymptoms, possibleCommunitySymptoms, possibleDepressionSymptoms, possibleInterpersonalSymptoms, possibleOccupationSymptoms, possiblePTSDSymptoms, possibleSelfCareSymptoms, riskLevels } from '../../models/MeetingInformationModel';
 import { getState } from '../../state/provider';
 
 
 const Symptoms = () => {
   const { meetingInformation: {
-    mentalStatusExam: {
-      affect,
-      cognitiveFunctioning,
-      functionalStatus,
-      interpersonal,
-      mood,
-      noRisk,
-      dangerToSelf,
-      dangerToSelfRisk,
-      dangerToSelfEvidence,
-      dangerToSelfPlan,
-      dangerToOthers,
-      dangerToOthersRisk,
-      dangerToOthersEvidence,
-      dangerToOthersPlan,
-      otherRisk,
-      otherRiskInformation,
-    },
+
     symptoms: {
       anxietySymptoms,
       depressionSymptoms,
       ptsdSymptoms,
       otherSymptoms,
       groupSymptomsTogether,
+      selfCareAffected,
+      selfCareSymptoms,
+      otherSelfCareSymptoms,
+      occupationAffected,
+      occupationSymptoms,
+      otherOccupationSymptoms,
+      academicAffected,
+      academicSymptoms,
+      otherAcademicSymptoms,
+      interpersonalAffected,
+      interpersonalSymptoms,
+      otherInterpersonalSymptoms,
+      communitylAffected,
+      communitySymptoms,
+      otherCommunitySymptoms,
     },
-    setAffect,
-    setCognitiveFunctioning,
-    setFunctionalStatus,
-    setInterpersonal,
-    setMood,
-    setNoRisk,
-    setDangerToSelf,
-    setDangerToOthers,
-    setOtherRisk,
-    setDangerToSelfRisk,
-    setDangerToOthersRisk,
-    setDangerToSelfEvidence,
-    setDangerToOthersEvidence,
-    setDangerToSelfPlan,
-    setDangerToOthersPlan,
-    setOtherRiskInformation,
     toggleAnxietySymptom,
     toggleDepressionSymptom,
     togglePTSDSymptom,
     setOtherSymptoms,
     setGroupSystemsTogether,
+    setSelfCareAffected,
+    setSelfCareSymptom,
+    setOtherSelfCareSymptoms,
+    setOccupationAffected,
+    setOccupationSymptom,
+    setOtherOccupationSymptoms,
+    setAcademicAffected,
+    setAcademicSymptom,
+    setOtherAcademicSymptoms,
+    setInterpersonalAffected,
+    setInterpersonalSymptom,
+    setOtherInterpersonalSymptoms,
+    setCommunityAffected,
+    setCommunitySymptom,
+    setOtherCommunitySymptoms,
   }
-  } = getState();
-
-
-  /*
-  
-Symptoms addressed during this meeting include:
-
-
-These symptoms affect person-served 
-Affecting person-served ability to function: Multichoice cloud- prompts for how it affects functioning
-
-ADLs/Self-care (‘s self-care)
-person-served is getting inadequate sleep, only 5 hours per night
-person-served is only eating 1 meal per day
-person-served is only showering twice a week when they'd prefer to shower daily
-Other
-
-
-Occupational (at work)
-
-person-served is getting in frequent arguments with coworkers
-person-served is frequently late to work
-Person-served frequently misses work
-person-served has received a written warning at work
-person-served is at risk of losing job
-Other
-
-Academic (at school)
-
-person-served frequently arrives late to school
-person-served frequently misses school
-Lack of school attendance is negatively affecting grades
-person-served unable to keep up with coursework
-person-served is engaged in fights at school every month
-Other
-
-
-
-Interpersonal (interpersonally)
-person-served is getting in frequent arguments with partner
-Person-served has frequent arguments with family members
-Person-served has frequent arguments with friends
-person-served is unable to partake in family obligations
-other
-
-Community
-
-
-person-served has been unable to attend community functions
-person-served has been unable to fulfill community obligations
-other
-
-  */
-
+  } = getState()
 
   return (
     < Container >
@@ -154,118 +98,103 @@ other
           </Stack>
         </Stack>
 
+        <Typography>Affects on Functioning</Typography>
+        <FormControlLabel control={<Checkbox
+          checked={selfCareAffected}
+          onChange={(e) => setSelfCareAffected(e.target.checked)}
+          inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
+        />} label="Self Care" />
+        <Stack flexDirection='column' marginLeft={2}>
 
-
-
-
-
-
-
-
-
-        <FormControl>
-          <FormLabel>Affect</FormLabel>
-          <ButtonGroup size='small' variant="contained" aria-label="outlined primary button group">
-            {
-              affectStates.map(state => <Button key={state} onClick={() => setAffect(state)} color={affect === state ? 'primary' : 'inherit'}>{state}</Button>)
-            }
-          </ButtonGroup>
-        </FormControl>
-
-        <FormControl>
-          <FormLabel>Mood</FormLabel>
-          <ButtonGroup size='small' variant="contained" aria-label="outlined primary button group">
-            {
-              moodStates.map(state => <Button key={state} onClick={() => setMood(state)} color={mood === state ? 'primary' : 'inherit'}>{state}</Button>)
-            }
-          </ButtonGroup>
-        </FormControl>
-
-        <FormControl>
-          <FormLabel>Interpersonal</FormLabel>
-          <ButtonGroup size='small' variant="contained" aria-label="outlined primary button group">
-            {
-              interpersonalStates.map(state => <Button key={state} onClick={() => setInterpersonal(state)} color={interpersonal === state ? 'primary' : 'inherit'}>{state}</Button>)
-            }
-          </ButtonGroup>
-        </FormControl>
-
-        <FormControl>
-          <FormLabel>Functional Status</FormLabel>
-          <ButtonGroup size='small' variant="contained" aria-label="outlined primary button group">
-            {
-              functionalStatusStates.map(state => <Button key={state} onClick={() => setFunctionalStatus(state)} color={functionalStatus === state ? 'primary' : 'inherit'}>{state}</Button>)
-            }
-          </ButtonGroup>
-        </FormControl>
-
-
-        <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} paddingLeft={3}>
-          <Box>
-            <Stack justifyContent='left' alignItems='center' flexDirection='row' border='green' margin={2}>
-              <Typography fontWeight={800} fontSize={24}>Risk Status</Typography>
-            </Stack>
-          </Box>
-
-          <FormGroup>
+          {possibleSelfCareSymptoms.map(symptom =>
             <FormControlLabel control={<Checkbox
-              checked={noRisk}
-              onChange={(e) => setNoRisk(e.target.checked)}
-              inputProps={{ 'aria-label': 'controlled' }}
-              disabled={dangerToOthers || dangerToSelf || otherRisk}
-            />} label="No Significant Risk Factors presented" />
+              checked={selfCareAffected && Boolean(selfCareSymptoms.find(selected => symptom === selected))}
+              onChange={(e) => setSelfCareSymptom(symptom, e.target.checked)}
+              disabled={!selfCareAffected}
+              key={symptom}
+            />} label={symptom} />
+          )}
+          <FormLabel>Other Self Care Symptoms</FormLabel>
+          <TextField disabled={!selfCareAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherSelfCareSymptoms} onChange={(e) => setOtherSelfCareSymptoms(e.target.value)} />
+        </Stack>
 
+
+        <FormControlLabel control={<Checkbox
+          checked={occupationAffected}
+          onChange={(e) => setOccupationAffected(e.target.checked)}
+          inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
+        />} label="Occupational" />
+        <Stack flexDirection='column' marginLeft={2}>
+
+          {possibleOccupationSymptoms.map(symptom =>
             <FormControlLabel control={<Checkbox
-              checked={dangerToSelf}
-              onChange={(e) => setDangerToSelf(e.target.checked)}
-              inputProps={{ 'aria-label': 'controlled' }} />} label="Danger to Self"
-              disabled={noRisk} />
-            {dangerToSelf &&
-              <Stack flexDirection='row'>
-                <RadioGroup
-                  onChange={(e) => setDangerToSelfRisk(e.target.value)}
-                  value={dangerToSelfRisk}
-                >
-                  {riskLevels.map(level => <FormControlLabel value={level} control={<Radio />} label={level} />)}
-                </RadioGroup>
-                <TextField label='Evidence' value={dangerToSelfEvidence} onChange={(e) => setDangerToSelfEvidence(e.target.value)} />
-                <TextField label='Plan' value={dangerToSelfPlan} onChange={(e) => setDangerToSelfPlan(e.target.value)} />
-              </Stack>
+              checked={occupationAffected && Boolean(occupationSymptoms.find(selected => symptom === selected))}
+              onChange={(e) => setOccupationSymptom(symptom, e.target.checked)}
+              disabled={!occupationAffected}
+              key={symptom}
+            />} label={symptom} />
+          )}
+          <FormLabel>Other Occupational Symptoms</FormLabel>
+          <TextField disabled={!occupationAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherOccupationSymptoms} onChange={(e) => setOtherOccupationSymptoms(e.target.value)} />
+        </Stack>
 
-            }
+        <FormControlLabel control={<Checkbox
+          checked={academicAffected}
+          onChange={(e) => setAcademicAffected(e.target.checked)}
+          inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
+        />} label="Academic" />
+        <Stack flexDirection='column' marginLeft={2}>
 
+          {possibleAcademicSymptoms.map(symptom =>
             <FormControlLabel control={<Checkbox
-              checked={dangerToOthers}
-              onChange={(e) => setDangerToOthers(e.target.checked)}
-              inputProps={{ 'aria-label': 'controlled' }}
-              disabled={noRisk}
-            />} label="Danger to Other" />
-            {dangerToOthers &&
-              <Stack flexDirection='row'>
-                <RadioGroup
-                  onChange={(e) => setDangerToOthersRisk(e.target.value)}
-                  value={dangerToOthersRisk}
-                >
-                  {riskLevels.map(level => <FormControlLabel value={level} control={<Radio />} label={level} />)}
-                </RadioGroup>
-                <TextField label='Evidence' value={dangerToOthersEvidence} onChange={(e) => setDangerToOthersEvidence(e.target.value)} />
-                <TextField label='Plan' value={dangerToOthersPlan} onChange={(e) => setDangerToOthersPlan(e.target.value)} />
-              </Stack>
-            }
+              checked={academicAffected && Boolean(academicSymptoms.find(selected => symptom === selected))}
+              onChange={(e) => setAcademicSymptom(symptom, e.target.checked)}
+              disabled={!academicAffected}
+              key={symptom}
+            />} label={symptom} />
+          )}
+          <FormLabel>Other Academic Symptoms</FormLabel>
+          <TextField disabled={!academicAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherAcademicSymptoms} onChange={(e) => setOtherAcademicSymptoms(e.target.value)} />
+        </Stack>
 
-            <Stack flexDirection='row'>
-              <FormControlLabel control={<Checkbox
-                checked={otherRisk}
-                onChange={(e) => setOtherRisk(e.target.checked)}
-                inputProps={{ 'aria-label': 'controlled' }} />} label="Other"
-                disabled={noRisk}
-              />
-              {otherRisk &&
-                <TextField label='Other' value={otherRiskInformation} onChange={(e) => setOtherRiskInformation(e.target.value)} />
-              }
-            </Stack>
-          </FormGroup>
-        </Box>
+        <FormControlLabel control={<Checkbox
+          checked={interpersonalAffected}
+          onChange={(e) => setInterpersonalAffected(e.target.checked)}
+          inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
+        />} label="Interpersonal" />
+        <Stack flexDirection='column' marginLeft={2}>
+
+          {possibleInterpersonalSymptoms.map(symptom =>
+            <FormControlLabel control={<Checkbox
+              checked={interpersonalAffected && Boolean(interpersonalSymptoms.find(selected => symptom === selected))}
+              onChange={(e) => setInterpersonalSymptom(symptom, e.target.checked)}
+              disabled={!interpersonalAffected}
+              key={symptom}
+            />} label={symptom} />
+          )}
+          <FormLabel>Other Interpersonal Symptoms</FormLabel>
+          <TextField disabled={!interpersonalAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherInterpersonalSymptoms} onChange={(e) => setOtherInterpersonalSymptoms(e.target.value)} />
+        </Stack>
+
+        <FormControlLabel control={<Checkbox
+          checked={communitylAffected}
+          onChange={(e) => setCommunityAffected(e.target.checked)}
+          inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
+        />} label="Community" />
+        <Stack flexDirection='column' marginLeft={2}>
+
+          {possibleCommunitySymptoms.map(symptom =>
+            <FormControlLabel control={<Checkbox
+              checked={communitylAffected && Boolean(communitySymptoms.find(selected => symptom === selected))}
+              onChange={(e) => setCommunitySymptom(symptom, e.target.checked)}
+              disabled={!communitylAffected}
+              key={symptom}
+            />} label={symptom} />
+          )}
+          <FormLabel>Other Community Symptoms</FormLabel>
+          <TextField disabled={!communitylAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherCommunitySymptoms} onChange={(e) => setOtherCommunitySymptoms(e.target.value)} />
+        </Stack>
+
 
       </Stack>
     </Container >

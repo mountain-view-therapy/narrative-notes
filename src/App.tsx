@@ -1,22 +1,24 @@
 import { AppBar, Box, Toolbar, Stack, Tab, Tabs } from "@mui/material";
 import { Container } from "@mui/system";
+import { observer } from "mobx-react-lite";
 import * as React from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
-  import MeetingLogistics from "./sections/meetingLogistics/MeetingLogistics";
+import MeetingLogistics from "./sections/meetingLogistics/MeetingLogistics";
 import MentalStatusExam from "./sections/mentalStatusExam/MentalStatusExam";
 import Note from "./sections/note/Note";
 import Problems from "./sections/problems/Problems";
 import Symptoms from "./sections/symptoms/Symptoms";
+import { getState } from "./state/provider";
 
 
-export default function App() {
+function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<MeetingLogistics />} />
         <Route path="meeting-logistics" element={<MeetingLogistics />} />
         <Route path="mental-status-exam" element={<MentalStatusExam />} />
-         <Route path="problems" element={<Problems />} />
+        <Route path="problems" element={<Problems />} />
         <Route path="symptoms" element={<Symptoms />} />
         {/*<Route path="interventions" element={<Interventions />} />
         <Route path="progress" element={<Progress />} />
@@ -27,22 +29,20 @@ export default function App() {
   );
 }
 
-function Layout() {
-
-  const [value, setValue] = React.useState('/meeting-logstics');
-
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
+const Layout = observer(props => {
+  const { currentTab, setCurrentTab } = getState()
+const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setCurrentTab(newValue)
   }
 
-  return (
-    <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1}>
+  return(
+  <Box border = "thick" margin = { 1} borderColor = 'black' borderRadius = { 2} borderTop = { 1} borderBottom = { 1} borderLeft = { 1} borderRight = { 1} >
       <Stack flexDirection='row' justifyContent='space-evenly'>
         <Box maxWidth='60%' border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1}>
           <AppBar position='static' color='transparent'>
             <Container>
               <Toolbar disableGutters={true}>
-                <Tabs value={value}
+                <Tabs value={currentTab}
                   onChange={handleChange}
                   aria-label="main tabs"
                   textColor="primary"
@@ -108,7 +108,7 @@ function Layout() {
               </Toolbar>
             </Container>
           </AppBar>
-          <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1}>
+          <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} overflow='auto' maxHeight={window.innerHeight-150}>
             <Outlet />
           </Box>
         </Box>
@@ -118,23 +118,9 @@ function Layout() {
           </Box>
         </Box>
       </Stack>
-    </Box>
-  );
-}
-
-
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-      <p>
-        <Link to="/meeting-logistics">Get Started</Link>
-      </p>
-    </div>
-  );
-}
-
-
+  </Box >
+)
+})
 
 function NoMatch() {
   return (
@@ -149,5 +135,5 @@ function NoMatch() {
 
 
 
-
+export default App
 

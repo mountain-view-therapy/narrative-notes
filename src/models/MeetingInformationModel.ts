@@ -117,14 +117,64 @@ export const possibleSelfCareSymptoms = [
 ]
 type PossibleSelfCareSymptom = typeof possibleSelfCareSymptoms[number]
 
+
+export const possibleOccupationSymptoms = [
+    'person-served is getting in frequent arguments with coworkers',
+    'person-served is frequently late to work',
+    'Person-served frequently misses work',
+    'person-served has received a written warning at work',
+    'person-served is at risk of losing job',
+]
+type PossibleOccupationSymptom = typeof possibleOccupationSymptoms[number]
+
+
+export const possibleAcademicSymptoms = [
+    'person-served frequently arrives late to school',
+    'person-served frequently misses school',
+    'Lack of school attendance is negatively affecting grades',
+    'person-served unable to keep up with coursework',
+    'person-served is engaged in fights at school every month',
+]
+type PossibleAcademicSymptom = typeof possibleAcademicSymptoms[number]
+
+export const possibleInterpersonalSymptoms = [
+    'person-served is getting in frequent arguments with partner',
+    'Person-served has frequent arguments with family members',
+    'Person-served has frequent arguments with friends',
+    'person-served is unable to partake in family obligations',
+]
+type PossibleInterpersonalSymptom = typeof possibleInterpersonalSymptoms[number]
+
+export const possibleCommunitySymptoms = [
+    'person-served has been unable to attend community functions',
+    'person-served has been unable to fulfill community obligations',
+]
+type PossibleCommunitySymptom = typeof possibleCommunitySymptoms[number]
+
+
+
+
 const SymptomsModel = types.model('SymptomsModel', {
     anxietySymptoms: types.array(types.string),
     depressionSymptoms: types.array(types.string),
     ptsdSymptoms: types.array(types.string),
     otherSymptoms: types.string,
     groupSymptomsTogether: types.boolean,
+    selfCareAffected: types.boolean,
     selfCareSymptoms: types.array(types.string),
     otherSelfCareSymptoms: types.string,
+    occupationAffected: types.boolean,
+    occupationSymptoms: types.array(types.string),
+    otherOccupationSymptoms: types.string,
+    academicAffected: types.boolean,
+    academicSymptoms: types.array(types.string),
+    otherAcademicSymptoms: types.string,
+    interpersonalAffected: types.boolean,
+    interpersonalSymptoms: types.array(types.string),
+    otherInterpersonalSymptoms: types.string,
+    communitylAffected: types.boolean,
+    communitySymptoms: types.array(types.string),
+    otherCommunitySymptoms: types.string,
 })
 
 const MeetingLogisticsModel = types.model('MeetingLogisticsModel', {
@@ -332,15 +382,80 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
         setGroupSystemsTogether(groupSymptomsTogether: boolean): void {
             self.symptoms.groupSymptomsTogether = groupSymptomsTogether
         },
-        toggleSelfCareSymptom(symptom: PossibleSelfCareSymptom): void {
-            if (self.symptoms.selfCareSymptoms.includes(symptom)) {
-                self.symptoms.selfCareSymptoms.replace(self.symptoms.selfCareSymptoms.filter(s => s !== symptom))
+        setSelfCareAffected(selfCareAffected: boolean): void {
+            self.symptoms.selfCareAffected = selfCareAffected
+        },
+        setSelfCareSymptom(symptom: PossibleSelfCareSymptom, value: boolean): void {
+            if (value === true) {
+                if (!self.symptoms.selfCareSymptoms.includes(symptom)) {
+                    self.symptoms.selfCareSymptoms.push(symptom)
+                }
             } else {
-                self.symptoms.selfCareSymptoms.push(symptom)
+                self.symptoms.selfCareSymptoms.replace(self.symptoms.selfCareSymptoms.filter(s => s !== symptom))
             }
         },
         setOtherSelfCareSymptoms(symptoms: string): void {
             self.symptoms.otherSelfCareSymptoms = symptoms
+        },
+        setOccupationAffected(occupationAffected: boolean): void {
+            self.symptoms.occupationAffected = occupationAffected
+        },
+        setOccupationSymptom(symptom: PossibleOccupationSymptom, value: boolean): void {
+            if (value === true) {
+                if (!self.symptoms.occupationSymptoms.includes(symptom)) {
+                    self.symptoms.occupationSymptoms.push(symptom)
+                }
+            } else {
+                self.symptoms.occupationSymptoms.replace(self.symptoms.occupationSymptoms.filter(s => s !== symptom))
+            }
+        },
+        setOtherOccupationSymptoms(symptoms: string): void {
+            self.symptoms.otherOccupationSymptoms = symptoms
+        },
+        setAcademicAffected(academicAffected: boolean): void {
+            self.symptoms.academicAffected = academicAffected
+        },
+        setAcademicSymptom(symptom: PossibleAcademicSymptom, value: boolean): void {
+            if (value === true) {
+                if (!self.symptoms.academicSymptoms.includes(symptom)) {
+                    self.symptoms.academicSymptoms.push(symptom)
+                }
+            } else {
+                self.symptoms.academicSymptoms.replace(self.symptoms.academicSymptoms.filter(s => s !== symptom))
+            }
+        },
+        setOtherAcademicSymptoms(symptoms: string): void {
+            self.symptoms.otherAcademicSymptoms = symptoms
+        },
+        setInterpersonalAffected(interpersonalAffected: boolean): void {
+            self.symptoms.interpersonalAffected = interpersonalAffected
+        },
+        setInterpersonalSymptom(symptom: PossibleInterpersonalSymptom, value: boolean): void {
+            if (value === true) {
+                if (!self.symptoms.interpersonalSymptoms.includes(symptom)) {
+                    self.symptoms.interpersonalSymptoms.push(symptom)
+                }
+            } else {
+                self.symptoms.interpersonalSymptoms.replace(self.symptoms.interpersonalSymptoms.filter(s => s !== symptom))
+            }
+        },
+        setOtherInterpersonalSymptoms(symptoms: string): void {
+            self.symptoms.otherInterpersonalSymptoms = symptoms
+        },
+        setCommunityAffected(communityAffected: boolean): void {
+            self.symptoms.communitylAffected = communityAffected
+        },
+        setCommunitySymptom(symptom: PossibleCommunitySymptom, value: boolean): void {
+            if (value === true) {
+                if (!self.symptoms.communitySymptoms.includes(symptom)) {
+                    self.symptoms.communitySymptoms.push(symptom)
+                }
+            } else {
+                self.symptoms.communitySymptoms.replace(self.symptoms.communitySymptoms.filter(s => s !== symptom))
+            }
+        },
+        setOtherCommunitySymptoms(symptoms: string): void {
+            self.symptoms.otherCommunitySymptoms = symptoms
         },
     }
 })

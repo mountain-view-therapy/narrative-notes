@@ -138,7 +138,7 @@ const MentalStatusExam = () => {
                   onChange={(e) => setDangerToSelfRisk(e.target.value)}
                   value={dangerToSelfRisk}
                 >
-                  {riskLevels.map(level => <FormControlLabel value={level} control={<Radio />} label={level} />)}
+                  {riskLevels.map(level => <FormControlLabel value={level} control={<Radio />} label={level} key={'self' + level} />)}
                 </RadioGroup>
                 <TextField label='Evidence' value={dangerToSelfEvidence} onChange={(e) => setDangerToSelfEvidence(e.target.value)} />
                 <TextField label='Plan' value={dangerToSelfPlan} onChange={(e) => setDangerToSelfPlan(e.target.value)} />
@@ -158,7 +158,7 @@ const MentalStatusExam = () => {
                   onChange={(e) => setDangerToOthersRisk(e.target.value)}
                   value={dangerToOthersRisk}
                 >
-                  {riskLevels.map(level => <FormControlLabel value={level} control={<Radio />} label={level} />)}
+                  {riskLevels.map(level => <FormControlLabel value={level} control={<Radio />} label={level} key={'other' + level} />)}
                 </RadioGroup>
                 <TextField label='Evidence' value={dangerToOthersEvidence} onChange={(e) => setDangerToOthersEvidence(e.target.value)} />
                 <TextField label='Plan' value={dangerToOthersPlan} onChange={(e) => setDangerToOthersPlan(e.target.value)} />

@@ -52,6 +52,21 @@ const NoteContent = () => {
             ptsdSymptoms,
             otherSymptoms,
             groupSymptomsTogether,
+            selfCareAffected,
+            selfCareSymptoms,
+            otherSelfCareSymptoms,
+            occupationAffected,
+            occupationSymptoms,
+            otherOccupationSymptoms,
+            academicAffected,
+            academicSymptoms,
+            otherAcademicSymptoms,
+            interpersonalAffected,
+            interpersonalSymptoms,
+            otherInterpersonalSymptoms,
+            communitylAffected,
+            communitySymptoms,
+            otherCommunitySymptoms,
         }
     } } = getState()
 
@@ -173,101 +188,53 @@ const NoteContent = () => {
                     <b>Symptoms addressed during this meeting include: </b>
                     <ul>
                         {anxietySymptoms.length && groupSymptomsTogether ? (
-                            <li>Anxiety Symptoms <ul>
+                            <li>Anxiety Symptoms<ul>
                                 {
-                                    anxietySymptoms.map(symptom => <li>{symptom}</li>)
+                                    anxietySymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
                                 }
                             </ul></li>
                         )
                             :
-
                             anxietySymptoms.map(symptom => <li>{symptom}</li>)
-
-
                         }
                         {depressionSymptoms.length && groupSymptomsTogether ? (
-                            <li>Depression Symptoms <ul>
+                            <li>Depression Symptoms<ul>
                                 {
-                                    depressionSymptoms.map(symptom => <li>{symptom}</li>)
+                                    depressionSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
                                 }
                             </ul></li>
                         )
                             :
-                            depressionSymptoms.map(symptom => <li>{symptom}</li>)
+                            depressionSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
                         }
                         {ptsdSymptoms.length && groupSymptomsTogether ? (
-                            <li>PTSD Symptoms <ul>
+                            <li>PTSD Symptoms<ul>
                                 {
-                                    ptsdSymptoms.map(symptom => <li>{symptom}</li>)
+                                    ptsdSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
                                 }
                             </ul></li>
                         )
                             :
-                            ptsdSymptoms.map(symptom => <li>{symptom}</li>)
+                            ptsdSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
                         }
-                        {otherSymptoms.length && groupSymptomsTogether ? (
-                            <li>Other Symptoms <ul>
+                        {otherSymptoms && groupSymptomsTogether ? (
+                            <li>Other Symptoms<ul>
                                 <li>{otherSymptoms}</li>
                             </ul></li>
                         )
                             :
-                                <li>{otherSymptoms}</li>
+                                (otherSymptoms &&  <li>{otherSymptoms}</li> )
                         }
-
                     </ul>
                 </div>
             }
+            <div>
+            These symptoms affect [person-served]'s self care.
+            {selfCareSymptoms.map(s => <p>{s}.</p>)}
+            </div>
         </div >
     )
 
 }
 
 export default observer(NoteContent)
-
-/* <Stack flexDirection='row'>
-
-
-<Stack flexDirection='column'>
-    <Typography fontWeight={700}>
-        Persons Present:
-    </Typography>
-    {clientPresent &&
-        <Typography marginLeft={3}>
-            Client
-        </Typography>
-    }
-    {spousePresent &&
-        <Typography marginLeft={3}>
-            Spouse: {spouseName}
-        </Typography>
-    }
-    {partnerPresent &&
-        <Typography marginLeft={3}>
-            Partner: {partnerName}
-        </Typography>
-    }
-    {parentPresent &&
-        <Typography marginLeft={3}>
-            Parent: {parentName}
-        </Typography>
-    }
-    {siblingPresent &&
-        <Typography marginLeft={3}>
-            Sibling: {siblingName}
-        </Typography>
-    }
-    {childPresent &&
-        <Typography marginLeft={3}>
-            Child: {childName}
-        </Typography>
-    }
-    {otherPresent &&
-        <Typography marginLeft={3}>
-            Other: {otherName}
-        </Typography>
-    }
-</Stack>
-</Box> */
-
-//    )
-//}
