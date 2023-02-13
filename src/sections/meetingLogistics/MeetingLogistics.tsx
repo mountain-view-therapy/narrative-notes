@@ -70,11 +70,11 @@ const MeetingLogistics = () => {
           <Typography fontWeight={800} fontSize={24}>Meeting Logistics</Typography>
         </Stack>
       </Box>
-      <Stack flexDirection='column'>
+      <Stack flexDirection='column' spacing={6}>
         <TextField label="Client's Initials" value={clientInitials} onChange={(e) => setClientInitials(e.target.value)} style={{ width: 200 }} />
 
         <FormControl>
-          <FormLabel id="HIPAA-telehealth-platfrom-radio-buttons-group-label">HIPAA Compliant telehealth platform</FormLabel>
+          <FormLabel id="HIPAA-telehealth-platfrom-radio-buttons-group-label">HIPAA Compliant telehealth platform: </FormLabel>
           <RadioGroup
             aria-labelledby="HIPAA-telehealth-platfrom-radio-buttons-group-label"
             defaultValue="Simple Practice"
@@ -112,7 +112,7 @@ const MeetingLogistics = () => {
           </RadioGroup>
         </FormControl>
 
-        <Stack flexDirection='row' alignItems='center'>
+        <Stack flexDirection='row' alignItems='center' >
           <FormControl>
             <FormLabel id="telehealth-location-radio-buttons-group-label">Person-served physical location during the meeting</FormLabel>
             <RadioGroup
@@ -130,22 +130,21 @@ const MeetingLogistics = () => {
             </RadioGroup>
           </FormControl>
           {physicalLocation.includes('Other') &&
-            <TextField value={otherAddress} onChange={(e) => setOtherAddress(e.target.value)} />
+            <TextField style={{ width: 340 }} label='Other Address' value={otherAddress} onChange={(e) => setOtherAddress(e.target.value)} />
           }
         </Stack>
-
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <FormLabel id="start-time">Start Time</FormLabel>
-          <TimePicker onChange={(e) => setStartTime(e)} renderInput={(params) => <TextField {...params} style={{ width: 200 }} />} value={dayjs(startTime)} />
-          <FormLabel id="end-time">End Time</FormLabel>
-          <TimePicker onChange={(e) => setEndTime(e)} renderInput={(params) => <TextField {...params} style={{ width: 200 }} />} value={dayjs(endTime)} />
-        </LocalizationProvider>
+        <Stack flexDirection='row'>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <TimePicker label='Start Time' onChange={(e) => setStartTime(e)} renderInput={(params) => <TextField {...params} style={{ width: 200, marginRight: 100 }} />} value={dayjs(startTime)} />
+            <TimePicker label='End Time' onChange={(e) => setEndTime(e)} renderInput={(params) => <TextField {...params} style={{ width: 200 }} />} value={dayjs(endTime)} />
+          </LocalizationProvider>
+        </Stack>
 
         <Stack flexDirection='row'>
           <FormControl>
-            <InputLabel variant="standard" htmlFor="cpt-code">
+            <Typography fontWeight={400} fontSize={16} color='rgba(0, 0, 0, 0.6)'>
               CPT Code
-            </InputLabel>
+            </Typography>
             <NativeSelect
               inputProps={{
                 name: 'cpt-code',
@@ -164,76 +163,92 @@ const MeetingLogistics = () => {
             </NativeSelect>
           </FormControl>
           {cptCode === 'Other' &&
-            <TextField label='Enter Other Cpt Code' value={otherCptCode} onChange={(e) => setOtherCptCode(e.target.value)}/>
+            <TextField label='Enter Other Cpt Code' value={otherCptCode} onChange={(e) => setOtherCptCode(e.target.value)} />
           }
         </Stack>
 
-        <FormGroup>
-          <FormControlLabel control={<Checkbox
-            checked={clientPresent}
-            onChange={(e) => setClientPresent(e.target.checked)}
-            inputProps={{ 'aria-label': 'controlled' }} />} label="Client" />
+        <Box>
+          <Typography fontWeight={400} fontSize={16} color='rgba(0, 0, 0, 0.6)'>Who was present at the meeting?</Typography>
+            <FormGroup>
+              <FormControlLabel control={<Checkbox
+                checked={clientPresent}
+                onChange={(e) => setClientPresent(e.target.checked)}
+                inputProps={{ 'aria-label': 'controlled' }} />} label="Client" />
 
-          <Stack flexDirection='row'>
-            <FormControlLabel control={<Checkbox
-              checked={spousePresent}
-              onChange={(e) => setSpousePresent(e.target.checked)}
-              inputProps={{ 'aria-label': 'controlled' }} />} label="Spouse" />
-            {spousePresent &&
-              <TextField label='Spouse Name' value={spouseName} onChange={(e) => setSpouseName(e.target.value)} />
-            }
-          </Stack>
+              <Stack flexDirection='row'>
+                <FormControlLabel control={<Checkbox
+                  checked={spousePresent}
+                  onChange={(e) => setSpousePresent(e.target.checked)}
+                  inputProps={{ 'aria-label': 'controlled' }} />} label="Spouse"
+                  style={{ width: 100 }}
+                />
+                {spousePresent &&
+                  <TextField size='small' label='Spouse Name' value={spouseName} onChange={(e) => setSpouseName(e.target.value)} />
+                }
+              </Stack>
 
-          <Stack flexDirection='row'>
-            <FormControlLabel control={<Checkbox
-              checked={partnerPresent}
-              onChange={(e) => setPartnerPresent(e.target.checked)}
-              inputProps={{ 'aria-label': 'controlled' }} />} label="Partner" />
-            {partnerPresent &&
-              <TextField label='Partner Name' value={partnerName} onChange={(e) => setPartnerName(e.target.value)} />
-            }
-          </Stack>
+              <Stack flexDirection='row'>
+                <FormControlLabel control={<Checkbox
+                  checked={partnerPresent}
+                  onChange={(e) => setPartnerPresent(e.target.checked)}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                />} label="Partner"
+                  style={{ width: 100 }}
+                />
+                {partnerPresent &&
+                  <TextField size='small' label='Partner Name' value={partnerName} onChange={(e) => setPartnerName(e.target.value)} />
+                }
+              </Stack>
 
-          <Stack flexDirection='row'>
-            <FormControlLabel control={<Checkbox
-              checked={parentPresent}
-              onChange={(e) => setParentPresent(e.target.checked)}
-              inputProps={{ 'aria-label': 'controlled' }} />} label="Parent" />
-            {parentPresent &&
-              <TextField label='Parent Name' value={parentName} onChange={(e) => setParentName(e.target.value)} />
-            }
-          </Stack>
+              <Stack flexDirection='row'>
+                <FormControlLabel control={<Checkbox
+                  checked={parentPresent}
+                  onChange={(e) => setParentPresent(e.target.checked)}
+                  inputProps={{ 'aria-label': 'controlled' }} />} label="Parent"
+                  style={{ width: 100 }}
+                />
+                {parentPresent &&
+                  <TextField size='small' label='Parent Name' value={parentName} onChange={(e) => setParentName(e.target.value)} />
+                }
+              </Stack>
 
-          <Stack flexDirection='row'>
-            <FormControlLabel control={<Checkbox
-              checked={siblingPresent}
-              onChange={(e) => setSiblingPresent(e.target.checked)}
-              inputProps={{ 'aria-label': 'controlled' }} />} label="Sibling" />
-            {siblingPresent &&
-              <TextField label='Sibling Name' value={siblingName} onChange={(e) => setSiblingName(e.target.value)} />
-            }
-          </Stack>
+              <Stack flexDirection='row'>
+                <FormControlLabel control={<Checkbox
+                  checked={siblingPresent}
+                  onChange={(e) => setSiblingPresent(e.target.checked)}
+                  inputProps={{ 'aria-label': 'controlled' }} />} label="Sibling"
+                  style={{ width: 100 }}
+                />
+                {siblingPresent &&
+                  <TextField size='small' label='Sibling Name' value={siblingName} onChange={(e) => setSiblingName(e.target.value)} />
+                }
+              </Stack>
 
-          <Stack flexDirection='row'>
-            <FormControlLabel control={<Checkbox
-              checked={childPresent}
-              onChange={(e) => setchildPresent(e.target.checked)}
-              inputProps={{ 'aria-label': 'controlled' }} />} label="Child" />
-            {childPresent &&
-              <TextField label='Child Name' value={childName} onChange={(e) => setchildName(e.target.value)} />
-            }
-          </Stack>
+              <Stack flexDirection='row'>
+                <FormControlLabel control={<Checkbox
+                  checked={childPresent}
+                  onChange={(e) => setchildPresent(e.target.checked)}
+                  inputProps={{ 'aria-label': 'controlled' }} />} label="Child"
+                  style={{ width: 100 }}
+                />
+                {childPresent &&
+                  <TextField size='small' label='Child Name' value={childName} onChange={(e) => setchildName(e.target.value)} />
+                }
+              </Stack>
 
-          <Stack flexDirection='row'>
-            <FormControlLabel control={<Checkbox
-              checked={otherPresent}
-              onChange={(e) => setOtherPresent(e.target.checked)}
-              inputProps={{ 'aria-label': 'controlled' }} />} label="Other" />
-            {otherPresent &&
-              <TextField label='Other Name' value={otherName} onChange={(e) => setOtherName(e.target.value)} />
-            }
-          </Stack>
-        </FormGroup>
+              <Stack flexDirection='row'>
+                <FormControlLabel control={<Checkbox
+                  checked={otherPresent}
+                  onChange={(e) => setOtherPresent(e.target.checked)}
+                  inputProps={{ 'aria-label': 'controlled' }} />} label="Other"
+                  style={{ width: 100 }}
+                />
+                {otherPresent &&
+                  <TextField size='small' label='Other Name' value={otherName} onChange={(e) => setOtherName(e.target.value)} />
+                }
+              </Stack>
+            </FormGroup>
+        </Box>
       </Stack>
     </Container >
   )

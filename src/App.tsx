@@ -51,7 +51,7 @@ const Layout = observer(props => {
                   textColor="secondary"
                   indicatorColor='secondary'
                   variant='fullWidth'
-                  TabIndicatorProps={{style: {background:'white'}}}
+                  TabIndicatorProps={{ style: { background: 'white' } }}
                 >
                   <Tab
                     value='/meeting-logstics'
@@ -111,7 +111,9 @@ const Layout = observer(props => {
               </Toolbar>
             </Container>
           </AppBar>
+          <Box overflow='auto' maxHeight={window.innerHeight -100}>
             <Outlet />
+          </Box>
         </Box>
         <Box flexGrow={2}>
           <Box minWidth={700} minHeight={700} border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1}>
