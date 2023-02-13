@@ -6,6 +6,7 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Interventions from "./sections/interventions/Interventions";
 import MeetingLogistics from "./sections/meetingLogistics/MeetingLogistics";
 import MentalStatusExam from "./sections/mentalStatusExam/MentalStatusExam";
+import NextMeeting from "./sections/nextMeeting/NextMeeting";
 import Note from "./sections/note/Note";
 import Problems from "./sections/problems/Problems";
 import Progress from "./sections/progress/Progress.tsx";
@@ -24,7 +25,7 @@ function App() {
         <Route path="symptoms" element={<Symptoms />} />
         <Route path="interventions" element={<Interventions />} />
         <Route path="progress" element={<Progress />} />
-        {/*<Route path="next-meeting" element={<NextMeeting />} /> */}
+        <Route path="next-meeting" element={<NextMeeting />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
     </Routes>

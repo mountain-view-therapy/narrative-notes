@@ -11,9 +11,11 @@ const NoteContent = () => {
             telehealthAppropriate,
             telehealthConsent,
             physicalLocation,
+            otherAddress,
             startTime,
             endTime,
             cptCode,
+            otherCptCode,
             clientPresent,
             spouseName,
             spousePresent,
@@ -95,6 +97,9 @@ const NoteContent = () => {
             <div>
                 <b>Person-served physical location during the meeting: </b>
                 {physicalLocation}
+                {physicalLocation === 'Other (Loc Code 02)' &&
+                    <p>{otherAddress}</p>
+                }
             </div>
             <div>
                 <b>Start Time: </b>
@@ -106,7 +111,7 @@ const NoteContent = () => {
             </div>
             <div>
                 <b>CPT Code: </b>
-                {cptCode}
+                {cptCode === 'Other' ? otherCptCode : cptCode}
             </div>
             <div>
                 <b>Persons Present: </b>

@@ -6,6 +6,7 @@ import { getState } from '../../state/provider';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
+import { locationCodes, possibleCptCodes } from '../../models/MeetingInformationModel';
 
 const MeetingLogistics = () => {
   const { meetingInformation: {
@@ -19,6 +20,7 @@ const MeetingLogistics = () => {
       startTime,
       endTime,
       cptCode,
+      otherCptCode,
       clientPresent,
       spouseName,
       spousePresent,
@@ -36,6 +38,7 @@ const MeetingLogistics = () => {
     setClientInitials,
     setClientPresent,
     setCptCode,
+    setOtherCptCode,
     setEndTime,
     setOtherName,
     setOtherPresent,
@@ -67,7 +70,7 @@ const MeetingLogistics = () => {
         </Stack>
       </Box>
       <Stack flexDirection='column'>
-      <TextField label="Client's Initials" value={clientInitials} onChange={(e) => setClientInitials(e.target.value)} style={{width:200}} />
+        <TextField label="Client's Initials" value={clientInitials} onChange={(e) => setClientInitials(e.target.value)} style={{ width: 200 }} />
 
         <FormControl>
           <FormLabel id="HIPAA-telehealth-platfrom-radio-buttons-group-label">HIPAA Compliant telehealth platform</FormLabel>
@@ -118,12 +121,15 @@ const MeetingLogistics = () => {
               onChange={(e) => setphyscialLocation(e.target.value)}
               value={physicalLocation}
             >
-              <FormControlLabel value="Home (Loc Code 10)" control={<Radio />} label="Home (Loc Code 10)" />
-              <FormControlLabel value="Other (Loc Code 02)" control={<Radio />} label="Other (Loc Code 02)" />
+              {
+                locationCodes.map(location =>
+                  <FormControlLabel value={location} control={<Radio />} label={location} />
+                )
+              }
             </RadioGroup>
           </FormControl>
           {physicalLocation.includes('Other') &&
-            <TextField value={otherAddress} onChange={(e) => setOtherAddress(e.target.value)}/>
+            <TextField value={otherAddress} onChange={(e) => setOtherAddress(e.target.value)} />
           }
         </Stack>
 
@@ -134,29 +140,32 @@ const MeetingLogistics = () => {
           <TimePicker onChange={(e) => setEndTime(e)} renderInput={(params) => <TextField {...params} style={{ width: 200 }} />} value={dayjs(endTime)} />
         </LocalizationProvider>
 
-        <FormControl>
-          <InputLabel variant="standard" htmlFor="cpt-code">
-            CPT Code
-          </InputLabel>
-          <NativeSelect
-            inputProps={{
-              name: 'cpt-code',
-              id: 'cpt-code',
-            }}
-            fullWidth
-            style={{ width: 400 }}
-            onChange={(e) => setCptCode(e.target.value)}
-            value={cptCode}
-          >
-            <option value='90791 Diagnostic (50+ min)'>90791 Diagnostic (50+ min)</option>
-            <option value='90832 Individual (17-37 min)'>90832 Individual (17-37 min)</option>
-            <option value='90834 Individual (38-52 min)'>90834 Individual (38-52 min)</option>
-            <option value='90837 Individual (53+ min)'>90837 Individual (53+ min)</option>
-            <option value='90847 Couples/Family with client present (45+ min)'>90847 Couples/Family with client present (45+ min)</option>
-            <option value='90846 Family without client present (45+ min)'>90846 Family without client present (45+ min)</option>
-            <option value='Other'>Other</option>
-          </NativeSelect>
-        </FormControl>
+        <Stack flexDirection='row'>
+          <FormControl>
+            <InputLabel variant="standard" htmlFor="cpt-code">
+              CPT Code
+            </InputLabel>
+            <NativeSelect
+              inputProps={{
+                name: 'cpt-code',
+                id: 'cpt-code',
+              }}
+              fullWidth
+              style={{ width: 400 }}
+              onChange={(e) => setCptCode(e.target.value)}
+              value={cptCode}
+            >
+              {possibleCptCodes.map(code =>
+                <option value={code}>{code}</option>
+
+              )
+              }
+            </NativeSelect>
+          </FormControl>
+          {cptCode === 'Other' &&
+            <TextField label='Enter Other Cpt Code' value={otherCptCode} onChange={(e) => setOtherCptCode(e.target.value)}/>
+          }
+        </Stack>
 
         <FormGroup>
           <FormControlLabel control={<Checkbox

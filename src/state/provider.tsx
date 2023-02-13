@@ -16,6 +16,7 @@ export const root = RootModel.create({
       startTime: '1:00 PM',
       endTime: '2:00 PM',
       cptCode: '90791 Diagnostic (50+ min)',
+      otherCptCode: "",
       clientPresent: false,
       spousePresent: false,
       partnerPresent: false,
@@ -72,6 +73,8 @@ export const root = RootModel.create({
       otherCommunitySymptoms: "",
     },
     identifiedProblem: "",
+    recommendationForMovingForward: "N/A-This is the initial diagnostic meeting",
+    frequencyChangeExplanation: "",
   
   },
   currentTab: "/meeting-logstics",

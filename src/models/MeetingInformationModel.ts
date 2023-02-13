@@ -2,6 +2,22 @@ import dayjs, { Dayjs } from "dayjs"
 import { applySnapshot, Instance, types } from "mobx-state-tree"
 import RootModel from "./root.mst"
 
+
+export const locationCodes = ['Home (Loc Code 10)', 'Other (Loc Code 02)']
+export type LocationCode = typeof locationCodes[number]
+
+export const possibleCptCodes = [
+    '90791 Diagnostic (50+ min)',
+    '90832 Individual (17-37 min)',
+    '90834 Individual (38-52 min)',
+    '90837 Individual (53+ min)',
+    '90847 Couples/Family with client present (45+ min)',
+    '90846 Family without client present (45+ min)',
+    'Other',
+]
+export type PossibleCptCode = typeof possibleCptCodes[number]
+
+
 export const cognitiveFunctioningStates = [
     'Oriented / Alert',
     'Disorganized',
@@ -264,6 +280,16 @@ export const possibleProgressions = [
 ]
 
 
+export const possibleRecommendationsForMovingForward = [
+    'N/A-This is the initial diagnostic meeting',
+    'Continue with current treatment plan',
+    'Update treatment plan',
+    'Discontinue therapy',
+]
+
+type PossibleRecommendationsForMovingForward = typeof possibleRecommendationsForMovingForward[number]
+
+
 const InterventionModel = types.model('InterventionModel', {
     possibleInterventionsIndex: types.number,
     text: types.string,
@@ -307,19 +333,12 @@ const MeetingLogisticsModel = types.model('MeetingLogisticsModel', {
     telehealthPlatform: types.enumeration('telehealthPlatform', ['Simple Practice', 'Google Meet']),
     telehealthAppropriate: types.enumeration('telehealthAppropriate', ['Yes', 'No']),
     telehealthConsent: types.enumeration('telehealthConsent', ['Yes', 'No']),
-    physicalLocation: types.enumeration('physicalLocation', ['Home (Loc Code 10)', 'Other (Loc Code 02)']),
+    physicalLocation: types.enumeration('physicalLocation', locationCodes),
     otherAddress: types.string,
     startTime: types.string,
     endTime: types.string,
-    cptCode: types.enumeration('cptCode', [
-        '90791 Diagnostic (50+ min)',
-        '90832 Individual (17-37 min)',
-        '90834 Individual (38-52 min)',
-        '90837 Individual (53+ min)',
-        '90847 Couples/Family with client present (45+ min)',
-        '90846 Family without client present (45+ min)',
-        'Other',
-    ]),
+    cptCode: types.enumeration('cptCode', possibleCptCodes),
+    otherCptCode: types.string,
     clientPresent: types.boolean,
     spousePresent: types.boolean,
     partnerPresent: types.boolean,
@@ -364,6 +383,8 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
     interventions: types.array(InterventionModel),
     progressions: types.array(ProgressModel),
     identifiedProblem: types.string,
+    recommendationForMovingForward: types.enumeration('recommendationForMovingForward', possibleRecommendationsForMovingForward),
+    frequencyChangeExplanation: types.string,
 }).actions((self) => {
     return {
         // reset(): void {
@@ -381,7 +402,7 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
         setTelehealthConsent(consent: string): void {
             self.meetingLogistics.telehealthConsent = consent
         },
-        setphyscialLocation(location: string): void {
+        setphyscialLocation(location: LocationCode): void {
             self.meetingLogistics.physicalLocation = location
         },
         setOtherAddress(address: string): void {
@@ -393,8 +414,11 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
         setEndTime(endTime: Dayjs | null): void {
             self.meetingLogistics.endTime = endTime?.toString() || dayjs.toString()
         },
-        setCptCode(code: string): void {
+        setCptCode(code: PossibleCptCode): void {
             self.meetingLogistics.cptCode = code
+        },
+        setOtherCptCode(code: string): void {
+            self.meetingLogistics.otherCptCode = code
         },
 
         setClientPresent(present: boolean): void {
@@ -633,7 +657,13 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
         },
         setIdentifedProblem(problem: string): void {
             self.identifiedProblem = problem
-        }
+        },
+        setRecommendationForMovingForward(recommendation: PossibleRecommendationsForMovingForward): void {
+            self.recommendationForMovingForward = recommendation
+        },
+        setFrequencyChangeExplanation(explanation: string): void {
+            self.frequencyChangeExplanation = explanation
+        },
     }
 })
 
