@@ -10,6 +10,7 @@ import dayjs from 'dayjs';
 const MeetingLogistics = () => {
   const { meetingInformation: {
     meetingLogistics: {
+      clientInitials,
       telehealthPlatform,
       //telehealthAppropriate,
       //telehealthConsent,
@@ -32,6 +33,7 @@ const MeetingLogistics = () => {
       otherName,
       otherPresent,
     },
+    setClientInitials,
     setClientPresent,
     setCptCode,
     setEndTime,
@@ -65,6 +67,8 @@ const MeetingLogistics = () => {
         </Stack>
       </Box>
       <Stack flexDirection='column'>
+      <TextField label="Client's Initials" value={clientInitials} onChange={(e) => setClientInitials(e.target.value)} style={{width:200}} />
+
         <FormControl>
           <FormLabel id="HIPAA-telehealth-platfrom-radio-buttons-group-label">HIPAA Compliant telehealth platform</FormLabel>
           <RadioGroup

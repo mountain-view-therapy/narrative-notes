@@ -6,6 +6,7 @@ const NoteContent = () => {
 
     const { meetingInformation: {
         meetingLogistics: {
+            clientInitials,
             telehealthPlatform,
             telehealthAppropriate,
             telehealthConsent,
@@ -67,8 +68,15 @@ const NoteContent = () => {
             communitylAffected,
             communitySymptoms,
             otherCommunitySymptoms,
-        }
+        },
+        interventions,
+        progressions,
+        identifiedProblem,
     } } = getState()
+
+    const replaceText = (text: string, replacementText: string) => {
+        return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]', replacementText)
+    }
 
     return (
         <div>
@@ -223,15 +231,63 @@ const NoteContent = () => {
                             </ul></li>
                         )
                             :
-                                (otherSymptoms &&  <li>{otherSymptoms}</li> )
+                            (otherSymptoms && <li>{otherSymptoms}</li>)
                         }
                     </ul>
                 </div>
             }
-            <div>
-            These symptoms affect [person-served]'s self care.
-            {selfCareSymptoms.map(s => <p>{s}.</p>)}
-            </div>
+            {clientInitials && selfCareAffected &&
+                <p>
+                    These symptoms affect {clientInitials}'s self care.
+                    {selfCareSymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {otherSelfCareSymptoms}
+                </p>
+            }
+            {clientInitials && occupationAffected &&
+                <p>
+                    These symptoms affect {clientInitials}'s occupational functioning.
+                    {occupationSymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {otherOccupationSymptoms}
+                </p>
+            }
+            {clientInitials && academicAffected &&
+                <p>
+                    These symptoms affect {clientInitials}'s academic functioning.
+                    {academicSymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {otherAcademicSymptoms}
+                </p>
+            }
+            {clientInitials && interpersonalAffected &&
+                <p>
+                    These symptoms affect {clientInitials}'s interpersonal functioning.
+                    {interpersonalSymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {otherInterpersonalSymptoms}
+                </p>
+            }
+            {clientInitials && communitylAffected &&
+                <p>
+                    These symptoms affect {clientInitials}'s community functioning.
+                    {communitySymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {otherCommunitySymptoms}
+                </p>
+            }
+            {interventions.length > 0 &&
+                <b>In Meeting Interventions:</b>
+            }
+            {interventions.map(intervention => (
+                <p>{replaceText(intervention.text, intervention.replacementText)}</p>
+            )
+            )
+            }
+
+            {progressions.length > 0 &&
+                <b>In Meeting Progress:</b>
+            }
+            {progressions.map(progress => (
+                <p>{replaceText(progress.text, progress.replacementText)}</p>
+            )
+            )
+            }
         </div >
     )
 

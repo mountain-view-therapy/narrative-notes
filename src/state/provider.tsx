@@ -7,6 +7,7 @@ import persist from '../mst-persist';
 export const root = RootModel.create({
   meetingInformation: {
     meetingLogistics: {
+      clientInitials: "",
       telehealthPlatform: "Google Meet",
       telehealthAppropriate: "Yes",
       telehealthConsent: "Yes",
@@ -69,13 +70,15 @@ export const root = RootModel.create({
       communitylAffected: false,
       communitySymptoms: [],
       otherCommunitySymptoms: "",
-    }
+    },
+    identifiedProblem: "",
+  
   },
   currentTab: "/meeting-logstics",
 })
 
 
-persist('root4', root, {
+persist('root5', root, {
   storage: localForage,  // or AsyncStorage in react-native.
   // default: localStorage
   jsonify: false,  // if you use AsyncStorage, this shoud be true

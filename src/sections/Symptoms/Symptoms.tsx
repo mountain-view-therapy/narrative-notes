@@ -7,7 +7,9 @@ import { getState } from '../../state/provider';
 
 const Symptoms = () => {
   const { meetingInformation: {
-
+    meetingLogistics: {
+      clientInitials,
+    },
     symptoms: {
       anxietySymptoms,
       depressionSymptoms,
@@ -30,6 +32,7 @@ const Symptoms = () => {
       communitySymptoms,
       otherCommunitySymptoms,
     },
+    setClientInitials,
     toggleAnxietySymptom,
     toggleDepressionSymptom,
     togglePTSDSymptom,
@@ -95,6 +98,9 @@ const Symptoms = () => {
               onChange={(e) => setGroupSystemsTogether(e.target.checked)}
               inputProps={{ 'aria-label': 'controlled' }}
             />} label="Group Symptoms by Area" />
+
+            <TextField label="Client's Initials" value={clientInitials} onChange={(e) => setClientInitials(e.target.value)} style={{ width: 200 }} />
+
           </Stack>
         </Stack>
 
