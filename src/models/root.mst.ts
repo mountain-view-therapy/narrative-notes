@@ -1,5 +1,6 @@
 import { Instance, types } from 'mobx-state-tree';
-import MeetingInformationModel from './MeetingInformationModel';
+import { initialState } from '../state/constants';
+import MeetingInformationModel from './MeetingInformationModel.mst';
 
 const RootModel = types
   .model('RootModel', {
@@ -10,7 +11,10 @@ const RootModel = types
     return {
       setCurrentTab(tab: string): void {
         self.currentTab = tab
-      }
+      },
+      resetNoteState(): void {
+        self.meetingInformation = MeetingInformationModel.create(initialState.meetingInformation)
+      },
     }
   })
 

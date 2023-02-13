@@ -1,7 +1,7 @@
 import { Button, ButtonGroup, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { affectStates, cognitiveFunctioningStates, functionalStatusStates, interpersonalStates, moodStates, riskLevels } from '../../models/MeetingInformationModel';
+import { affectStates, cognitiveFunctioningStates, functionalStatusStates, interpersonalStates, moodStates, riskLevels } from '../../state/constants';
 import { getState } from '../../state/provider';
 
 
@@ -24,23 +24,23 @@ const MentalStatusExam = () => {
       dangerToOthersPlan,
       otherRisk,
       otherRiskInformation,
+      setAffect,
+      setCognitiveFunctioning,
+      setFunctionalStatus,
+      setInterpersonal,
+      setMood,
+      setNoRisk,
+      setDangerToSelf,
+      setDangerToOthers,
+      setOtherRisk,
+      setDangerToSelfRisk,
+      setDangerToOthersRisk,
+      setDangerToSelfEvidence,
+      setDangerToOthersEvidence,
+      setDangerToSelfPlan,
+      setDangerToOthersPlan,
+      setOtherRiskInformation,
     },
-    setAffect,
-    setCognitiveFunctioning,
-    setFunctionalStatus,
-    setInterpersonal,
-    setMood,
-    setNoRisk,
-    setDangerToSelf,
-    setDangerToOthers,
-    setOtherRisk,
-    setDangerToSelfRisk,
-    setDangerToOthersRisk,
-    setDangerToSelfEvidence,
-    setDangerToOthersEvidence,
-    setDangerToSelfPlan,
-    setDangerToOthersPlan,
-    setOtherRiskInformation,
   }
   } = getState();
 

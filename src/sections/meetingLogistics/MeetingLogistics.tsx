@@ -6,7 +6,7 @@ import { getState } from '../../state/provider';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
-import { locationCodes, possibleCptCodes } from '../../models/MeetingInformationModel';
+import { locationCodes, possibleCptCodes } from '../../state/constants';
 
 const MeetingLogistics = () => {
   const { meetingInformation: {
@@ -34,30 +34,31 @@ const MeetingLogistics = () => {
       childPresent,
       otherName,
       otherPresent,
+      setClientInitials,
+      setClientPresent,
+      setCptCode,
+      setOtherCptCode,
+      setEndTime,
+      setOtherName,
+      setOtherPresent,
+      setParentName,
+      setParentPresent,
+      setPartnerName,
+      setPartnerPresent,
+      setchildName,
+      setSiblingName,
+      setSiblingPresent,
+      setSpouseName,
+      setSpousePresent,
+      setStartTime,
+      //setTelehealthAppropriate,
+      //setTelehealthConsent,
+      setTelehealthPlatform,
+      setchildPresent,
+      setphyscialLocation,
+      setOtherAddress,
     },
-    setClientInitials,
-    setClientPresent,
-    setCptCode,
-    setOtherCptCode,
-    setEndTime,
-    setOtherName,
-    setOtherPresent,
-    setParentName,
-    setParentPresent,
-    setPartnerName,
-    setPartnerPresent,
-    setchildName,
-    setSiblingName,
-    setSiblingPresent,
-    setSpouseName,
-    setSpousePresent,
-    setStartTime,
-    //setTelehealthAppropriate,
-    //setTelehealthConsent,
-    setTelehealthPlatform,
-    setchildPresent,
-    setphyscialLocation,
-    setOtherAddress,
+
   }
   } = getState();
 

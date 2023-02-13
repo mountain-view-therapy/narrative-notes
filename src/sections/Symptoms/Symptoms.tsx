@@ -1,7 +1,15 @@
 import { Button, Checkbox, FormControl, FormControlLabel, FormLabel, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { possibleAcademicSymptoms, possibleAnxietySymptoms, possibleCommunitySymptoms, possibleDepressionSymptoms, possibleInterpersonalSymptoms, possibleOccupationSymptoms, possibleSelfCareSymptoms } from '../../models/MeetingInformationModel';
+import {
+  possibleAcademicSymptoms,
+  possibleAnxietySymptoms,
+  possibleCommunitySymptoms,
+  possibleDepressionSymptoms,
+  possibleInterpersonalSymptoms,
+  possibleOccupationSymptoms,
+  possibleSelfCareSymptoms
+} from '../../state/constants';
 import { getState } from '../../state/provider';
 
 
@@ -9,6 +17,7 @@ const Symptoms = () => {
   const { meetingInformation: {
     meetingLogistics: {
       clientInitials,
+      setClientInitials,
     },
     symptoms: {
       anxietySymptoms,
@@ -31,28 +40,27 @@ const Symptoms = () => {
       communitylAffected,
       communitySymptoms,
       otherCommunitySymptoms,
+      toggleAnxietySymptom,
+      toggleDepressionSymptom,
+      togglePTSDSymptom,
+      setOtherSymptoms,
+      setGroupSystemsTogether,
+      setSelfCareAffected,
+      setSelfCareSymptom,
+      setOtherSelfCareSymptoms,
+      setOccupationAffected,
+      setOccupationSymptom,
+      setOtherOccupationSymptoms,
+      setAcademicAffected,
+      setAcademicSymptom,
+      setOtherAcademicSymptoms,
+      setInterpersonalAffected,
+      setInterpersonalSymptom,
+      setOtherInterpersonalSymptoms,
+      setCommunityAffected,
+      setCommunitySymptom,
+      setOtherCommunitySymptoms,
     },
-    setClientInitials,
-    toggleAnxietySymptom,
-    toggleDepressionSymptom,
-    togglePTSDSymptom,
-    setOtherSymptoms,
-    setGroupSystemsTogether,
-    setSelfCareAffected,
-    setSelfCareSymptom,
-    setOtherSelfCareSymptoms,
-    setOccupationAffected,
-    setOccupationSymptom,
-    setOtherOccupationSymptoms,
-    setAcademicAffected,
-    setAcademicSymptom,
-    setOtherAcademicSymptoms,
-    setInterpersonalAffected,
-    setInterpersonalSymptom,
-    setOtherInterpersonalSymptoms,
-    setCommunityAffected,
-    setCommunitySymptom,
-    setOtherCommunitySymptoms,
   }
   } = getState()
 
@@ -69,7 +77,16 @@ const Symptoms = () => {
           <FormControl>
             <FormLabel>Anxiety Symptoms</FormLabel>
             {
-              possibleAnxietySymptoms.map(symptom => <Button style={{ margin: 3, width: 350, fontSize: 12 }} size='small' variant='contained' key={symptom} onClick={() => toggleAnxietySymptom(symptom)} color={anxietySymptoms.includes(symptom) ? 'primary' : 'inherit'}>{symptom}</Button>)
+              possibleAnxietySymptoms.map(symptom =>
+                <Button
+                  style={{ margin: 3, width: 350, fontSize: 12 }}
+                  size='small'
+                  variant='contained'
+                  key={symptom}
+                  onClick={() => toggleAnxietySymptom(symptom)}
+                  color={anxietySymptoms.includes(symptom) ? 'primary' : 'inherit'}>
+                  {symptom}
+                </Button>)
             }
           </FormControl>
 

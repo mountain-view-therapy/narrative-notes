@@ -17,7 +17,6 @@ const Problems = () => {
           <Typography fontWeight={800} fontSize={24}>Problems Discussed</Typography>
         </Stack>
       </Box>
-      <Box padding={2}>
         <TextField
           id="problems-textarea"
           multiline
@@ -27,7 +26,6 @@ const Problems = () => {
           onChange={(e) => setProblems(e.target.value)}
         />
 
-      </Box>
     </Container >
   )
 }

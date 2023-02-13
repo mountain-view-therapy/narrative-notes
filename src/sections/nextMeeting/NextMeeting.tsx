@@ -1,7 +1,7 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { possibleRecommendationsForMovingForward } from '../../models/MeetingInformationModel';
+import { possibleRecommendationsForMovingForward } from '../../state/constants';
 import { getState } from '../../state/provider';
 
 

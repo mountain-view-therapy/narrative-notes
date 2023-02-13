@@ -1,17 +1,18 @@
+import { Stack } from "@mui/material";
 import { Box } from "@mui/system";
-import { observer } from "mobx-react-lite";
 import CopyToClipboardButton from "../../components/CopyToClipBoardButton";
 import NoteContent from "../../components/NoteContent";
+import ResetStateButton from "../../components/ResetStateButton";
 
-// const { meetingInformation: {reset} } = getState()
 
 const Note = () => {
+
     return (
         <Box>
-            <CopyToClipboardButton />
-            {/* <Button
-                onClick={() => reset()}
-            >Reset</Button> */}
+            <Stack flexDirection='row' justifyContent='space-evenly' padding={1}>
+                <CopyToClipboardButton />
+                <ResetStateButton />
+            </Stack>
             <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1}>
                 <NoteContent />
             </Box>
@@ -21,4 +22,4 @@ const Note = () => {
 
 
 
-export default observer(Note)
+export default Note

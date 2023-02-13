@@ -42,22 +42,23 @@ const Layout = observer(props => {
     <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} >
       <Stack flexDirection='row' justifyContent='space-evenly'>
         <Box maxWidth='60%' border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1}>
-          <AppBar position='static' color='transparent'>
+          <AppBar position='static'>
             <Container>
               <Toolbar disableGutters={true}>
                 <Tabs value={currentTab}
                   onChange={handleChange}
                   aria-label="main tabs"
-                  textColor="primary"
-                  indicatorColor="primary"
+                  textColor="secondary"
+                  indicatorColor='secondary'
                   variant='fullWidth'
+                  TabIndicatorProps={{style: {background:'white'}}}
                 >
                   <Tab
                     value='/meeting-logstics'
                     label="Meeting Logistics"
                     component={Link}
                     to='/meeting-logistics'
-                    style={{ fontSize: '12px' }}
+                    style={{ fontSize: '12px', color: 'white' }}
                   />
 
                   <Tab
@@ -65,22 +66,21 @@ const Layout = observer(props => {
                     label="MSE/Risk"
                     component={Link}
                     to='/mental-status-exam'
-                    style={{ fontSize: '12px' }}
-
+                    style={{ fontSize: '12px', color: 'white' }}
                   />
                   <Tab
                     value='/problems'
                     label="Problem(s)"
                     component={Link}
                     to='/problems'
-                    style={{ fontSize: '12px' }}
+                    style={{ fontSize: '12px', color: 'white' }}
                   />
                   <Tab
                     value='/symptoms'
                     label="Symptoms"
                     component={Link}
                     to='/symptoms'
-                    style={{ fontSize: '12px' }}
+                    style={{ fontSize: '12px', color: 'white' }}
 
                   />
                   <Tab
@@ -88,7 +88,7 @@ const Layout = observer(props => {
                     label="Interventions"
                     component={Link}
                     to='/interventions'
-                    style={{ fontSize: '12px' }}
+                    style={{ fontSize: '12px', color: 'white' }}
 
                   />
                   <Tab
@@ -96,7 +96,7 @@ const Layout = observer(props => {
                     label="Progress"
                     component={Link}
                     to='/progress'
-                    style={{ fontSize: '12px' }}
+                    style={{ fontSize: '12px', color: 'white' }}
 
                   />
                   <Tab
@@ -104,16 +104,14 @@ const Layout = observer(props => {
                     label="Next Meeting"
                     component={Link}
                     to='/next-meeting'
-                    style={{ fontSize: '12px' }}
+                    style={{ fontSize: '12px', color: 'white' }}
 
                   />
                 </Tabs>
               </Toolbar>
             </Container>
           </AppBar>
-          <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} overflow='auto' maxHeight={window.innerHeight - 150}>
             <Outlet />
-          </Box>
         </Box>
         <Box flexGrow={2}>
           <Box minWidth={700} minHeight={700} border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1}>

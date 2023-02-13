@@ -2,83 +2,10 @@ import React from 'react';
 import RootModel, { IRoot } from '../models/root.mst';
 import localForage from "localforage";
 import persist from '../mst-persist';
+import { initialState } from './constants';
 
 
-export const root = RootModel.create({
-  meetingInformation: {
-    meetingLogistics: {
-      clientInitials: "",
-      telehealthPlatform: "Google Meet",
-      telehealthAppropriate: "Yes",
-      telehealthConsent: "Yes",
-      physicalLocation: 'Home (Loc Code 10)',
-      otherAddress: '',
-      startTime: '1:00 PM',
-      endTime: '2:00 PM',
-      cptCode: '90791 Diagnostic (50+ min)',
-      otherCptCode: "",
-      clientPresent: false,
-      spousePresent: false,
-      partnerPresent: false,
-      parentPresent: false,
-      siblingPresent: false,
-      childPresent: false,
-      otherPresent: false,
-      spouseName: "",
-      partnerName: "",
-      parentName: "",
-      siblingName: "",
-      childName: "",
-      otherName: "",
-    },
-    mentalStatusExam: {
-      cognitiveFunctioning: undefined,
-      affect: undefined,
-      mood: undefined,
-      interpersonal: undefined,
-      functionalStatus: undefined,
-      noRisk: false,
-      dangerToSelf: false,
-      dangerToOthers: false,
-      otherRisk: false,
-      dangerToSelfRisk: 'Low',
-      dangerToOthersRisk: 'Low',
-      dangerToSelfEvidence: '',
-      dangerToOthersEvidence: '',
-      dangerToSelfPlan: '',
-      dangerToOthersPlan: '',
-      otherRiskInformation: "",
-    },
-    problems: "",
-    symptoms: {
-      anxietySymptoms: [],
-      depressionSymptoms: [],
-      ptsdSymptoms: [],
-      otherSymptoms: '',
-      groupSymptomsTogether: false,
-      selfCareAffected: false,
-      selfCareSymptoms: [],
-      otherSelfCareSymptoms: "",
-      occupationAffected: false,
-      occupationSymptoms: [],
-      otherOccupationSymptoms: "",
-      academicAffected: false,
-      academicSymptoms: [],
-      otherAcademicSymptoms: "",
-      interpersonalAffected: false,
-      interpersonalSymptoms: [],
-      otherInterpersonalSymptoms: "",
-      communitylAffected: false,
-      communitySymptoms: [],
-      otherCommunitySymptoms: "",
-    },
-    identifiedProblem: "",
-    recommendationForMovingForward: "N/A-This is the initial diagnostic meeting",
-    frequencyChangeExplanation: "",
-  
-  },
-  currentTab: "/meeting-logstics",
-})
+export const root = RootModel.create(initialState)
 
 
 persist('root5', root, {

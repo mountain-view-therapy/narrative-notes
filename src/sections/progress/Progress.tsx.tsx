@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { possibleProgressions } from '../../models/MeetingInformationModel';
+import { possibleProgressions } from '../../state/constants';
 import { getState } from '../../state/provider';
 
 
@@ -10,13 +10,13 @@ const Progress = () => {
     meetingInformation: {
       meetingLogistics: {
         clientInitials,
+        setClientInitials,
       },
       progressions,
       setProgress,
       setProgressReplacementText,
       identifiedProblem,
       setIdentifedProblem,
-      setClientInitials,
     } } = getState()
 
     const replaceText = (text: string, index: number) => {

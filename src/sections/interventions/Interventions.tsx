@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { possibleInterventions } from '../../models/MeetingInformationModel';
+import { possibleInterventions } from '../../state/constants';
 import { getState } from '../../state/provider';
 
 
@@ -10,19 +10,18 @@ const Interventions = () => {
     meetingInformation: {
       meetingLogistics: {
         clientInitials,
+        setClientInitials,
       },
       interventions,
       setIntervention,
       setInterventionReplacementText,
       identifiedProblem,
       setIdentifedProblem,
-      setClientInitials,
     } } = getState()
 
     const replaceText = (text: string, index: number) => {
       return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]',interventions.find(i => i.possibleInterventionsIndex === index)?.replacementText || "[REPLACE ME]")
       }
-
 
   return (
     <Container>
