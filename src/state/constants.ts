@@ -224,47 +224,47 @@ export const possibleInterventions = [
 
 export const possibleProgressions = [
     {
-        text: "[CLIENT] identified and verbalized effects of the problem including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized effects of [PROBLEM] including [REPLACEMENT].",
         prompt: "[list effects identified]",
     },
     {
-        text: "[CLIENT] will identified and verbalized tactics used by the problem including [REPLACEMENT].",
+        text: "[CLIENT] will identified and verbalized tactics used by [PROBLEM] including [REPLACEMENT].",
         prompt: "[list tactics identified]"
     },
     {
-        text: "[CLIENT] developed and practiced strategies that counter the effects and tactics of the problem including [REPLCEMENT].",
+        text: "[CLIENT] developed and practiced strategies that counter the effects and tactics of [PROBLEM] including [REPLCEMENT].",
         prompt: "[list strategies]"
     },
     {
-        text: "[CLIENT] identified and verbalized  past experiences that support or sustain the problematic relationship with the problem including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized  past experiences that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT].",
         prompt: "[name experiences]",
     },
     {
-        text: "[CLIENT] identified and verbalized cultural discourses that support and sustain the relationship with the problem including [name discourses].",
+        text: "[CLIENT] identified and verbalized cultural discourses that support and sustain the relationship with [PROBLEM] including [name discourses].",
         prompt: "[name discourses]",
     },
     {
-        text: "[CLIENT] verbalized an experience-near name for the problem, [state name] and a clear stance on the problem narrative.",
+        text: "[CLIENT] verbalized an experience-near name for the problem, [state name] and a clear stance on [PROBLEM] narrative.",
     },
     {
-        text: "[CLIENT] consistently speaks about the problem in externalized language during therapy meetings.",
+        text: "[CLIENT] consistently speaks about [PROBLEM] in externalized language during therapy meetings.",
     },
     {
-        text: "[CLIENT] identified and verbalized values/preferences in relationship to the problem including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized values/preferences in relationship to [PROBLEM] including [REPLACEMENT].",
         prompt: "[name values/preference]",
     },
     {
-        text: "[CLIENT] verbalized a re-authored alternative/preferred narrative that does not compromise stated values/preferences and does not support the problems narrative.",
+        text: "[CLIENT] verbalized a re-authored alternative/preferred narrative that does not compromise stated values/preferences and does not support [PROBLEM]'s narrative.",
     },
     {
         text: "[CLIENT] identified and verbalized past experiences that support the preferred narrative including.",
     },
     {
-        text: "[CLIENT] learned and implemented behavioral strategies to exert acute control over relationship with the problem including [list strategies].",
+        text: "[CLIENT] learned and implemented behavioral strategies to exert acute control over relationship with [PROBLEM] including [list strategies].",
         prompt: "[list strategies].",
     },
     {
-        text: "[CLIENT] reported connection to alternative/preferred stories as a means to decrease the problem’s influence.",
+        text: "[CLIENT] reported connection to alternative/preferred stories as a means to decrease the [PROBLEM]’s influence.",
     },
     {
         text: "[CLIENT] identified [name person] as a person who will support their preferred narrative.",
