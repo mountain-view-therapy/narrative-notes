@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { StateProvider } from './state/provider';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,9 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <StateProvider>
-      <BrowserRouter>
-      <App />
-      </BrowserRouter>
+      <HashRouter basename="/">
+        <App />
+      </HashRouter>
     </StateProvider>
   </React.StrictMode>
 );

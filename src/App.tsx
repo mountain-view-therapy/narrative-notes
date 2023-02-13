@@ -16,7 +16,7 @@ const subPath = '/narrative-notes'
 function App() {
   return (
     <Routes>
-      <Route path={subPath} element={<Layout />}>
+      <Route path='/' element={<Layout />}>
         <Route index element={<MeetingLogistics />} />
         <Route path="meeting-logistics" element={<MeetingLogistics />} />
         <Route path="mental-status-exam" element={<MentalStatusExam />} />
