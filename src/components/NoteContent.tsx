@@ -208,7 +208,7 @@ const NoteContent = () => {
                             </ul></li>
                         )
                             :
-                            anxietySymptoms.map(symptom => <li>{symptom}</li>)
+                            anxietySymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
                         }
                         {depressionSymptoms.length && groupSymptomsTogether ? (
                             <li>Depression Symptoms<ul>
@@ -244,35 +244,35 @@ const NoteContent = () => {
             {clientInitials && selfCareAffected &&
                 <p>
                     These symptoms affect {clientInitials}'s self care.
-                    {selfCareSymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {selfCareSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherSelfCareSymptoms}
                 </p>
             }
             {clientInitials && occupationAffected &&
                 <p>
                     These symptoms affect {clientInitials}'s occupational functioning.
-                    {occupationSymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {occupationSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherOccupationSymptoms}
                 </p>
             }
             {clientInitials && academicAffected &&
                 <p>
                     These symptoms affect {clientInitials}'s academic functioning.
-                    {academicSymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {academicSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherAcademicSymptoms}
                 </p>
             }
             {clientInitials && interpersonalAffected &&
                 <p>
                     These symptoms affect {clientInitials}'s interpersonal functioning.
-                    {interpersonalSymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {interpersonalSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherInterpersonalSymptoms}
                 </p>
             }
             {clientInitials && communitylAffected &&
                 <p>
                     These symptoms affect {clientInitials}'s community functioning.
-                    {communitySymptoms.map(s => <span> {clientInitials} {s}. </span>)}
+                    {communitySymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherCommunitySymptoms}
                 </p>
             }
@@ -280,7 +280,7 @@ const NoteContent = () => {
                 <b>In Meeting Interventions:</b>
             }
             {interventions.map(intervention => (
-                <p>{replaceText(intervention.text, intervention.replacementText)}</p>
+                <p key={intervention.text}>{replaceText(intervention.text, intervention.replacementText)}</p>
             )
             )
             }
@@ -289,7 +289,7 @@ const NoteContent = () => {
                 <b>In Meeting Progress:</b>
             }
             {progressions.map(progress => (
-                <p>{replaceText(progress.text, progress.replacementText)}</p>
+                <p key={progress.text}>{replaceText(progress.text, progress.replacementText)}</p>
             )
             )
             }

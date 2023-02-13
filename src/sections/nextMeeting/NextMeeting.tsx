@@ -36,7 +36,7 @@ const NextMeeting = () => {
             >
               {
                 possibleRecommendationsForMovingForward.map(rec =>
-                  <FormControlLabel value={rec} control={<Radio />} label={rec} />
+                  <FormControlLabel value={rec} control={<Radio />} label={rec} key={rec} />
                 )
               }
             </RadioGroup>

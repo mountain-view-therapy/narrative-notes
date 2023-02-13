@@ -37,12 +37,13 @@ const Interventions = () => {
         </Stack>
         {
           possibleInterventions.map((intervention, index) => (
-            < Stack flexDirection='row' >
+            < Stack flexDirection='row' key={intervention.text}>
               <FormControlLabel control={<Checkbox
                 checked={Boolean(interventions.find(i => i.possibleInterventionsIndex === index))}
                 onChange={(e) => setIntervention(index, e.target.checked)}
                 inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
-              />} label={replaceText(intervention.text, index)} />
+              />} label={replaceText(intervention.text, index)}                 
+              />
               {intervention.prompt && Boolean(interventions.find(i => i.possibleInterventionsIndex === index)) &&
                 <TextField label={intervention.prompt} style={{ margin: 3, width: 350, fontSize: 12 }} value={interventions.find(i => i.possibleInterventionsIndex === index)?.replacementText} onChange={(e) => setInterventionReplacementText(index, e.target.value)} />
               }

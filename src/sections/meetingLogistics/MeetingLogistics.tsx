@@ -124,7 +124,7 @@ const MeetingLogistics = () => {
             >
               {
                 locationCodes.map(location =>
-                  <FormControlLabel value={location} control={<Radio />} label={location} />
+                  <FormControlLabel value={location} control={<Radio />} label={location} key={location} />
                 )
               }
             </RadioGroup>
@@ -156,7 +156,7 @@ const MeetingLogistics = () => {
               value={cptCode}
             >
               {possibleCptCodes.map(code =>
-                <option value={code}>{code}</option>
+                <option value={code} key={code}>{code}</option>
 
               )
               }

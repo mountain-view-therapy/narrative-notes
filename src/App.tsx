@@ -1,7 +1,6 @@
 import { AppBar, Box, Toolbar, Stack, Tab, Tabs } from "@mui/material";
 import { Container } from "@mui/system";
-import { observer } from "mobx-react-lite";
-import * as React from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Interventions from "./sections/interventions/Interventions";
 import MeetingLogistics from "./sections/meetingLogistics/MeetingLogistics";
@@ -9,16 +8,16 @@ import MentalStatusExam from "./sections/mentalStatusExam/MentalStatusExam";
 import NextMeeting from "./sections/nextMeeting/NextMeeting";
 import Note from "./sections/note/Note";
 import Problems from "./sections/problems/Problems";
-import Progress from "./sections/progress/Progress.tsx";
+import Progress from "./sections/progress/Progress";
 import Symptoms from "./sections/symptoms/Symptoms";
-import { getState } from "./state/provider";
 
+const subPath = '/narrative-notes'
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<NoMatch />} />
+      <Route path={subPath} element={<Layout />}>
+        <Route index element={<MeetingLogistics />} />
         <Route path="meeting-logistics" element={<MeetingLogistics />} />
         <Route path="mental-status-exam" element={<MentalStatusExam />} />
         <Route path="problems" element={<Problems />} />
@@ -32,11 +31,17 @@ function App() {
   );
 }
 
-const Layout = observer(props => {
-  const { currentTab, setCurrentTab } = getState()
+const Layout = () => {
+  const [currentTab, setCurrentTab] = useState('meeting-logistics')
+
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setCurrentTab(newValue)
   }
+
+  useEffect(() => {
+    console.log('current tab: ', currentTab)
+    console.log('window location: ', window.location.pathname)
+  })
 
   return (
     <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} >
@@ -45,7 +50,8 @@ const Layout = observer(props => {
           <AppBar position='static'>
             <Container>
               <Toolbar disableGutters={true}>
-                <Tabs value={currentTab}
+                <Tabs
+                  value={currentTab}
                   onChange={handleChange}
                   aria-label="main tabs"
                   textColor="secondary"
@@ -54,56 +60,56 @@ const Layout = observer(props => {
                   TabIndicatorProps={{ style: { background: 'white' } }}
                 >
                   <Tab
-                    value='/meeting-logstics'
+                    value='meeting-logistics'
                     label="Meeting Logistics"
                     component={Link}
-                    to='/meeting-logistics'
+                    to='meeting-logistics'
                     style={{ fontSize: '12px', color: 'white' }}
                   />
 
                   <Tab
-                    value='/mental-status-exam'
+                    value='mental-status-exam'
                     label="MSE/Risk"
                     component={Link}
-                    to='/mental-status-exam'
+                    to='mental-status-exam'
                     style={{ fontSize: '12px', color: 'white' }}
                   />
                   <Tab
-                    value='/problems'
+                    value='problems'
                     label="Problem(s)"
                     component={Link}
-                    to='/problems'
+                    to='problems'
                     style={{ fontSize: '12px', color: 'white' }}
                   />
                   <Tab
-                    value='/symptoms'
+                    value='symptoms'
                     label="Symptoms"
                     component={Link}
-                    to='/symptoms'
+                    to='symptoms'
                     style={{ fontSize: '12px', color: 'white' }}
 
                   />
                   <Tab
-                    value='/interventions'
+                    value='interventions'
                     label="Interventions"
                     component={Link}
-                    to='/interventions'
+                    to='interventions'
                     style={{ fontSize: '12px', color: 'white' }}
 
                   />
                   <Tab
-                    value='/progress'
+                    value='progress'
                     label="Progress"
                     component={Link}
-                    to='/progress'
+                    to='progress'
                     style={{ fontSize: '12px', color: 'white' }}
 
                   />
                   <Tab
-                    value='/next-meeting'
+                    value='next-meeting'
                     label="Next Meeting"
                     component={Link}
-                    to='/next-meeting'
+                    to='next-meeting'
                     style={{ fontSize: '12px', color: 'white' }}
 
                   />
@@ -111,7 +117,7 @@ const Layout = observer(props => {
               </Toolbar>
             </Container>
           </AppBar>
-          <Box overflow='auto' maxHeight={window.innerHeight -100}>
+          <Box overflow='auto' maxHeight={window.innerHeight - 100}>
             <Outlet />
           </Box>
         </Box>
@@ -123,19 +129,18 @@ const Layout = observer(props => {
       </Stack>
     </Box >
   )
-})
+}
 
-const NoMatch = observer(props => {
-  const {currentTab} = getState()
+const NoMatch = () => {
   return (
     <div>
       <h2>Nothing to see here!</h2>
       <p>
-        <Link to={currentTab}>Go to the home page</Link>
+        <Link to={subPath + '/meeting-logistics'}>Go to the home page</Link>
       </p>
-    </div>
+    </div >
   );
-})
+}
 
 
 
