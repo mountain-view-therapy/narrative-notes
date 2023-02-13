@@ -1,7 +1,5 @@
 import dayjs, { Dayjs } from "dayjs"
-import { applySnapshot, Instance, types } from "mobx-state-tree"
-import RootModel from "./root.mst"
-
+import { Instance, types } from "mobx-state-tree"
 
 export const locationCodes = ['Home (Loc Code 10)', 'Other (Loc Code 02)']
 export type LocationCode = typeof locationCodes[number]

@@ -1,9 +1,7 @@
-import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { observer } from "mobx-react-lite";
 import CopyToClipboardButton from "../../components/CopyToClipBoardButton";
 import NoteContent from "../../components/NoteContent";
-import { getState } from "../../state/provider";
 
 // const { meetingInformation: {reset} } = getState()
 

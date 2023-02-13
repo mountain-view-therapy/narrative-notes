@@ -1,7 +1,7 @@
-import { Button, ButtonGroup, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, InputLabel, NativeSelect, Radio, RadioGroup, TextField, Typography } from '@mui/material'
+import { Button, Checkbox, FormControl, FormControlLabel, FormLabel, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { affectStates, cognitiveFunctioningStates, functionalStatusStates, interpersonalStates, moodStates, possibleAcademicSymptoms, possibleAnxietySymptoms, possibleCommunitySymptoms, possibleDepressionSymptoms, possibleInterpersonalSymptoms, possibleOccupationSymptoms, possiblePTSDSymptoms, possibleSelfCareSymptoms, riskLevels } from '../../models/MeetingInformationModel';
+import { possibleAcademicSymptoms, possibleAnxietySymptoms, possibleCommunitySymptoms, possibleDepressionSymptoms, possibleInterpersonalSymptoms, possibleOccupationSymptoms, possibleSelfCareSymptoms } from '../../models/MeetingInformationModel';
 import { getState } from '../../state/provider';
 
 

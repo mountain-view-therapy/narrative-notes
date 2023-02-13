@@ -1,9 +1,7 @@
-import { Button, ButtonGroup, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, InputLabel, NativeSelect, Radio, RadioGroup, TextareaAutosize, TextField, Typography } from '@mui/material'
+import { TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { affectStates, cognitiveFunctioningStates, functionalStatusStates, interpersonalStates, moodStates, riskLevels } from '../../models/MeetingInformationModel';
 import { getState } from '../../state/provider';
-
 
 const Problems = () => {
   const { meetingInformation: {
@@ -11,9 +9,6 @@ const Problems = () => {
     setProblems
   }
   } = getState();
-
-
-
 
   return (
     < Container >
