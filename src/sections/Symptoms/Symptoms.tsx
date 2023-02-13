@@ -71,7 +71,7 @@ const Symptoms = () => {
           <Typography fontWeight={800} fontSize={24}>Symptoms</Typography>
         </Stack>
       </Box>
-      <Stack flexDirection='column'>
+      <Stack flexDirection='column' spacing={6}>
 
         <Stack flexDirection='row' justifyContent='space-evenly'>
           <FormControl>
@@ -121,7 +121,13 @@ const Symptoms = () => {
           </Stack>
         </Stack>
 
-        <Typography>Affects on Functioning</Typography>
+<Stack>
+        <Box>
+        <Stack justifyContent='center' alignItems='center' flexDirection='row' margin={2}>
+          <Typography fontWeight={800} fontSize={24}>Affects on Functioning</Typography>
+        </Stack>
+      </Box>
+
         <FormControlLabel control={<Checkbox
           checked={selfCareAffected}
           onChange={(e) => setSelfCareAffected(e.target.checked)}
@@ -218,7 +224,7 @@ const Symptoms = () => {
           <TextField disabled={!communitylAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherCommunitySymptoms} onChange={(e) => setOtherCommunitySymptoms(e.target.value)} />
         </Stack>
 
-
+        </Stack>
       </Stack>
     </Container >
   )

@@ -17,14 +17,15 @@ const Problems = () => {
           <Typography fontWeight={800} fontSize={24}>Problems Discussed</Typography>
         </Stack>
       </Box>
-        <TextField
-          id="problems-textarea"
-          multiline
-          fullWidth
-          rows={20}
-          value={problems}
-          onChange={(e) => setProblems(e.target.value)}
-        />
+      <TextField
+        id="problems-textarea"
+        multiline
+        fullWidth
+        rows={20}
+        value={problems}
+        onChange={(e) => setProblems(e.target.value)}
+        placeholder='Please desxcribe the problems here....'
+      />
 
     </Container >
   )

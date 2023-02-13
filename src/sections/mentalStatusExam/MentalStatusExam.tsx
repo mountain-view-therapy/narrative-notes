@@ -44,20 +44,6 @@ const MentalStatusExam = () => {
   }
   } = getState();
 
-
-  /*
-  
-  Risk
-  No Significant Risk Factors presented
-  Danger to self 
-  Danger to others
-  Other:
-  – if they choose danger need box asking for Low/medium/high as 
-  evidence by___. 
-  Safety plan to ____
-  */
-
-
   return (
     < Container >
       <Box>
@@ -65,10 +51,10 @@ const MentalStatusExam = () => {
           <Typography fontWeight={800} fontSize={24}>Mental Status Exam</Typography>
         </Stack>
       </Box>
-      <Stack flexDirection='column'>
+      <Stack flexDirection='column' spacing={4}>
         <FormControl>
           <FormLabel>Cognitive Functioning</FormLabel>
-          <ButtonGroup size='small' variant="contained" aria-label="outlined primary button group">
+          <ButtonGroup size='small' variant="contained" aria-label="outlined primary button group" >
             {
               cognitiveFunctioningStates.map(state => <Button key={state} onClick={() => setCognitiveFunctioning(state)} color={cognitiveFunctioning === state ? 'primary' : 'inherit'}>{state}</Button>)
             }
@@ -77,7 +63,7 @@ const MentalStatusExam = () => {
 
         <FormControl>
           <FormLabel>Affect</FormLabel>
-          <ButtonGroup size='small' variant="contained" aria-label="outlined primary button group">
+          <ButtonGroup size='small' variant='contained' aria-label="outlined primary button group">
             {
               affectStates.map(state => <Button key={state} onClick={() => setAffect(state)} color={affect === state ? 'primary' : 'inherit'}>{state}</Button>)
             }
@@ -112,9 +98,8 @@ const MentalStatusExam = () => {
         </FormControl>
 
 
-        <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} paddingLeft={3}>
           <Box>
-            <Stack justifyContent='left' alignItems='center' flexDirection='row' border='green' margin={2}>
+            <Stack justifyContent='center' alignItems='center' flexDirection='row' border='green' margin={2}>
               <Typography fontWeight={800} fontSize={24}>Risk Status</Typography>
             </Stack>
           </Box>
@@ -177,7 +162,6 @@ const MentalStatusExam = () => {
               }
             </Stack>
           </FormGroup>
-        </Box>
 
       </Stack>
     </Container >

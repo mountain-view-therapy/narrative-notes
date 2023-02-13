@@ -18,7 +18,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<MeetingLogistics />} />
+        <Route index element={<NoMatch />} />
         <Route path="meeting-logistics" element={<MeetingLogistics />} />
         <Route path="mental-status-exam" element={<MentalStatusExam />} />
         <Route path="problems" element={<Problems />} />
@@ -125,16 +125,17 @@ const Layout = observer(props => {
   )
 })
 
-function NoMatch() {
+const NoMatch = observer(props => {
+  const {currentTab} = getState()
   return (
     <div>
       <h2>Nothing to see here!</h2>
       <p>
-        <Link to="/">Go to the home page</Link>
+        <Link to={currentTab}>Go to the home page</Link>
       </p>
     </div>
   );
-}
+})
 
 
 
