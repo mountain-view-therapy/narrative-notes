@@ -11,8 +11,6 @@ import Problems from "./sections/problems/Problems";
 import Progress from "./sections/progress/Progress";
 import Symptoms from "./sections/symptoms/Symptoms";
 
-const subPath = '/narrative-notes'
-
 function App() {
   return (
     <Routes>
@@ -131,7 +129,7 @@ const NoMatch = () => {
     <div>
       <h2>Nothing to see here!</h2>
       <p>
-        <Link to={subPath + '/meeting-logistics'}>Go to the home page</Link>
+        <Link to={'/meeting-logistics'}>Go to the home page</Link>
       </p>
     </div >
   );

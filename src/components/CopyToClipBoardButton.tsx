@@ -3,12 +3,19 @@ import { useState } from 'react'
 import TurndownService from 'turndown'
 import { renderToString } from "react-dom/server";
 import NoteContent from './NoteContent';
+import { observer } from 'mobx-react-lite';
+import { getState } from '../state/provider';
 
 const turndownService = new TurndownService()
 
 const CopyToClipboardButton = () => {
     const [open, setOpen] = useState(false)
-
+    const { meetingInformation: {
+        meetingLogistics: {
+            startTime,
+            endTime,
+        }
+    } } = getState();
     const handleClick = () => {
         setOpen(true)
         const html = renderToString(<NoteContent />)
@@ -18,7 +25,13 @@ const CopyToClipboardButton = () => {
 
     return (
         <>
-            <Button variant='contained' onClick={handleClick}>Copy Note</Button>
+            <Button
+                variant='contained'
+                onClick={handleClick}
+                disabled={!startTime || !endTime}
+                >
+                Copy Note
+            </Button>
             <Snackbar
                 open={open}
                 onClose={() => setOpen(false)}
@@ -29,4 +42,4 @@ const CopyToClipboardButton = () => {
     )
 }
 
-export default CopyToClipboardButton
+export default observer(CopyToClipboardButton)
