@@ -352,7 +352,7 @@ export const initialState = {
             otherCommunitySymptoms: "",
         },
         identifiedProblem: "",
-        recommendationForMovingForward: "N/A-This is the initial diagnostic meeting",
+        recommendationForMovingForward: "Continue with current treatment plan",
         frequencyChangeExplanation: "",
         nextMeeting:"",
         otherInterventions: "",
