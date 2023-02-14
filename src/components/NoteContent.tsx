@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material"
+import { Box } from "@mui/system"
 import { observer } from "mobx-react-lite"
 import { getState } from "../state/provider"
 
@@ -80,7 +81,18 @@ const NoteContent = () => {
 
     if (!startTime || !endTime) {
         return (
-            <Typography>Please fill out fields</Typography>
+            <Box>
+                <Typography>Please fill out all necessary fields</Typography>
+                <Typography>Missing Fields</Typography>
+                <ul>
+                    {!startTime &&
+                        <li>Start Time in <a href="/narrative-notes/#/meeting-logistics">Meeting Logistics tab</a></li>
+                    }
+                    {!endTime &&
+                        <li>End Time in <a href="/narrative-notes/#/meeting-logistics">Meeting Logistics tab</a></li>
+                    }
+                </ul>
+            </Box>
         )
     }
 
@@ -125,76 +137,76 @@ const NoteContent = () => {
             </div>
 
             <div><b>Mental Status Exam / Risk</b>
-            <ul>
-            {cognitiveFunctioning &&
-                <li>
-                    <b>Cognitive Functioning: </b> {cognitiveFunctioning}
-                </li>
-            }
-            {affect &&
-                <li>
-                    <b>Affect: </b> {affect}
-                </li>
-            }
-            {mood &&
-                <li>
-                    <b>Mood: </b> {mood}
-                </li>
-            }
-            {interpersonal &&
-                <li>
-                    <b>Interpersonal: </b> {interpersonal}
-                </li>
-            }
-            {functionalStatus &&
-                <li>
-                    <b>Functional Status: </b> {functionalStatus}
-                </li>
-            }
-            {(noRisk || dangerToOthers || dangerToSelf || otherRisk) &&
-                <li>
-                    <b>Risk Status: </b>
-                    <ul>
-                        {noRisk && <li>No Significant Risk Factors presented</li>}
-                        {dangerToSelf &&
-                            <li>
-                                Danger to Self
-                                <ul>
-                                    <li>Risk Level: {dangerToSelfRisk}</li>
-                                    <li>Evidence: {dangerToSelfEvidence}</li>
-                                    <li>Plan: {dangerToSelfPlan}</li>
-                                </ul>
-                            </li>
-                        }
-                        {dangerToOthers &&
-                            <li>
-                                Danger to Others
-                                <ul>
-                                    <li>Risk Level: {dangerToOthersRisk}</li>
-                                    <li>Evidence: {dangerToOthersEvidence}</li>
-                                    <li>Plan: {dangerToOthersPlan}</li>
-                                </ul>
-                            </li>
-                        }
-                        {otherRisk &&
-                            <li>
-                                Other Risk
-                                <ul>
-                                    <li>Information: {otherRiskInformation}</li>
-                                </ul>
-                            </li>
-                        }
-                    </ul>
-                </li>
-            }
-            </ul>
+                <ul>
+                    {cognitiveFunctioning &&
+                        <li>
+                            <b>Cognitive Functioning: </b> {cognitiveFunctioning}
+                        </li>
+                    }
+                    {affect &&
+                        <li>
+                            <b>Affect: </b> {affect}
+                        </li>
+                    }
+                    {mood &&
+                        <li>
+                            <b>Mood: </b> {mood}
+                        </li>
+                    }
+                    {interpersonal &&
+                        <li>
+                            <b>Interpersonal: </b> {interpersonal}
+                        </li>
+                    }
+                    {functionalStatus &&
+                        <li>
+                            <b>Functional Status: </b> {functionalStatus}
+                        </li>
+                    }
+                    {(noRisk || dangerToOthers || dangerToSelf || otherRisk) &&
+                        <li>
+                            <b>Risk Status: </b>
+                            <ul>
+                                {noRisk && <li>No Significant Risk Factors presented</li>}
+                                {dangerToSelf &&
+                                    <li>
+                                        Danger to Self
+                                        <ul>
+                                            <li>Risk Level: {dangerToSelfRisk}</li>
+                                            <li>Evidence: {dangerToSelfEvidence}</li>
+                                            <li>Plan: {dangerToSelfPlan}</li>
+                                        </ul>
+                                    </li>
+                                }
+                                {dangerToOthers &&
+                                    <li>
+                                        Danger to Others
+                                        <ul>
+                                            <li>Risk Level: {dangerToOthersRisk}</li>
+                                            <li>Evidence: {dangerToOthersEvidence}</li>
+                                            <li>Plan: {dangerToOthersPlan}</li>
+                                        </ul>
+                                    </li>
+                                }
+                                {otherRisk &&
+                                    <li>
+                                        Other Risk
+                                        <ul>
+                                            <li>Information: {otherRiskInformation}</li>
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
             </div>
             {problems &&
                 <div>
                     <div>
                         <b>Problems Discussed in the meeting include: </b>
                     </div>
-                    <pre>{problems}</pre>
+                    <pre style={{width:504,  whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif'}}>{problems}</pre>
                 </div>
             }
             {(anxietySymptoms.length || depressionSymptoms.length || ptsdSymptoms.length || otherSymptoms) &&

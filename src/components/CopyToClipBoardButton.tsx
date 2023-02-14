@@ -18,7 +18,7 @@ const CopyToClipboardButton = () => {
 
     return (
         <>
-            <Button variant='contained' onClick={handleClick}>Share</Button>
+            <Button variant='contained' onClick={handleClick}>Copy Note</Button>
             <Snackbar
                 open={open}
                 onClose={() => setOpen(false)}

@@ -60,13 +60,27 @@ const MeetingLogistics = () => {
     const startTimeResult = startTime.match(/(\d\d):(\d\d) ([A,P]M)/);
     const endTimeResult = endTime.match(/(\d\d):(\d\d) ([A,P]M)/);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [startMatch, startHour, startMinute, startAmPm] = startTimeResult || []
+    const [startMatch, startHourStr, startMinuteStr, startAmPm] = startTimeResult || []
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [endMatch, endHour, endMinute, endAmPm] = endTimeResult || []
-    return ((parseInt(endHour) + (endAmPm === 'PM' ? 12 : 0) - (parseInt(startHour) + (startAmPm === 'PM' ? 12 : 0))) * 60 + parseInt(endMinute) - parseInt(startMinute))
+    const [endMatch, endHourStr, endMinuteStr, endAmPm] = endTimeResult || []
+    let endHour = parseInt(endHourStr)
+    let startHour = parseInt(startHourStr)
+    if (endHour === 12 && endAmPm === 'AM') {
+      endHour = 0
+    }
+    if (startHour === 12 && startAmPm === 'AM') {
+      startHour = 0
+    }
+    if (endAmPm === 'PM') {
+      endHour += 12
+    }
+    if (startAmPm === 'PM') {
+      startHour += 12
+    }
+    const hourDiff = (endHour - startHour) * 60
+    const minuteDiff = parseInt(endMinuteStr) - parseInt(startMinuteStr)
+    return hourDiff + minuteDiff
   }
-
-  const [testTime, setTestTime] = useState('11:13')
 
   return (
     < Container >
@@ -118,8 +132,14 @@ const MeetingLogistics = () => {
         </FormControl>
 
         <Stack flexDirection='row' alignItems='center'>
-          <TimePicker value={startTime} onChange={(time) => setStartTime(time)} />
-          <TimePicker value={endTime} onChange={(time) => setEndTime(time)} />
+          <Stack flexDirection='column' alignItems='center'>
+            <Typography>Start Time</Typography>
+            <TimePicker value={startTime} onChange={(time) => setStartTime(time)} />
+          </Stack>
+          <Stack flexDirection='column' alignItems='center'>
+            <Typography>End Time</Typography>
+            <TimePicker value={endTime} onChange={(time) => setEndTime(time)} />
+          </Stack>
           {startTime && endTime &&
             <Typography color={calculateTimeDiff() > 0 ? 'gray' : 'red'}>Meeting length: {calculateTimeDiff()} minutes</Typography>
           }
