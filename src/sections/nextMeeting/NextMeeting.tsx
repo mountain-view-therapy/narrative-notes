@@ -4,8 +4,10 @@ import { observer } from 'mobx-react-lite';
 import { possibleRecommendationsForMovingForward } from '../../state/constants';
 import { getState } from '../../state/provider';
 import { useState } from 'react';
-
-
+import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
+import dayjs, { Dayjs } from 'dayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 const NextMeeting = () => {
   const {
@@ -14,9 +16,14 @@ const NextMeeting = () => {
       setRecommendationForMovingForward,
       frequencyChangeExplanation,
       setFrequencyChangeExplanation,
+      nextMeeting,
+      setNextMeeting,
     } } = getState()
 
-    const [value, onChange] = useState(new Date());
+  const [value, setValue] = useState<Dayjs | null>(
+    dayjs('2018-01-01T00:00:00.000Z'),
+  );
+
   return (
     <Container>
       <Box>
@@ -25,7 +32,7 @@ const NextMeeting = () => {
         </Stack>
       </Box>
       <Stack spacing={3}>
-        <Stack flexDirection='row'>
+        <Stack flexDirection='row' justifyContent='space-between'>
           <FormControl>
             <FormLabel id="Recommendations-moving-forward">Recommendations moving forward</FormLabel>
             <RadioGroup
@@ -41,11 +48,23 @@ const NextMeeting = () => {
               }
             </RadioGroup>
           </FormControl>
-        </Stack>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <MobileDateTimePicker
+              label="Next Meeting"
+              value={dayjs(nextMeeting)}
+              onChange={(newValue) => {
+                setNextMeeting(newValue?.toString() || "");
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
 
+        </Stack>
         <TextField
-          placeholder='Explain if frequency has changed or not scheduling'
-          label='Optional Frequency or Schedulign Change Explanation'
+          style={{ width: 540 }}
+
+          placeholder='Explain if frequency has changed or if not scheduling the next meeting'
+          label='Optional Frequency or Scheduling Change Explanation'
           multiline
           fullWidth
           rows={20}

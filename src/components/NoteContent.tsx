@@ -1,6 +1,8 @@
 import { Typography } from "@mui/material"
 import { Box } from "@mui/system"
+import dayjs from "dayjs"
 import { observer } from "mobx-react-lite"
+import NextMeeting from "../sections/nextMeeting/NextMeeting"
 import { getState } from "../state/provider"
 
 const NoteContent = () => {
@@ -73,6 +75,9 @@ const NoteContent = () => {
         interventions,
         progressions,
         identifiedProblem,
+        recommendationForMovingForward,
+        frequencyChangeExplanation,
+        nextMeeting,
     } } = getState()
 
     const replaceText = (text: string, replacementText: string) => {
@@ -206,7 +211,7 @@ const NoteContent = () => {
                     <div>
                         <b>Problems Discussed in the meeting include: </b>
                     </div>
-                    <pre style={{width:504,  whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif'}}>{problems}</pre>
+                    <pre style={{ width: 504, whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif' }}>{problems}</pre>
                 </div>
             }
             {(anxietySymptoms.length || depressionSymptoms.length || ptsdSymptoms.length || otherSymptoms) &&
@@ -306,6 +311,10 @@ const NoteContent = () => {
             )
             )
             }
+            <p><b>Recomendation For Moving Forward :</b> {recommendationForMovingForward}</p>
+            <p><b>Next meeting :</b> {dayjs(nextMeeting).toString()}</p>
+            <pre style={{ width: 504, whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif' }}>{frequencyChangeExplanation}</pre>
+
         </div >
     )
 

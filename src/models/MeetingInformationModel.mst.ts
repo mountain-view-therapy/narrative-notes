@@ -22,6 +22,7 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
     identifiedProblem: types.string,
     recommendationForMovingForward: types.enumeration('recommendationForMovingForward', possibleRecommendationsForMovingForward),
     frequencyChangeExplanation: types.string,
+    nextMeeting: types.string,
 }).actions((self) => {
     return {
         setProblems(problems: string): void {
@@ -77,6 +78,9 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
         },
         setFrequencyChangeExplanation(explanation: string): void {
             self.frequencyChangeExplanation = explanation
+        },
+        setNextMeeting(nextMeeting: string): void {
+            self.nextMeeting = nextMeeting
         },
     }
 })

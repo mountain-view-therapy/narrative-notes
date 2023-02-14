@@ -354,6 +354,7 @@ export const initialState = {
         identifiedProblem: "",
         recommendationForMovingForward: "N/A-This is the initial diagnostic meeting",
         frequencyChangeExplanation: "",
+        nextMeeting:"",
 
     },
     currentTab: "/meeting-logstics",
