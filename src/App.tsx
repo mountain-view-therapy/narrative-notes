@@ -1,6 +1,6 @@
 import { AppBar, Box, Toolbar, Stack, Tab, Tabs } from "@mui/material";
 import { Container } from "@mui/system";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Interventions from "./sections/interventions/Interventions";
 import MeetingLogistics from "./sections/meetingLogistics/MeetingLogistics";
@@ -37,11 +37,6 @@ const Layout = () => {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setCurrentTab(newValue)
   }
-
-  useEffect(() => {
-    console.log('current tab: ', currentTab)
-    console.log('window location: ', window.location.pathname)
-  })
 
   return (
     <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} >

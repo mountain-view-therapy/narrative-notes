@@ -1,8 +1,6 @@
 import dayjs, { Dayjs } from "dayjs"
 import { Instance, types } from "mobx-state-tree"
 import {
-    LocationCode,
-    locationCodes,
     PossibleCptCode,
     possibleCptCodes,
 } from "../state/constants"
@@ -12,7 +10,6 @@ const MeetingLogisticsModel = types.model('MeetingLogisticsModel', {
     telehealthPlatform: types.enumeration('telehealthPlatform', ['Simple Practice', 'Google Meet']),
     telehealthAppropriate: types.enumeration('telehealthAppropriate', ['Yes', 'No']),
     telehealthConsent: types.enumeration('telehealthConsent', ['Yes', 'No']),
-    physicalLocation: types.enumeration('physicalLocation', locationCodes),
     otherAddress: types.string,
     startTime: types.string,
     endTime: types.string,
@@ -45,17 +42,14 @@ const MeetingLogisticsModel = types.model('MeetingLogisticsModel', {
         setTelehealthConsent(consent: string): void {
             self.telehealthConsent = consent
         },
-        setphyscialLocation(location: LocationCode): void {
-            self.physicalLocation = location
-        },
         setOtherAddress(address: string): void {
             self.otherAddress = address
         },
-        setStartTime(startTime: Dayjs | null): void {
-            self.startTime = startTime?.toString() || dayjs().toString()
+        setStartTime(startTime: string): void {
+            self.startTime = startTime
         },
-        setEndTime(endTime: Dayjs | null): void {
-            self.endTime = endTime?.toString() || dayjs.toString()
+        setEndTime(endTime: string): void {
+            self.endTime = endTime
         },
         setCptCode(code: PossibleCptCode): void {
             self.cptCode = code

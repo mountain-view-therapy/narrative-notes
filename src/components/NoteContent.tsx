@@ -1,4 +1,4 @@
-import dayjs from "dayjs"
+import { Typography } from "@mui/material"
 import { observer } from "mobx-react-lite"
 import { getState } from "../state/provider"
 
@@ -10,8 +10,6 @@ const NoteContent = () => {
             telehealthPlatform,
             telehealthAppropriate,
             telehealthConsent,
-            physicalLocation,
-            otherAddress,
             startTime,
             endTime,
             cptCode,
@@ -80,6 +78,12 @@ const NoteContent = () => {
         return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]', replacementText)
     }
 
+    if (!startTime || !endTime) {
+        return (
+            <Typography>Please fill out fields</Typography>
+        )
+    }
+
     return (
         <div>
             <div>
@@ -94,20 +98,14 @@ const NoteContent = () => {
                 <b>Did you receive consent for telehealth meetings? </b>
                 {telehealthConsent}
             </div>
-            <div>
-                <b>Person-served physical location during the meeting: </b>
-                {physicalLocation}
-                {physicalLocation === 'Other (Loc Code 02)' &&
-                    <p>{otherAddress}</p>
-                }
-            </div>
+
             <div>
                 <b>Start Time: </b>
-                {dayjs(startTime).format('h:mm A')}
+                {startTime}
             </div>
             <div>
                 <b>End Time: </b>
-                {dayjs(endTime).format('h:mm A')}
+                {endTime}
             </div>
             <div>
                 <b>CPT Code: </b>
@@ -126,34 +124,35 @@ const NoteContent = () => {
                 </ul>
             </div>
 
-
+            <div><b>Mental Status Exam / Risk</b>
+            <ul>
             {cognitiveFunctioning &&
-                <div>
+                <li>
                     <b>Cognitive Functioning: </b> {cognitiveFunctioning}
-                </div>
+                </li>
             }
             {affect &&
-                <div>
+                <li>
                     <b>Affect: </b> {affect}
-                </div>
+                </li>
             }
             {mood &&
-                <div>
+                <li>
                     <b>Mood: </b> {mood}
-                </div>
+                </li>
             }
             {interpersonal &&
-                <div>
+                <li>
                     <b>Interpersonal: </b> {interpersonal}
-                </div>
+                </li>
             }
             {functionalStatus &&
-                <div>
+                <li>
                     <b>Functional Status: </b> {functionalStatus}
-                </div>
+                </li>
             }
             {(noRisk || dangerToOthers || dangerToSelf || otherRisk) &&
-                <div>
+                <li>
                     <b>Risk Status: </b>
                     <ul>
                         {noRisk && <li>No Significant Risk Factors presented</li>}
@@ -186,8 +185,10 @@ const NoteContent = () => {
                             </li>
                         }
                     </ul>
-                </div>
+                </li>
             }
+            </ul>
+            </div>
             {problems &&
                 <div>
                     <div>
