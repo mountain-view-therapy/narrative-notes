@@ -14,11 +14,11 @@ import {
 } from "../state/constants"
 
 const MentalStatusExamModel = types.model('MentalStatusExamModel', {
-    cognitiveFunctioning: types.optional(types.enumeration('cognitiveFunctioning', cognitiveFunctioningStates), 'Disorganized'),
-    affect: types.optional(types.enumeration('affect', affectStates), 'Appropriate'),
-    mood: types.optional(types.enumeration('mood', moodStates), 'Euthymic'),
-    interpersonal: types.optional(types.enumeration('interpersonal', interpersonalStates), 'Interactive'),
-    functionalStatus: types.optional(types.enumeration('functionalStatus', functionalStatusStates), 'Intact'),
+    cognitiveFunctioning: types.enumeration('cognitiveFunctioning', cognitiveFunctioningStates),
+    affect: types.enumeration('affect', affectStates),
+    mood: types.enumeration('mood', moodStates),
+    interpersonal: types.enumeration('interpersonal', interpersonalStates),
+    functionalStatus: types.enumeration('functionalStatus', functionalStatusStates),
     noRisk: types.boolean,
     dangerToSelf: types.boolean,
     dangerToOthers: types.boolean,

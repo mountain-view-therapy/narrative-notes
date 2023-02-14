@@ -13,15 +13,17 @@ const Interventions = () => {
         setClientInitials,
       },
       interventions,
+      otherInterventions,
       setIntervention,
+      setOtherInterventions,
       setInterventionReplacementText,
       identifiedProblem,
       setIdentifedProblem,
     } } = getState()
 
-    const replaceText = (text: string, index: number) => {
-      return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]',interventions.find(i => i.possibleInterventionsIndex === index)?.replacementText || "[REPLACE ME]")
-      }
+  const replaceText = (text: string, index: number) => {
+    return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]', interventions.find(i => i.possibleInterventionsIndex === index)?.replacementText || "[REPLACE ME]")
+  }
 
   return (
     <Container>
@@ -30,7 +32,7 @@ const Interventions = () => {
           <Typography fontWeight={800} fontSize={24}>Interventions</Typography>
         </Stack>
       </Box>
-      <Stack>
+      <Stack marginBottom={3}>
         <Stack flexDirection='row' justifyContent='space-between'>
           <TextField label='Identified Problem' style={{ margin: 3, width: 400, fontSize: 12 }} value={identifiedProblem} onChange={(e) => setIdentifedProblem(e.target.value)} />
           <TextField label="Client's Initials" value={clientInitials} onChange={(e) => setClientInitials(e.target.value)} style={{ width: 200 }} />
@@ -42,7 +44,7 @@ const Interventions = () => {
                 checked={Boolean(interventions.find(i => i.possibleInterventionsIndex === index))}
                 onChange={(e) => setIntervention(index, e.target.checked)}
                 inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
-              />} label={replaceText(intervention.text, index)}                 
+              />} label={replaceText(intervention.text, index)}
               />
               {intervention.prompt && Boolean(interventions.find(i => i.possibleInterventionsIndex === index)) &&
                 <TextField label={intervention.prompt} style={{ margin: 3, width: 350, fontSize: 12 }} value={interventions.find(i => i.possibleInterventionsIndex === index)?.replacementText} onChange={(e) => setInterventionReplacementText(index, e.target.value)} />
@@ -50,6 +52,8 @@ const Interventions = () => {
             </Stack>
           ))
         }
+        <TextField style={{marginTop: '10px'}} label="Other interventions" fullWidth value={otherInterventions} onChange={(e) => setOtherInterventions(e.target.value)} />
+
       </Stack >
     </Container >
   )

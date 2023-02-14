@@ -17,6 +17,8 @@
     "@types/react-dom": "^18.0.10",
     "axios": "^1.0.0",
     "dayjs": "^1.11.7",
+    "dayjs-ext": "^2.2.0",
+    "dayjs-timezone-iana-plugin": "^0.1.0",
     "localforage": "^1.10.0",
     "mobx": "^6.7.0",
     "mobx-react-lite": "^3.4.0",

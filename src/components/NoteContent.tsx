@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import dayjs from "dayjs"
+import dayjs from 'dayjs-ext'
+import timeZonePlugin from 'dayjs-ext/plugin/timeZone'
 import { observer } from "mobx-react-lite"
-import NextMeeting from "../sections/nextMeeting/NextMeeting"
 import { getState } from "../state/provider"
 
 const NoteContent = () => {
@@ -73,12 +73,15 @@ const NoteContent = () => {
             otherCommunitySymptoms,
         },
         interventions,
+        otherInterventions,
         progressions,
         identifiedProblem,
         recommendationForMovingForward,
         frequencyChangeExplanation,
         nextMeeting,
     } } = getState()
+
+    dayjs.extend(timeZonePlugin).locale('cs')
 
     const replaceText = (text: string, replacementText: string) => {
         return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]', replacementText)
@@ -294,13 +297,15 @@ const NoteContent = () => {
                     {otherCommunitySymptoms}
                 </p>
             }
-            {interventions.length > 0 &&
+            {(interventions.length > 0 || otherInterventions.length > 0) &&
                 <b>In Meeting Interventions:</b>
             }
             {interventions.map(intervention => (
-                <p key={intervention.text}>{replaceText(intervention.text, intervention.replacementText)}</p>
+                <p key={intervention.text}>{replaceText(intervention.text, intervention.replacementText)}</p>)
             )
-            )
+            }
+            { otherInterventions &&
+            <p>{otherInterventions}</p>
             }
 
             {progressions.length > 0 &&
@@ -312,7 +317,9 @@ const NoteContent = () => {
             )
             }
             <p><b>Recomendation For Moving Forward :</b> {recommendationForMovingForward}</p>
-            <p><b>Next meeting :</b> {dayjs(nextMeeting).toString()}</p>
+            {nextMeeting &&
+                <p><b>Next meeting :</b> {new Date(nextMeeting).toLocaleString("en-US", {timeStyle: "full", dateStyle: "full"})}</p>
+            }
             <pre style={{ width: 504, whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif' }}>{frequencyChangeExplanation}</pre>
 
         </div >

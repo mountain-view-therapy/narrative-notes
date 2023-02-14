@@ -18,6 +18,7 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
     problems: types.string,
     symptoms: SymptomsModel,
     interventions: types.array(InterventionModel),
+    otherInterventions: types.string,
     progressions: types.array(ProgressModel),
     identifiedProblem: types.string,
     recommendationForMovingForward: types.enumeration('recommendationForMovingForward', possibleRecommendationsForMovingForward),
@@ -48,6 +49,9 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
             if (intervention) {
                 intervention.replacementText = text
             }
+        },
+        setOtherInterventions(interventions: string): void {
+            self.otherInterventions = interventions
         },
         setProgress(progressIndex: number, value: boolean): void {
             if (value === false) {
