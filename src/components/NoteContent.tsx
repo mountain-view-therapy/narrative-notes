@@ -316,7 +316,7 @@ const NoteContent = () => {
             )
             )
             }
-            <p><b>Recomendation For Moving Forward :</b> {recommendationForMovingForward}</p>
+            <p><b>Recommendation For Moving Forward :</b> {recommendationForMovingForward}</p>
             {nextMeeting &&
                 <p><b>Next meeting :</b> {new Date(nextMeeting).toLocaleString("en-US", {timeStyle: "full", dateStyle: "full"})}</p>
             }
