@@ -269,10 +269,12 @@ export const possibleProgressions = [
         text: "[CLIENT] reported connection to alternative/preferred stories as a means to decrease the [PROBLEM]’s influence.",
     },
     {
-        text: "[CLIENT] identified [name person] as a person who will support their preferred narrative.",
+        text: "[CLIENT] identified [REPLACEMENT] as a person who will support their preferred narrative.",
+        prompt: "[name person].",
     },
     {
-        text: "[CLIENT]  connected with [name person] to help support their preferred narrative.",
+        text: "[CLIENT]  connected with [REPLACEMENT] to help support their preferred narrative.",
+        prompt: "[name person]."
     },
 ]
 
