@@ -8,6 +8,7 @@ export const possibleCptCodes = [
     "90837 Individual (53+ min)",
     "90847 Couples/Family with client present (45+ min)",
     "90846 Family without client present (45+ min)",
+    "1111 Narrative Consulting (45 min)",
     "Other",
 ]
 export type PossibleCptCode = typeof possibleCptCodes[number]
