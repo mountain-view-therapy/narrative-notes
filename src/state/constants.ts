@@ -244,7 +244,9 @@ export const possibleProgressions = [
         prompt: "[name discourses]",
     },
     {
-        text: "[CLIENT] verbalized an experience-near name for the problem, [state name] and a clear stance on [PROBLEM] narrative.",
+        text: "[CLIENT] verbalized an experience-near name for the problem, [REPLACEMENT] and a clear stance on [PROBLEM] narrative.",
+        prompt: "[state name]",
+
     },
     {
         text: "[CLIENT] consistently speaks about [PROBLEM] in externalized language during therapy meetings.",
