@@ -174,7 +174,7 @@ export const possibleInterventions = [
         prompt: "[Person served clear stance on the effects of the problem on their lives]",
     },
     {
-        text: "Used deconstruction questions to help [CLIENT] richly describe their justification for their stance on [PROBLEM].",
+        text: "Used deconstruction questions to help [CLIENT] richly describe their justification for their stance on [PROBLEM]. [REPLACEMENT]",
         prompt: "[Person served justification for their stance]"
     },
     {
@@ -240,7 +240,7 @@ export const possibleProgressions = [
         prompt: "[name experiences]",
     },
     {
-        text: "[CLIENT] identified and verbalized cultural discourses that support and sustain the relationship with [PROBLEM] including [name discourses].",
+        text: "[CLIENT] identified and verbalized cultural discourses that support and sustain the relationship with [PROBLEM] including [REPLACEMENT].",
         prompt: "[name discourses]",
     },
     {
@@ -260,7 +260,7 @@ export const possibleProgressions = [
         text: "[CLIENT] identified and verbalized past experiences that support the preferred narrative including.",
     },
     {
-        text: "[CLIENT] learned and implemented behavioral strategies to exert acute control over relationship with [PROBLEM] including [list strategies].",
+        text: "[CLIENT] learned and implemented behavioral strategies to exert acute control over relationship with [PROBLEM] including [REPLACEMENT].",
         prompt: "[list strategies].",
     },
     {
