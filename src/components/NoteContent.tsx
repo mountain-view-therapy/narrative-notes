@@ -262,37 +262,37 @@ const NoteContent = () => {
                     </ul>
                 </div>
             }
-            {clientInitials && selfCareAffected &&
+            {selfCareAffected &&
                 <p>
-                    These symptoms affect {clientInitials}'s self care.
+                    These symptoms affect {clientInitials || <b>Client's Initials</b>}'s self care.
                     {selfCareSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherSelfCareSymptoms}
                 </p>
             }
-            {clientInitials && occupationAffected &&
+            {occupationAffected &&
                 <p>
-                    These symptoms affect {clientInitials}'s occupational functioning.
+                    These symptoms affect {clientInitials || <b>Client's Initials</b>}'s occupational functioning.
                     {occupationSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherOccupationSymptoms}
                 </p>
             }
-            {clientInitials && academicAffected &&
+            {academicAffected &&
                 <p>
-                    These symptoms affect {clientInitials}'s academic functioning.
+                    These symptoms affect {clientInitials || <b>Client's Initials</b>}'s academic functioning.
                     {academicSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherAcademicSymptoms}
                 </p>
             }
-            {clientInitials && interpersonalAffected &&
+            {interpersonalAffected &&
                 <p>
-                    These symptoms affect {clientInitials}'s interpersonal functioning.
+                    These symptoms affect {clientInitials || <b>Client's Initials</b>}'s interpersonal functioning.
                     {interpersonalSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherInterpersonalSymptoms}
                 </p>
             }
-            {clientInitials && communitylAffected &&
+            {communitylAffected &&
                 <p>
-                    These symptoms affect {clientInitials}'s community functioning.
+                    These symptoms affect {clientInitials || <b>Client's Initials</b>}'s community functioning.
                     {communitySymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
                     {otherCommunitySymptoms}
                 </p>
