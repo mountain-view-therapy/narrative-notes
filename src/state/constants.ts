@@ -233,7 +233,7 @@ export const possibleProgressions = [
         prompt: "[list tactics identified]"
     },
     {
-        text: "[CLIENT] developed and practiced strategies that counter the effects and tactics of [PROBLEM] including [REPLCEMENT].",
+        text: "[CLIENT] developed and practiced strategies that counter the effects and tactics of [PROBLEM] including [REPLACEMENT].",
         prompt: "[list strategies]"
     },
     {
