@@ -37,9 +37,9 @@ const Layout = () => {
   }
 
   return (
-    <Box border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} >
+    <Box overflow='auto' >
       <Stack flexDirection='row' justifyContent='space-evenly'>
-        <Box maxWidth='60%' border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1}>
+        <Box width='50%' border="thick" borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} >
           <AppBar position='static'>
             <Container>
               <Toolbar disableGutters={true}>
@@ -110,12 +110,12 @@ const Layout = () => {
               </Toolbar>
             </Container>
           </AppBar>
-          <Box overflow='auto' maxHeight={window.innerHeight - 100}>
+          <Box overflow='auto' >
             <Outlet />
           </Box>
         </Box>
-        <Box flexGrow={2}>
-          <Box minWidth={700} minHeight={700} border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1}>
+        <Box flexGrow={2} >
+          <Box overflow='auto' >
             <Note />
           </Box>
         </Box>

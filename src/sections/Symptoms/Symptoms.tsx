@@ -82,7 +82,7 @@ const Symptoms = () => {
             {
               possibleAnxietySymptoms.map(symptom =>
                 <Button
-                  style={{ margin: 3, width: 350, fontSize: 12 }}
+                  style={{ margin: 3,  fontSize: 12 }}
                   size='small'
                   variant='contained'
                   key={'anxiety-' + symptom}
@@ -98,7 +98,7 @@ const Symptoms = () => {
             {
               possibleDepressionSymptoms.map(symptom =>
                 <Button
-                  style={{ margin: 3, width: 350, fontSize: 12 }}
+                  style={{ margin: 3, fontSize: 12 }}
                   size='small'
                   variant='contained'
                   key={'depression-' + symptom}
@@ -115,7 +115,7 @@ const Symptoms = () => {
             {
               possiblePTSDSymptoms.map(symptom =>
                 <Button
-                  style={{ margin: 3, width: 350, fontSize: 12 }}
+                  style={{ margin: 3, maxWidth: 350, fontSize: 12 }}
                   size='small'
                   variant='contained'
                   key={'PTSD-' + symptom}
@@ -130,7 +130,7 @@ const Symptoms = () => {
               <Stack flexDirection='column' >
                 {otherSymptoms.map((othersymptom, idx) =>
                   <Stack flexDirection='row' alignItems='center'>
-                    <TextField label={`Other Symptom ${idx + 1}`} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherSymptoms[idx]} onChange={(e) => setOtherSymptom(idx, e.target.value)} />
+                    <TextField label={`Other Symptom ${idx + 1}`} style={{ margin: 3, fontSize: 12 }} value={otherSymptoms[idx]} onChange={(e) => setOtherSymptom(idx, e.target.value)} />
                     <Button
                       variant='contained'
                       style={{ height: 30 }}
