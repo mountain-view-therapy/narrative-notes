@@ -325,7 +325,7 @@ export const initialState = {
             anxietySymptoms: [],
             depressionSymptoms: [],
             ptsdSymptoms: [],
-            otherSymptoms: "",
+            otherSymptoms: [""],
             groupSymptomsTogether: false,
             selfCareAffected: false,
             selfCareSymptoms: [],

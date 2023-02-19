@@ -254,11 +254,13 @@ const NoteContent = () => {
                         }
                         {otherSymptoms && groupSymptomsTogether ? (
                             <li>Other Symptoms<ul>
-                                <li>{otherSymptoms}</li>
+                                {
+                                    otherSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
+                                }
                             </ul></li>
                         )
                             :
-                            (otherSymptoms && <li>{otherSymptoms}</li>)
+                            otherSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
                         }
                     </ul>
                 </div>

@@ -44,7 +44,9 @@ const Symptoms = () => {
       toggleAnxietySymptom,
       toggleDepressionSymptom,
       togglePTSDSymptom,
-      setOtherSymptoms,
+      setOtherSymptom,
+      addOtherSymptom,
+      removeOtherSymptom,
       setGroupSystemsTogether,
       setSelfCareAffected,
       setSelfCareSymptom,
@@ -122,11 +124,32 @@ const Symptoms = () => {
                 </Button>)
             }
           </FormControl>
-          <Stack flexDirection='column'>
-            <FormControl>
-              <FormLabel>Other Symptoms</FormLabel>
-              <TextField style={{ margin: 3, width: 350, fontSize: 12 }} value={otherSymptoms} onChange={(e) => setOtherSymptoms(e.target.value)} />
-            </FormControl>
+          <Stack flexDirection='column' spacing={5} justifyContent='center'>
+
+            <Stack flexDirection='column' spacing={1}>
+              <Stack flexDirection='column' >
+                {otherSymptoms.map((othersymptom, idx) =>
+                  <Stack flexDirection='row' alignItems='center'>
+                    <TextField label={`Other Symptom ${idx + 1}`} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherSymptoms[idx]} onChange={(e) => setOtherSymptom(idx, e.target.value)} />
+                    <Button
+                      variant='contained'
+                      style={{ height: 30 }}
+                      disabled={otherSymptoms.length < 2}
+                      onClick={() => removeOtherSymptom(idx)}
+                    >
+                      -
+                    </Button>
+                  </Stack>
+                )}
+              </Stack>
+              <Button
+                variant='contained'
+                style={{ width: 20 }}
+                onClick={() => addOtherSymptom()}
+              >
+                +
+              </Button>
+            </Stack>
             <FormControlLabel control={<Checkbox
               checked={groupSymptomsTogether}
               onChange={(e) => setGroupSystemsTogether(e.target.checked)}
@@ -158,7 +181,7 @@ const Symptoms = () => {
                 onChange={(e) => setSelfCareSymptom(symptom, e.target.checked)}
                 disabled={!selfCareAffected}
 
-              />} label={symptom}                 key={'sc-'+ symptom} />
+              />} label={symptom} key={'sc-' + symptom} />
             )}
             <FormLabel>Other Self Care Symptoms</FormLabel>
             <TextField disabled={!selfCareAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherSelfCareSymptoms} onChange={(e) => setOtherSelfCareSymptoms(e.target.value)} />
@@ -177,8 +200,8 @@ const Symptoms = () => {
                 checked={occupationAffected && Boolean(occupationSymptoms.find(selected => symptom === selected))}
                 onChange={(e) => setOccupationSymptom(symptom, e.target.checked)}
                 disabled={!occupationAffected}
-                
-              />} label={symptom} key={'pos-' + symptom}  />
+
+              />} label={symptom} key={'pos-' + symptom} />
             )}
             <FormLabel>Other Occupational Symptoms</FormLabel>
             <TextField disabled={!occupationAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherOccupationSymptoms} onChange={(e) => setOtherOccupationSymptoms(e.target.value)} />
@@ -196,8 +219,8 @@ const Symptoms = () => {
                 checked={academicAffected && Boolean(academicSymptoms.find(selected => symptom === selected))}
                 onChange={(e) => setAcademicSymptom(symptom, e.target.checked)}
                 disabled={!academicAffected}
-                
-              />} label={symptom} key={'pas-' +symptom} />
+
+              />} label={symptom} key={'pas-' + symptom} />
             )}
             <FormLabel>Other Academic Symptoms</FormLabel>
             <TextField disabled={!academicAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherAcademicSymptoms} onChange={(e) => setOtherAcademicSymptoms(e.target.value)} />
@@ -215,7 +238,7 @@ const Symptoms = () => {
                 checked={interpersonalAffected && Boolean(interpersonalSymptoms.find(selected => symptom === selected))}
                 onChange={(e) => setInterpersonalSymptom(symptom, e.target.checked)}
                 disabled={!interpersonalAffected}
-                
+
               />} label={symptom} key={'pis-' + symptom} />
             )}
             <FormLabel>Other Interpersonal Symptoms</FormLabel>
@@ -234,8 +257,8 @@ const Symptoms = () => {
                 checked={communitylAffected && Boolean(communitySymptoms.find(selected => symptom === selected))}
                 onChange={(e) => setCommunitySymptom(symptom, e.target.checked)}
                 disabled={!communitylAffected}
-               
-              />} label={symptom}  key={'pcs' + symptom} />
+
+              />} label={symptom} key={'pcs' + symptom} />
             )}
             <FormLabel>Other Community Symptoms</FormLabel>
             <TextField disabled={!communitylAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherCommunitySymptoms} onChange={(e) => setOtherCommunitySymptoms(e.target.value)} />

@@ -14,7 +14,7 @@ const SymptomsModel = types.model('SymptomsModel', {
     anxietySymptoms: types.array(types.string),
     depressionSymptoms: types.array(types.string),
     ptsdSymptoms: types.array(types.string),
-    otherSymptoms: types.string,
+    otherSymptoms: types.array(types.string),
     groupSymptomsTogether: types.boolean,
     selfCareAffected: types.boolean,
     selfCareSymptoms: types.array(types.string),
@@ -54,8 +54,14 @@ const SymptomsModel = types.model('SymptomsModel', {
                 self.ptsdSymptoms.push(symptom)
             }
         },
-        setOtherSymptoms(symptoms: string): void {
-            self.otherSymptoms = symptoms
+        setOtherSymptom(index: number, symptoms: string): void {
+            self.otherSymptoms[index] = symptoms
+        },
+        addOtherSymptom(): void {
+            self.otherSymptoms.push("")
+        },
+        removeOtherSymptom(index: number): void {
+            self.otherSymptoms.replace(self.otherSymptoms.filter((os, i) => i !== index))
         },
         setGroupSystemsTogether(groupSymptomsTogether: boolean): void {
             self.groupSymptomsTogether = groupSymptomsTogether
