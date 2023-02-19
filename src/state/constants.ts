@@ -176,15 +176,15 @@ export const possibleInterventions = [
     { text: "Used Narrative practice of Re-Authoring to invite [CLIENT]  into preferred story development."},
     { text: "Used deconstruction questions to help [CLIENT] explore the history of their relationship with [PROBLEM]."},
     {
-        text: "Identified name for preferred story/project, [REPLACEMENT].",
+        text: "Used Narrative practice of Re-Authoring to Identify name for preferred story/project, [REPLACEMENT].",
         prompt: "[key word or phrase for emerging preferred story]",
     },
-    { text: "Invited  [CLIENT] to identify their actions that support their preferred story."},
-    { text: "Invited [CLIENT] to identify people that support their preferred story including."},
-    { text: "Invited [CLIENT] to identify past experiences that fit with their preferred story."},
-    { text: "Invited [CLIENT] to identify situations that support their preferred story."},
-    { text: "Invited [CLIENT] to identify cultural discourse that support their preferred story."},
-    { text: "Invited [CLIENT] to to making meaning of their life through the lens of their preferred story"},
+    { text: "Used Narrative practice of Re-Authoring to invite  [CLIENT] to identify their actions that support their preferred story."},
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify people that support their preferred story including."},
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify past experiences that fit with their preferred story."},
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify situations that support their preferred story."},
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify cultural discourse that support their preferred story."},
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to making meaning of their life through the lens of their preferred story"},
     {
         text: "Used Narrative practice of Re-membering Conversations to invoke the presences/memory of [REPLACEMENT] to thicken alternative/preferred story.",
         prompt: "[name person “re-membered”]",
@@ -192,7 +192,7 @@ export const possibleInterventions = [
     { text: "Referred [CLIENT] to physician for medical evaluation. " },
     { text: "Referred to resources to learn meditation/mindfulness. Incorporated the use of these skills in alternative/preferred story development." },
     {
-        text: "Developed a concrete preferred action plan in relation to [REPLACEMENT].",
+        text: "Work with [CLIENT] to develop a concrete preferred action plan in relation to [REPLACEMENT].",
         prompt: "[name activities of daily living ex. eating, sleeping, exercise]"
     },
     { text: "Reviewed intake paperwork, explained practice policies, HIPAA privacy policies, and patient rights, and obtained informed consent for therapy." },
