@@ -267,35 +267,35 @@ const NoteContent = () => {
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s self care.
                     {selfCareSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
-                    {otherSelfCareSymptoms}
+                    <span> {otherSelfCareSymptoms} </span>
                 </p>
             }
             {occupationAffected &&
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s occupational functioning.
                     {occupationSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
-                    {otherOccupationSymptoms}
+                    <span> {otherOccupationSymptoms} </span>
                 </p>
             }
             {academicAffected &&
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s academic functioning.
                     {academicSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
-                    {otherAcademicSymptoms}
+                    <span> {otherAcademicSymptoms} </span>
                 </p>
             }
             {interpersonalAffected &&
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s interpersonal functioning.
                     {interpersonalSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
-                    {otherInterpersonalSymptoms}
+                    <span> {otherInterpersonalSymptoms} </span>
                 </p>
             }
             {communitylAffected &&
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s community functioning.
                     {communitySymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
-                    {otherCommunitySymptoms}
+                    <span> {otherCommunitySymptoms} </span>
                 </p>
             }
             {(interventions.length > 0 || otherInterventions.length > 0) &&
