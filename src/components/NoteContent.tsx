@@ -144,7 +144,7 @@ const NoteContent = () => {
                 </ul>
             </div>
 
-            <div><b>Mental Status Exam / Risk</b>
+            <div><b>Mental Status Exam</b>
                 <ul>
                     {cognitiveFunctioning &&
                         <li>
@@ -171,43 +171,44 @@ const NoteContent = () => {
                             <b>Functional Status: </b> {functionalStatus}
                         </li>
                     }
-                    {(noRisk || dangerToOthers || dangerToSelf || otherRisk) &&
-                        <li>
-                            <b>Risk Status: </b>
-                            <ul>
-                                {noRisk && <li>No Significant Risk Factors presented</li>}
-                                {dangerToSelf &&
-                                    <li>
-                                        Danger to Self
-                                        <ul>
-                                            <li>Risk Level: {dangerToSelfRisk}</li>
-                                            <li>Evidence: {dangerToSelfEvidence}</li>
-                                            <li>Plan: {dangerToSelfPlan}</li>
-                                        </ul>
-                                    </li>
-                                }
-                                {dangerToOthers &&
-                                    <li>
-                                        Danger to Others
-                                        <ul>
-                                            <li>Risk Level: {dangerToOthersRisk}</li>
-                                            <li>Evidence: {dangerToOthersEvidence}</li>
-                                            <li>Plan: {dangerToOthersPlan}</li>
-                                        </ul>
-                                    </li>
-                                }
-                                {otherRisk &&
-                                    <li>
-                                        Other Risk
-                                        <ul>
-                                            <li>Information: {otherRiskInformation}</li>
-                                        </ul>
-                                    </li>
-                                }
-                            </ul>
-                        </li>
-                    }
                 </ul>
+
+                {(noRisk || dangerToOthers || dangerToSelf || otherRisk) &&
+                    <>
+                        <b>Risk Status: </b>
+                        <ul>
+                            {noRisk && <li>No Significant Risk Factors presented</li>}
+                            {dangerToSelf &&
+                                <li>
+                                    Danger to Self
+                                    <ul>
+                                        <li>Risk Level: {dangerToSelfRisk}</li>
+                                        <li>Evidence: {dangerToSelfEvidence}</li>
+                                        <li>Plan: {dangerToSelfPlan}</li>
+                                    </ul>
+                                </li>
+                            }
+                            {dangerToOthers &&
+                                <li>
+                                    Danger to Others
+                                    <ul>
+                                        <li>Risk Level: {dangerToOthersRisk}</li>
+                                        <li>Evidence: {dangerToOthersEvidence}</li>
+                                        <li>Plan: {dangerToOthersPlan}</li>
+                                    </ul>
+                                </li>
+                            }
+                            {otherRisk &&
+                                <li>
+                                    Other Risk
+                                    <ul>
+                                        <li>Information: {otherRiskInformation}</li>
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </>
+                }
             </div>
             {problems &&
                 <div>
@@ -304,8 +305,8 @@ const NoteContent = () => {
                 <p key={intervention.text}>{replaceText(intervention.text, intervention.replacementText)}</p>)
             )
             }
-            { otherInterventions &&
-            <p>{otherInterventions}</p>
+            {otherInterventions &&
+                <p>{otherInterventions}</p>
             }
 
             {progressions.length > 0 &&
@@ -318,7 +319,7 @@ const NoteContent = () => {
             }
             <p><b>Recommendation For Moving Forward :</b> {recommendationForMovingForward}</p>
             {nextMeeting &&
-                <p><b>Next meeting :</b> {new Date(nextMeeting).toLocaleString("en-US", {timeStyle: "full", dateStyle: "full"})}</p>
+                <p><b>Next meeting :</b> {new Date(nextMeeting).toLocaleString("en-US", { timeStyle: "full", dateStyle: "full" })}</p>
             }
             <pre style={{ width: 504, whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif' }}>{frequencyChangeExplanation}</pre>
 
