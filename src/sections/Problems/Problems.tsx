@@ -17,18 +17,18 @@ const Problems = () => {
           <Typography fontWeight={800} fontSize={24}>Problems Discussed</Typography>
         </Stack>
       </Box>
-      <Stack flexDirection='row' justifyContent='center'>
-      <TextField
-        style={{ width: 540 }}
-        id="problems-textarea"
-        multiline
-        fullWidth
-        rows={20}
-        value={problems}
-        onChange={(e) => setProblems(e.target.value)}
-        placeholder='Please describe the problems here....'
-      />
-</Stack>
+      <Stack flexDirection='row' justifyContent='center' paddingBottom={3}>
+        <TextField
+          style={{ width: 540 }}
+          id="problems-textarea"
+          multiline
+          fullWidth
+          rows={20}
+          value={problems}
+          onChange={(e) => setProblems(e.target.value)}
+          placeholder='Please describe the problems here....'
+        />
+      </Stack>
     </Container >
   )
 }

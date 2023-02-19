@@ -89,7 +89,7 @@ const MeetingLogistics = () => {
           <Typography fontWeight={800} fontSize={24}>Meeting Logistics</Typography>
         </Stack>
       </Box>
-      <Stack flexDirection='column' spacing={6}>
+      <Stack flexDirection='column' spacing={5} paddingBottom={5}>
         <TextField label="Client's Initials" value={clientInitials} onChange={(e) => setClientInitials(e.target.value)} style={{ width: 200 }} />
 
         <FormControl>

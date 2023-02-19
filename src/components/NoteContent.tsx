@@ -219,7 +219,7 @@ const NoteContent = () => {
                     <pre style={{ width: 504, whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif' }}>{problems}</pre>
                 </div>
             }
-            {(anxietySymptoms.length || depressionSymptoms.length || ptsdSymptoms.length || otherSymptoms) &&
+            {(anxietySymptoms.length || depressionSymptoms.length || ptsdSymptoms.length || otherSymptoms.length > 1 || otherSymptoms[0].length > 0) &&
                 <div>
                     <b>Symptoms addressed during this meeting include: </b>
                     <ul>
@@ -253,7 +253,8 @@ const NoteContent = () => {
                             :
                             ptsdSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
                         }
-                        {otherSymptoms && groupSymptomsTogether ? (
+                        {(otherSymptoms.length > 1 || otherSymptoms[0].length > 0) &&
+                           ( (otherSymptoms && groupSymptomsTogether) ? (
                             <li>Other Symptoms<ul>
                                 {
                                     otherSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
@@ -262,7 +263,8 @@ const NoteContent = () => {
                         )
                             :
                             otherSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
-                        }
+
+                        )}
                     </ul>
                 </div>
             }

@@ -39,7 +39,7 @@ const Layout = () => {
   return (
     <Box overflow='auto' >
       <Stack flexDirection='row' justifyContent='space-evenly'>
-        <Box width='50%' border="thick" borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} >
+        <Box width='60%' border="thick" borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} >
           <AppBar position='static'>
             <Container>
               <Toolbar disableGutters={true}>

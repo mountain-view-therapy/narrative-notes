@@ -13,7 +13,7 @@ const Note = () => {
                 <CopyToClipboardButton />
                 <ResetStateButton />
             </Stack>
-            <Box overflow='auto'  maxHeight={window.innerHeight - 100} border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} padding={1}>
+            <Box overflow='auto' border="thick" margin={1} borderColor='black' borderRadius={2} borderTop={1} borderBottom={1} borderLeft={1} borderRight={1} padding={1}>
                 <NoteContent />
             </Box>
         </Box>
