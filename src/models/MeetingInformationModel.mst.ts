@@ -18,8 +18,9 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
     problems: types.string,
     symptoms: SymptomsModel,
     interventions: types.array(InterventionModel),
-    otherInterventions: types.string,
+    otherInterventions: types.array(types.string),
     progressions: types.array(ProgressModel),
+    otherProgressions: types.array(types.string),
     identifiedProblem: types.string,
     recommendationForMovingForward: types.enumeration('recommendationForMovingForward', possibleRecommendationsForMovingForward),
     frequencyChangeExplanation: types.string,
@@ -50,8 +51,14 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
                 intervention.replacementText = text
             }
         },
-        setOtherInterventions(interventions: string): void {
-            self.otherInterventions = interventions
+        setOtherIntervention(index: number, intervention: string): void {
+            self.otherInterventions[index] = intervention
+        },
+        addOtherIntervention(): void {
+            self.otherInterventions.push("")
+        },
+        removeOtherIntervention(index: number): void {
+            self.otherInterventions.replace(self.otherInterventions.filter((int, idx) => idx !== index ))
         },
         setProgress(progressIndex: number, value: boolean): void {
             if (value === false) {
@@ -67,6 +74,15 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
                     })
                 }
             }
+        },
+        setOtherProgression(index: number, progression: string): void {
+            self.otherProgressions[index] = progression
+        },
+        addOtherProgression(): void {
+            self.otherProgressions.push("")
+        },
+        removeOtherProgression(index: number): void {
+            self.otherProgressions.replace(self.otherProgressions.filter((int, idx) => idx !== index ))
         },
         setProgressReplacementText(index: number, text: string): void {
             const progress = self.progressions.find(i => i.possibleProgressIndex === index)

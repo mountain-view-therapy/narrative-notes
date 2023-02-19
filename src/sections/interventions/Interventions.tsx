@@ -1,4 +1,4 @@
-import { Checkbox, FormControlLabel, TextField, Typography } from '@mui/material'
+import { Button, Checkbox, FormControlLabel, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
 import { possibleInterventions } from '../../state/constants';
@@ -15,7 +15,9 @@ const Interventions = () => {
       interventions,
       otherInterventions,
       setIntervention,
-      setOtherInterventions,
+      setOtherIntervention,
+      addOtherIntervention,
+      removeOtherIntervention,
       setInterventionReplacementText,
       identifiedProblem,
       setIdentifedProblem,
@@ -52,8 +54,30 @@ const Interventions = () => {
             </Stack>
           ))
         }
-        <TextField style={{marginTop: '10px'}} label="Other interventions" fullWidth value={otherInterventions} onChange={(e) => setOtherInterventions(e.target.value)} />
-
+        <Stack flexDirection='column' spacing={1} marginTop={3}>
+          <Stack flexDirection='column' >
+            {otherInterventions.map((otherIntervention, idx) =>
+              <Stack flexDirection='row' alignItems='center'>
+                <TextField label={`Other Intervention ${idx + 1}`} fullWidth style={{ margin: 3, }} value={otherInterventions[idx]} onChange={(e) => setOtherIntervention(idx, e.target.value)} />
+                <Button
+                  variant='contained'
+                  style={{ height: 30 }}
+                  disabled={otherInterventions.length < 2}
+                  onClick={() => removeOtherIntervention(idx)}
+                >
+                  -
+                </Button>
+              </Stack>
+            )}
+          </Stack>
+          <Button
+            variant='contained'
+            style={{ width: 20 }}
+            onClick={() => addOtherIntervention()}
+          >
+            +
+          </Button>
+        </Stack>
       </Stack >
     </Container >
   )

@@ -75,6 +75,7 @@ const NoteContent = () => {
         interventions,
         otherInterventions,
         progressions,
+        otherProgressions,
         identifiedProblem,
         recommendationForMovingForward,
         frequencyChangeExplanation,
@@ -307,18 +308,21 @@ const NoteContent = () => {
                 <p key={intervention.text}>{replaceText(intervention.text, intervention.replacementText)}</p>)
             )
             }
-            {otherInterventions &&
-                <p>{otherInterventions}</p>
+
+            {otherInterventions.map(intervention => (
+                <p key={intervention}>{intervention}</p>)
+            )
             }
 
-            {progressions.length > 0 &&
+            {(progressions.length > 0 || otherProgressions.length > 1 || otherProgressions[0].length > 0) &&
                 <b>In Meeting Progress:</b>
             }
             {progressions.map(progress => (
                 <p key={progress.text}>{replaceText(progress.text, progress.replacementText)}</p>
-            )
-            )
-            }
+            ))}
+            {otherProgressions.map(progress => (
+                <p key={progress}>{progress}</p>
+            ))}
             <p><b>Recommendation For Moving Forward :</b> {recommendationForMovingForward}</p>
             {nextMeeting &&
                 <p><b>Next meeting :</b> {new Date(nextMeeting).toLocaleString("en-US", { timeStyle: "full", dateStyle: "full" })}</p>

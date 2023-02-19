@@ -1,4 +1,4 @@
-import { Checkbox, FormControlLabel, TextField, Typography } from '@mui/material'
+import { Button, Checkbox, FormControlLabel, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
 import { possibleProgressions } from '../../state/constants';
@@ -13,8 +13,12 @@ const Progress = () => {
         setClientInitials,
       },
       progressions,
+      otherProgressions,
       setProgress,
       setProgressReplacementText,
+      setOtherProgression,
+      addOtherProgression,
+      removeOtherProgression,
       identifiedProblem,
       setIdentifedProblem,
     } } = getState()
@@ -51,6 +55,30 @@ const Progress = () => {
           ))
         }
       </Stack >
+      <Stack flexDirection='column' spacing={1} marginTop={3}>
+          <Stack flexDirection='column' >
+            {otherProgressions.map((otherProgression, idx) =>
+              <Stack flexDirection='row' alignItems='center'>
+                <TextField label={`Other Progression ${idx + 1}`} fullWidth style={{ margin: 3, }} value={otherProgressions[idx]} onChange={(e) => setOtherProgression(idx, e.target.value)} />
+                <Button
+                  variant='contained'
+                  style={{ height: 30 }}
+                  disabled={otherProgressions.length < 2}
+                  onClick={() => removeOtherProgression(idx)}
+                >
+                  -
+                </Button>
+              </Stack>
+            )}
+          </Stack>
+          <Button
+            variant='contained'
+            style={{ width: 20 }}
+            onClick={() => addOtherProgression()}
+          >
+            +
+          </Button>
+        </Stack>
     </Container >
   )
 }

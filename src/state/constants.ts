@@ -347,7 +347,8 @@ export const initialState = {
         recommendationForMovingForward: "Continue with current treatment plan",
         frequencyChangeExplanation: "",
         nextMeeting:"",
-        otherInterventions: "",
+        otherInterventions: [""],
+        otherProgressions: [""],
 
     },
     currentTab: "/meeting-logstics",
