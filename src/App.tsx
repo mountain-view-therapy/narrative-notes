@@ -69,7 +69,7 @@ const Layout = () => {
                   />
                   <Tab
                     value='problems'
-                    label="Problem(s)"
+                    label="Discussion"
                     component={Link}
                     to='problems'
                     style={{ fontSize: '12px', color: 'white' }}

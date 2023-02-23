@@ -214,7 +214,7 @@ const NoteContent = () => {
             {problems &&
                 <div>
                     <div>
-                        <b>Problems Discussed in the meeting include: </b>
+                        <b>Issues discussed in this meeting include: </b>
                     </div>
                     <pre style={{ width: 504, whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif' }}>{problems}</pre>
                 </div>
@@ -317,7 +317,7 @@ const NoteContent = () => {
             }
 
             {(progressions.length > 0 || otherProgressions.length > 1 || otherProgressions[0].length > 0) &&
-                <b>In Meeting Progress:</b>
+                <b>Progress Towards Goals:</b>
             }
             {progressions.map(progress => (
                 <p key={progress.text}>{replaceText(progress.text, progress.replacementText)}</p>

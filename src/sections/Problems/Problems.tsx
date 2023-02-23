@@ -14,7 +14,7 @@ const Problems = () => {
     < Container >
       <Box>
         <Stack justifyContent='center' alignItems='center' flexDirection='row' margin={2}>
-          <Typography fontWeight={800} fontSize={24}>Problems Discussed</Typography>
+          <Typography fontWeight={800} fontSize={24}>Issues/ Problems Discussed</Typography>
         </Stack>
       </Box>
       <Stack flexDirection='row' justifyContent='center' paddingBottom={3}>
@@ -26,7 +26,7 @@ const Problems = () => {
           rows={20}
           value={problems}
           onChange={(e) => setProblems(e.target.value)}
-          placeholder='Please describe the problems here....'
+          placeholder='Please summarize what was discussed during the meeting...'
         />
       </Stack>
     </Container >
