@@ -168,7 +168,7 @@ export const possibleInterventions = [
     { text: "Used deconstruction questions to help [CLIENT] name the problem, [PROBLEM]." },
     { text: "Used deconstruction questions to help [CLIENT] identify the effects of [PROBLEM]."},
     { text: "Used deconstruction questions to help [CLIENT] identify the tactics of [PROBLEM]."},
-    { text: "Helped [CLIENT] develop and practice strategies to counter the effects and tactics of  [PROBLEM]."},
+    { text: "Helped [CLIENT] develop and/or practice strategies to counter the effects and tactics of  [PROBLEM]."},
     { text: "Used deconstruction questions to help [CLIENT] explore the history of their relationship with [PROBLEM]."},
     { text: "Invited [CLIENT] to take a stance on their relationship with [PROBLEM]. Used deconstruction questions to help them richly describe their values/ preferences that  justify their stance."},
     { text: "Helped  [CLIENT] identify cultural discourse and societal norms thay may be supporting the  [PROBLEM]."},
@@ -199,6 +199,8 @@ export const possibleInterventions = [
     { text: "Reviewed Clinical Formulation" },
     { text: "Reviewed Treatment Plan" },
     { text: "Reviewed intake questionnaire" },
+    { text: "Started work on CANS assessment with [CLIENT] and parents. Will complete within 21 days" },
+    { text: "Completed CANS assessment" },
 ]
 
 export const possibleProgressions = [
@@ -216,7 +218,7 @@ export const possibleProgressions = [
         prompt: "[list tactics identified]"
     },
     {
-        text: "[CLIENT] developed and practiced strategies that counter the effects and tactics of [PROBLEM] including [REPLACEMENT].",
+        text: "[CLIENT] developed and/or practiced strategies that counter the effects and tactics of [PROBLEM] including [REPLACEMENT].",
         prompt: "[list strategies]"
     },
     {
