@@ -176,7 +176,7 @@ export const possibleInterventions = [
     { text: "Used Narrative practice of Re-Authoring to invite [CLIENT]  into preferred story development."},
     { text: "Used deconstruction questions to help [CLIENT] explore the history of their relationship with [PROBLEM]."},
     {
-        text: "Used Narrative practice of Re-Authoring to Identify name for preferred story/project, [REPLACEMENT].",
+        text: "Used Narrative practice of Re-Authoring to identify name for preferred story/project, [REPLACEMENT].",
         prompt: "[key word or phrase for emerging preferred story]",
     },
     { text: "Used Narrative practice of Re-Authoring to invite  [CLIENT] to identify their actions that support their preferred story."},
@@ -199,7 +199,7 @@ export const possibleInterventions = [
     { text: "Reviewed Clinical Formulation" },
     { text: "Reviewed Treatment Plan" },
     { text: "Reviewed intake questionnaire" },
-    { text: "Started work on CANS assessment with [CLIENT] and parents. Will complete within 21 days" },
+    { text: "Started work on CANS assessment with [CLIENT] and parent. Will complete within 21 days" },
     { text: "Completed CANS assessment" },
 ]
 
