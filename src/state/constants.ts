@@ -123,43 +123,43 @@ export const possiblePTSDSymptoms = [
 export type PossiblePTSDSymptom = typeof possiblePTSDSymptoms[number]
 
 export const possibleSelfCareSymptoms = [
-    " is getting inadequate sleep, only 5 hours per night",
-    " is only eating 1 meal per day",
-    " is only showering twice a week when they\"d prefer to shower daily",
+    "[CLIENT] is getting inadequate sleep, only 5 hours per night",
+    "[CLIENT] is only eating 1 meal per day",
+    "[CLIENT] is only showering twice a week when they\"d prefer to shower daily",
 ]
 export type PossibleSelfCareSymptom = typeof possibleSelfCareSymptoms[number]
 
 
 export const possibleOccupationSymptoms = [
-    " is getting in frequent arguments with coworkers",
-    " is frequently late to work",
-    " frequently misses work",
-    " has received a written warning at work",
-    " is at risk of losing job",
+    "[CLIENT] is getting in frequent arguments with coworkers",
+    "[CLIENT] is frequently late to work",
+    "[CLIENT] frequently misses work",
+    "[CLIENT] has received a written warning at work",
+    "[CLIENT] is at risk of losing job",
 ]
 export type PossibleOccupationSymptom = typeof possibleOccupationSymptoms[number]
 
 
 export const possibleAcademicSymptoms = [
-    " frequently arrives late to school",
-    " frequently misses school",
-    " lack of school attendance is negatively affecting grades",
-    " unable to keep up with coursework",
-    " is engaged in fights at school every month",
+    "[CLIENT] frequently arrives late to school",
+    "[CLIENT] frequently misses school",
+    "[CLIENT] lack of school attendance is negatively affecting grades",
+    "[CLIENT] unable to keep up with coursework",
+    "[CLIENT] is engaged in fights at school every month",
 ]
 export type PossibleAcademicSymptom = typeof possibleAcademicSymptoms[number]
 
 export const possibleInterpersonalSymptoms = [
-    " is getting in frequent arguments with partner",
-    " has frequent arguments with family members",
-    " has frequent arguments with friends",
-    " is unable to partake in family obligations",
+    "[CLIENT] is getting in frequent arguments with partner",
+    "[CLIENT] has frequent arguments with family members",
+    "[CLIENT] has frequent arguments with friends",
+    "[CLIENT] is unable to partake in family obligations",
 ]
 export type PossibleInterpersonalSymptom = typeof possibleInterpersonalSymptoms[number]
 
 export const possibleCommunitySymptoms = [
-    " has been unable to attend community functions",
-    " has been unable to fulfill community obligations",
+    "[CLIENT] has been unable to attend community functions",
+    "[CLIENT] has been unable to fulfill community obligations",
 ]
 export type PossibleCommunitySymptom = typeof possibleCommunitySymptoms[number]
 
@@ -210,32 +210,32 @@ export const possibleProgressions = [
         prompt: "[state name]",
     },
     {
-        text: "[CLIENT] identified and verbalized effects of [PROBLEM] including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized effects of [PROBLEM] including [REPLACEMENT]",
         prompt: "[list effects identified]",
     },
     {
-        text: "[CLIENT] identified and verbalized tactics used by [PROBLEM] including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized tactics used by [PROBLEM] including [REPLACEMENT]",
         prompt: "[list tactics identified]"
     },
     {
-        text: "[CLIENT] developed and/or practiced strategies that counter the effects and tactics of [PROBLEM] including [REPLACEMENT].",
+        text: "[CLIENT] developed and/or practiced strategies that counter the effects and tactics of [PROBLEM] including [REPLACEMENT]",
         prompt: "[list strategies]"
     },
     {
-        text: "[CLIENT] identified and verbalized past experiences that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized past experiences that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[name experiences]",
     },
     {
-        text: "[CLIENT] identified and verbalized cultural discourses that support and sustain their relationship with [PROBLEM] including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized cultural discourses that support and sustain their relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[name discourses]",
     },
     {
-        text: "[CLIENT] identified and verbalized a rich description of their values/preferences in relationship to [PROBLEM] including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized a rich description of their values/preferences in relationship to [PROBLEM] including [REPLACEMENT]",
         prompt: "[name values/preferences]",
     },
     {   text: "[CLIENT] named and richly described a re-authored preferred narrative that supports their stated values/preferences and does not support [PROBLEM]’s narrative."},
     {
-        text: "[CLIENT] identified and verbalized actions they have taken to support their preferred narrative including  [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized actions they have taken to support their preferred narrative including [REPLACEMENT]",
         prompt: "[list actions]",
     },
      {
@@ -247,19 +247,19 @@ export const possibleProgressions = [
         prompt: "[name person]."
     },
     {
-        text: "[CLIENT] identified and verbalized past experiences that support their preferred narrative including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized past experiences that support their preferred narrative including [REPLACEMENT]",
         prompt: "[list experiences]",
     },
     {
-        text: "[CLIENT] identified and verbalized situations that support their preferred narrative including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized situations that support their preferred narrative including [REPLACEMENT]",
         prompt: "[list situations]",
     },
     {
-        text: "[CLIENT] identified and verbalized cultural discourses that support their preferred narrative including [REPLACEMENT].",
+        text: "[CLIENT] identified and verbalized cultural discourses that support their preferred narrative including [REPLACEMENT]",
         prompt: "[list discourses]",
     },
     {
-        text: "[CLIENT] learned and implemented behavioral strategies to exert acute control over relationship with [PROBLEM] including [REPLACEMENT].",
+        text: "[CLIENT] learned and implemented behavioral strategies to exert acute control over relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[list strategies].",
     },
     {
