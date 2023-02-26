@@ -166,25 +166,25 @@ export type PossibleCommunitySymptom = typeof possibleCommunitySymptoms[number]
 export const possibleInterventions = [
     { text: "Used/promoted externalized language to give [CLIENT] space to take a position on their relationship with [PROBLEM]." },
     { text: "Used deconstruction questions to help [CLIENT] name the problem, [PROBLEM]." },
-    { text: "Used deconstruction questions to help [CLIENT] identify the effects of [PROBLEM]."},
-    { text: "Used deconstruction questions to help [CLIENT] identify the tactics of [PROBLEM]."},
-    { text: "Helped [CLIENT] develop and/or practice strategies to counter the effects and tactics of  [PROBLEM]."},
-    { text: "Used deconstruction questions to help [CLIENT] explore the history of their relationship with [PROBLEM]."},
-    { text: "Invited [CLIENT] to take a stance on their relationship with [PROBLEM]. Used deconstruction questions to help them richly describe their values/ preferences that  justify their stance."},
-    { text: "Helped  [CLIENT] identify cultural discourse and societal norms thay may be supporting the  [PROBLEM]."},
-    { text: "Used Narrative practice of double listening to identify unique outcomes invite [CLIENT] to richly describe situation where  [PROBLEM] has less influence. "},
-    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT]  into preferred story development."},
-    { text: "Used deconstruction questions to help [CLIENT] explore the history of their relationship with [PROBLEM]."},
+    { text: "Used deconstruction questions to help [CLIENT] identify the effects of [PROBLEM]." },
+    { text: "Used deconstruction questions to help [CLIENT] identify the tactics of [PROBLEM]." },
+    { text: "Helped [CLIENT] develop and/or practice strategies to counter the effects and tactics of  [PROBLEM]." },
+    { text: "Used deconstruction questions to help [CLIENT] explore the history of their relationship with [PROBLEM]." },
+    { text: "Invited [CLIENT] to take a stance on their relationship with [PROBLEM]. Used deconstruction questions to help them richly describe their values/ preferences that  justify their stance." },
+    { text: "Helped  [CLIENT] identify cultural discourse and societal norms thay may be supporting the  [PROBLEM]." },
+    { text: "Used Narrative practice of double listening to identify unique outcomes invite [CLIENT] to richly describe situation where  [PROBLEM] has less influence. " },
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT]  into preferred story development." },
+    { text: "Used deconstruction questions to help [CLIENT] explore the history of their relationship with [PROBLEM]." },
     {
         text: "Used Narrative practice of Re-Authoring to identify name for preferred story/project, [REPLACEMENT].",
         prompt: "[key word or phrase for emerging preferred story]",
     },
-    { text: "Used Narrative practice of Re-Authoring to invite  [CLIENT] to identify their actions that support their preferred story."},
-    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify people that support their preferred story including."},
-    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify past experiences that fit with their preferred story."},
-    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify situations that support their preferred story."},
-    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify cultural discourse that support their preferred story."},
-    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to making meaning of their life through the lens of their preferred story"},
+    { text: "Used Narrative practice of Re-Authoring to invite  [CLIENT] to identify their actions that support their preferred story." },
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify people that support their preferred story including." },
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify past experiences that fit with their preferred story." },
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify situations that support their preferred story." },
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to identify cultural discourse that support their preferred story." },
+    { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] to making meaning of their life through the lens of their preferred story" },
     {
         text: "Used Narrative practice of Re-membering Conversations to invoke the presences/memory of [REPLACEMENT] to thicken alternative/preferred story.",
         prompt: "[name person “re-membered”]",
@@ -204,7 +204,7 @@ export const possibleInterventions = [
 ]
 
 export const possibleProgressions = [
-    {text: "[CLIENT] consistently speaks about [PROBLEM] in externalized language during therapy meetings.",},    
+    { text: "[CLIENT] consistently speaks about [PROBLEM] in externalized language during therapy meetings.", },
     {
         text: "[CLIENT] identified and verbalized an experience near name for the problem, [REPLACEMENT].",
         prompt: "[state name]",
@@ -233,12 +233,12 @@ export const possibleProgressions = [
         text: "[CLIENT] identified and verbalized a rich description of their values/preferences in relationship to [PROBLEM] including [REPLACEMENT]",
         prompt: "[name values/preferences]",
     },
-    {   text: "[CLIENT] named and richly described a re-authored preferred narrative that supports their stated values/preferences and does not support [PROBLEM]’s narrative."},
+    { text: "[CLIENT] named and richly described a re-authored preferred narrative that supports their stated values/preferences and does not support [PROBLEM]’s narrative." },
     {
         text: "[CLIENT] identified and verbalized actions they have taken to support their preferred narrative including [REPLACEMENT]",
         prompt: "[list actions]",
     },
-     {
+    {
         text: "[CLIENT] identified [REPLACEMENT] as a person who will support their preferred narrative.",
         prompt: "[name person]",
     },
@@ -265,7 +265,7 @@ export const possibleProgressions = [
     {
         text: "[CLIENT] reported connection to their preferred stories as a means to decrease the [PROBLEM]’s influence.",
     },
-    
+
 ]
 
 
@@ -329,6 +329,8 @@ export const initialState = {
             ptsdSymptoms: [],
             otherSymptoms: [""],
             groupSymptomsTogether: false,
+        },
+        functioning: {
             selfCareAffected: false,
             selfCareSymptoms: [],
             otherSelfCareSymptoms: "",
@@ -348,7 +350,7 @@ export const initialState = {
         identifiedProblem: "",
         recommendationForMovingForward: "Continue with current treatment plan",
         frequencyChangeExplanation: "",
-        nextMeeting:"",
+        nextMeeting: "",
         otherInterventions: [""],
         otherProgressions: [""],
 

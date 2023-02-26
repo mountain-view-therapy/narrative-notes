@@ -12,7 +12,7 @@ import { getState } from '../../state/provider';
 
 const Functioning = () => {
   const { meetingInformation: {
-    symptoms: {
+    functioning: {
       selfCareAffected,
       selfCareSymptoms,
       otherSelfCareSymptoms,

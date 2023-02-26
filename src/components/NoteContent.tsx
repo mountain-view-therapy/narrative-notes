@@ -56,6 +56,8 @@ const NoteContent = () => {
             ptsdSymptoms,
             otherSymptoms,
             groupSymptomsTogether,
+        },
+        functioning: {
             selfCareAffected,
             selfCareSymptoms,
             otherSelfCareSymptoms,

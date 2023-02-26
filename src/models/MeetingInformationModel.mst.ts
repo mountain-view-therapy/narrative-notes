@@ -5,6 +5,7 @@ import {
     PossibleRecommendationsForMovingForward,
     possibleRecommendationsForMovingForward,
 } from "../state/constants"
+import FunctioningModel from "./Functioning.mst"
 import InterventionModel from "./InterventionModel.mst"
 import MeetingLogisticsModel from "./MeetingLogisticsModel.mst"
 import MentalStatusExamModel from "./MentalStatusExamModel.mst"
@@ -17,6 +18,7 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
     mentalStatusExam: MentalStatusExamModel,
     problems: types.string,
     symptoms: SymptomsModel,
+    functioning: FunctioningModel,
     interventions: types.array(InterventionModel),
     otherInterventions: types.array(types.string),
     progressions: types.array(ProgressModel),
