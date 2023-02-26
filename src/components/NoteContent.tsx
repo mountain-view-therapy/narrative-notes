@@ -90,6 +90,10 @@ const NoteContent = () => {
         return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]', replacementText)
     }
 
+    const replaceClientsIntitals = (text: string) => {
+        return text.replace('[CLIENT]', clientInitials)
+    }
+
     if (!startTime || !endTime) {
         return (
             <Box>
@@ -273,35 +277,35 @@ const NoteContent = () => {
             {selfCareAffected &&
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s self care.
-                    {selfCareSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
+                    {selfCareSymptoms.map(s => <span key={s}> {replaceClientsIntitals(s)}. </span>)}
                     <span> {otherSelfCareSymptoms} </span>
                 </p>
             }
             {occupationAffected &&
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s occupational functioning.
-                    {occupationSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
+                    {occupationSymptoms.map(s => <span key={s}> {replaceClientsIntitals(s)}. </span>)}
                     <span> {otherOccupationSymptoms} </span>
                 </p>
             }
             {academicAffected &&
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s academic functioning.
-                    {academicSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
+                    {academicSymptoms.map(s => <span key={s}> {replaceClientsIntitals(s)}. </span>)}
                     <span> {otherAcademicSymptoms} </span>
                 </p>
             }
             {interpersonalAffected &&
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s interpersonal functioning.
-                    {interpersonalSymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
+                    {interpersonalSymptoms.map(s => <span key={s}> {replaceClientsIntitals(s)}. </span>)}
                     <span> {otherInterpersonalSymptoms} </span>
                 </p>
             }
             {communitylAffected &&
                 <p>
                     These symptoms affect {clientInitials || <b>Client's Initials</b>}'s community functioning.
-                    {communitySymptoms.map(s => <span key={s}> {clientInitials} {s}. </span>)}
+                    {communitySymptoms.map(s => <span key={s}> {replaceClientsIntitals(s)}. </span>)}
                     <span> {otherCommunitySymptoms} </span>
                 </p>
             }

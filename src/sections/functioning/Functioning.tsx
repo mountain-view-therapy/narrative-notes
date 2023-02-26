@@ -12,6 +12,10 @@ import { getState } from '../../state/provider';
 
 const Functioning = () => {
   const { meetingInformation: {
+    meetingLogistics: {
+      clientInitials,
+      setClientInitials,
+    },
     functioning: {
       selfCareAffected,
       selfCareSymptoms,
@@ -47,6 +51,10 @@ const Functioning = () => {
   }
   } = getState()
 
+  const replaceText = (text: string) => {
+    return text.replace('[CLIENT]', clientInitials)
+  }
+
   return (
     < Container >
         <Stack>
@@ -55,6 +63,9 @@ const Functioning = () => {
               <Typography fontWeight={800} fontSize={24}>Effects on Functioning</Typography>
             </Stack>
           </Box>
+
+          <TextField label="Client's Initials" value={clientInitials} onChange={(e) => setClientInitials(e.target.value)} style={{ width: 200 }} />
+
 
           <FormControlLabel control={<Checkbox
             checked={selfCareAffected}
@@ -69,10 +80,10 @@ const Functioning = () => {
                 onChange={(e) => setSelfCareSymptom(symptom, e.target.checked)}
                 disabled={!selfCareAffected}
 
-              />} label={symptom} key={'sc-' + symptom} />
+              />} label={replaceText(symptom)} key={'sc-' + symptom} />
             )}
             <FormLabel>Other Self Care Symptoms</FormLabel>
-            <TextField disabled={!selfCareAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherSelfCareSymptoms} onChange={(e) => setOtherSelfCareSymptoms(e.target.value)} />
+            <TextField disabled={!selfCareAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherSelfCareSymptoms || clientInitials} onChange={(e) => setOtherSelfCareSymptoms(e.target.value)} />
           </Stack>
 
 
@@ -89,7 +100,7 @@ const Functioning = () => {
                 onChange={(e) => setOccupationSymptom(symptom, e.target.checked)}
                 disabled={!occupationAffected}
 
-              />} label={symptom} key={'pos-' + symptom} />
+              />} label={replaceText(symptom)} key={'pos-' + symptom} />
             )}
             <FormLabel>Other Occupational Symptoms</FormLabel>
             <TextField disabled={!occupationAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherOccupationSymptoms} onChange={(e) => setOtherOccupationSymptoms(e.target.value)} />
@@ -108,7 +119,7 @@ const Functioning = () => {
                 onChange={(e) => setAcademicSymptom(symptom, e.target.checked)}
                 disabled={!academicAffected}
 
-              />} label={symptom} key={'pas-' + symptom} />
+              />} label={replaceText(symptom)} key={'pas-' + symptom} />
             )}
             <FormLabel>Other Academic Symptoms</FormLabel>
             <TextField disabled={!academicAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherAcademicSymptoms} onChange={(e) => setOtherAcademicSymptoms(e.target.value)} />
@@ -127,7 +138,7 @@ const Functioning = () => {
                 onChange={(e) => setInterpersonalSymptom(symptom, e.target.checked)}
                 disabled={!interpersonalAffected}
 
-              />} label={symptom} key={'pis-' + symptom} />
+              />} label={replaceText(symptom)} key={'pis-' + symptom} />
             )}
             <FormLabel>Other Interpersonal Symptoms</FormLabel>
             <TextField disabled={!interpersonalAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherInterpersonalSymptoms} onChange={(e) => setOtherInterpersonalSymptoms(e.target.value)} />
@@ -146,7 +157,7 @@ const Functioning = () => {
                 onChange={(e) => setCommunitySymptom(symptom, e.target.checked)}
                 disabled={!communitylAffected}
 
-              />} label={symptom} key={'pcs' + symptom} />
+              />} label={replaceText(symptom)} key={'pcs' + symptom} />
             )}
             <FormLabel>Other Community Symptoms</FormLabel>
             <TextField disabled={!communitylAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherCommunitySymptoms} onChange={(e) => setOtherCommunitySymptoms(e.target.value)} />
