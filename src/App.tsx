@@ -2,6 +2,7 @@ import { AppBar, Box, Toolbar, Stack, Tab, Tabs } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Functioning from "./sections/functioning/Functioning";
 import Interventions from "./sections/interventions/Interventions";
 import MeetingLogistics from "./sections/meetingLogistics/MeetingLogistics";
 import MentalStatusExam from "./sections/mentalStatusExam/MentalStatusExam";
@@ -20,6 +21,7 @@ function App() {
         <Route path="mental-status-exam" element={<MentalStatusExam />} />
         <Route path="problems" element={<Problems />} />
         <Route path="symptoms" element={<Symptoms />} />
+        <Route path="functioning" element={<Functioning />} />
         <Route path="interventions" element={<Interventions />} />
         <Route path="progress" element={<Progress />} />
         <Route path="next-meeting" element={<NextMeeting />} />
@@ -79,6 +81,14 @@ const Layout = () => {
                     label="Symptoms"
                     component={Link}
                     to='symptoms'
+                    style={{ fontSize: '12px', color: 'white' }}
+
+                  />
+                  <Tab
+                    value='functioning'
+                    label="Functioning"
+                    component={Link}
+                    to='functioning'
                     style={{ fontSize: '12px', color: 'white' }}
 
                   />
