@@ -71,10 +71,10 @@ const MeetingLogistics = () => {
     if (startHour === 12 && startAmPm === 'AM') {
       startHour = 0
     }
-    if (endAmPm === 'PM') {
+    if (endAmPm === 'PM' && endHour !== 12) {
       endHour += 12
     }
-    if (startAmPm === 'PM') {
+    if (startAmPm === 'PM' && startHour !== 12) {
       startHour += 12
     }
     const hourDiff = (endHour - startHour) * 60
