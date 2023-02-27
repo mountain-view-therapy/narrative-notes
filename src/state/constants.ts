@@ -243,6 +243,10 @@ export const possibleProgressions = [
         prompt: "[name person]",
     },
     {
+        text: "[CLIENT] identified [REPLACEMENT] as people who will support their preferred narrative.",
+        prompt: "[name group of people]",
+    },
+    {
         text: "[CLIENT]  connected with [REPLACEMENT] to help support their preferred narrative.",
         prompt: "[name person]."
     },
