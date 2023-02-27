@@ -94,18 +94,14 @@ const NoteContent = () => {
         return text.replace('[CLIENT]', clientInitials)
     }
 
-    if (!startTime || !endTime) {
+    if (endTime === startTime) {
         return (
             <Box>
                 <Typography>Please fill out all necessary fields</Typography>
+
                 <Typography>Missing Fields</Typography>
                 <ul>
-                    {!startTime &&
-                        <li>Start Time in <a href="/narrative-notes/#/meeting-logistics">Meeting Logistics tab</a></li>
-                    }
-                    {!endTime &&
-                        <li>End Time in <a href="/narrative-notes/#/meeting-logistics">Meeting Logistics tab</a></li>
-                    }
+                        <li>Start and End Time in <a href="/narrative-notes/#/meeting-logistics">Meeting Logistics tab</a></li>
                 </ul>
             </Box>
         )
