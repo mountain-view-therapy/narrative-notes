@@ -43,7 +43,7 @@ const Interventions = () => {
           possibleInterventions.map((intervention, index) => (
             < Stack flexDirection='row' key={`possible-intervention-${index}`}>
               <FormControlLabel control={<Checkbox
-                checked={Boolean(interventions.find(i => i.possibleInterventionsIndex === index))}
+                checked={Boolean(interventions.find(i => i.possibleInterventionsIndex === index)?.checked)}
                 onChange={(e) => setIntervention(index, e.target.checked)}
                 inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
               />} label={replaceText(intervention.text, index)}

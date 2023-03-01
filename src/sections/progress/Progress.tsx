@@ -44,7 +44,7 @@ const Progress = () => {
           possibleProgressions.map((progress, index) => (
             < Stack flexDirection='row' key={`progress-${index}`}>
               <FormControlLabel control={<Checkbox
-                checked={Boolean(progressions.find(i => i.possibleProgressIndex === index))}
+                checked={Boolean(progressions.find(i => i.possibleProgressIndex === index)?.checked)}
                 onChange={(e) => setProgress(index, e.target.checked)}
                 inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
               />} label={replaceText(progress.text, index)} />

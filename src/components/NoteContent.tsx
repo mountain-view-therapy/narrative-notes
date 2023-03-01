@@ -308,7 +308,7 @@ const NoteContent = () => {
             {(interventions.length > 0 || otherInterventions.length > 0) &&
                 <b>In Meeting Interventions:</b>
             }
-            {interventions.map(intervention => (
+            {interventions.filter(i => i.checked).map(intervention => (
                 <p key={intervention.text}>{replaceText(intervention.text, intervention.replacementText)}</p>)
             )
             }
@@ -321,7 +321,7 @@ const NoteContent = () => {
             {(progressions.length > 0 || otherProgressions.length > 1 || otherProgressions[0].length > 0) &&
                 <b>Progress Towards Goals:</b>
             }
-            {progressions.map(progress => (
+            {progressions.filter(i => i.checked).map(progress => (
                 <p key={progress.text}>{replaceText(progress.text, progress.replacementText)}</p>
             ))}
             {otherProgressions.map(progress => (

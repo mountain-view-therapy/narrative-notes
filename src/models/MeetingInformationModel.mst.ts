@@ -33,17 +33,22 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
             self.problems = problems
         },
         setIntervention(interventionIndex: number, value: boolean): void {
+            const intervention = self.interventions.find(i => i.possibleInterventionsIndex === interventionIndex)
+
             if (value === false) {
-                if (self.interventions.find(i => i.possibleInterventionsIndex === interventionIndex)) {
-                    self.interventions.replace(self.interventions.filter(s => s.possibleInterventionsIndex !== interventionIndex))
+                if (intervention) {
+                    intervention.checked = false
                 }
             } else {
-                if (!self.interventions.find(i => i.possibleInterventionsIndex === interventionIndex)) {
+                if (!intervention) {
                     self.interventions.push({
                         possibleInterventionsIndex: interventionIndex,
                         text: possibleInterventions[interventionIndex].text,
                         replacementText: "",
+                        checked: true,
                     })
+                } else {
+                    intervention.checked = true
                 }
             }
         },
@@ -60,20 +65,24 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
             self.otherInterventions.push("")
         },
         removeOtherIntervention(index: number): void {
-            self.otherInterventions.replace(self.otherInterventions.filter((int, idx) => idx !== index ))
+            self.otherInterventions.replace(self.otherInterventions.filter((int, idx) => idx !== index))
         },
         setProgress(progressIndex: number, value: boolean): void {
+            const progress = self.progressions.find(i => i.possibleProgressIndex === progressIndex)
             if (value === false) {
-                if (self.progressions.find(i => i.possibleProgressIndex === progressIndex)) {
-                    self.progressions.replace(self.progressions.filter(s => s.possibleProgressIndex !== progressIndex))
+                if (progress) {
+                    progress.checked = false
                 }
             } else {
-                if (!self.progressions.find(i => i.possibleProgressIndex === progressIndex)) {
+                if (!progress) {
                     self.progressions.push({
                         possibleProgressIndex: progressIndex,
                         text: possibleProgressions[progressIndex].text,
                         replacementText: "",
+                        checked: true,
                     })
+                } else {
+                    progress.checked = true
                 }
             }
         },
@@ -84,7 +93,7 @@ const MeetingInformationModel = types.model('MeetingInformationModel', {
             self.otherProgressions.push("")
         },
         removeOtherProgression(index: number): void {
-            self.otherProgressions.replace(self.otherProgressions.filter((int, idx) => idx !== index ))
+            self.otherProgressions.replace(self.otherProgressions.filter((int, idx) => idx !== index))
         },
         setProgressReplacementText(index: number, text: string): void {
             const progress = self.progressions.find(i => i.possibleProgressIndex === index)

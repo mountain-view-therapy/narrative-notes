@@ -4,6 +4,7 @@ const ProgressModel = types.model('ProgressModel', {
     possibleProgressIndex: types.number,
     text: types.string,
     replacementText: types.string,
+    checked: false,
 })
 
 export default ProgressModel;
