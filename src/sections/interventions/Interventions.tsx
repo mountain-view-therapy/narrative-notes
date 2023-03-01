@@ -2,7 +2,7 @@ import { Button, Checkbox, FormControlLabel, TextField, Typography } from '@mui/
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
 import { possibleInterventions } from '../../state/constants';
-import { getState } from '../../state/provider';
+import { useAppState } from '../../state/provider';
 
 
 const Interventions = () => {
@@ -21,7 +21,7 @@ const Interventions = () => {
       setInterventionReplacementText,
       identifiedProblem,
       setIdentifedProblem,
-    } } = getState()
+    } } = useAppState()
 
   const replaceText = (text: string, index: number) => {
     return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]', interventions.find(i => i.possibleInterventionsIndex === index)?.replacementText || "[REPLACE ME]")

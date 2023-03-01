@@ -18,7 +18,7 @@ persist('root8', root, {
 
 const StateContext = React.createContext<IRoot>(root);
 
-export const getState = (): IRoot => {
+export const useAppState = (): IRoot => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const state = React.useContext(StateContext);
   if (!state)

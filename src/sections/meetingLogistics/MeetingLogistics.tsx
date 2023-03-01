@@ -1,7 +1,7 @@
 import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, NativeSelect, Radio, RadioGroup, TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { getState } from '../../state/provider';
+import { useAppState } from '../../state/provider';
 import { possibleCptCodes } from '../../state/constants';
 import TimePicker from '../../components/TimePicker';
 
@@ -53,7 +53,7 @@ const MeetingLogistics = () => {
     },
 
   }
-  } = getState();
+  } = useAppState();
 
   const calculateTimeDiff = () => {
     const startTimeResult = startTime.match(/(\d\d):(\d\d) ([A,P]M)/);

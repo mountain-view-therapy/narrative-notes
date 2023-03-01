@@ -1,14 +1,14 @@
 import { TextField, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
-import { getState } from '../../state/provider';
+import { useAppState } from '../../state/provider';
 
 const Problems = () => {
   const { meetingInformation: {
     problems,
     setProblems
   }
-  } = getState();
+  } = useAppState();
 
   return (
     < Container >

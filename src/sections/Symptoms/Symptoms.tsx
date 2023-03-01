@@ -6,7 +6,7 @@ import {
   possibleDepressionSymptoms,
   possiblePTSDSymptoms,
 } from '../../state/constants';
-import { getState } from '../../state/provider';
+import { useAppState } from '../../state/provider';
 
 const Symptoms = () => {
   const { meetingInformation: {
@@ -25,7 +25,7 @@ const Symptoms = () => {
       setGroupSystemsTogether,
     },
   }
-  } = getState()
+  } = useAppState()
 
   return (
     < Container >

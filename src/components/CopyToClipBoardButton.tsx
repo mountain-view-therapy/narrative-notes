@@ -4,7 +4,7 @@ import TurndownService from 'turndown'
 import { renderToString } from "react-dom/server";
 import NoteContent from './NoteContent';
 import { observer } from 'mobx-react-lite';
-import { getState } from '../state/provider';
+import { useAppState } from '../state/provider';
 
 const turndownService = new TurndownService()
 
@@ -14,7 +14,7 @@ const CopyToClipboardButton = () => {
             startTime,
             endTime,
         }
-    } } = getState();
+    } } = useAppState();
 
     const [open, setOpen] = useState(false)
 

@@ -2,7 +2,7 @@ import { Button, Checkbox, FormControlLabel, TextField, Typography } from '@mui/
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
 import { possibleProgressions } from '../../state/constants';
-import { getState } from '../../state/provider';
+import { useAppState } from '../../state/provider';
 
 
 const Progress = () => {
@@ -21,7 +21,7 @@ const Progress = () => {
       removeOtherProgression,
       identifiedProblem,
       setIdentifedProblem,
-    } } = getState()
+    } } = useAppState()
 
     const replaceText = (text: string, index: number) => {
       return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]',progressions.find(i => i.possibleProgressIndex === index)?.replacementText || "[REPLACE ME]")

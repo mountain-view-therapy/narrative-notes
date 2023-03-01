@@ -8,7 +8,7 @@ import {
   possibleOccupationSymptoms,
   possibleSelfCareSymptoms
 } from '../../state/constants';
-import { getState } from '../../state/provider';
+import { useAppState } from '../../state/provider';
 
 const Functioning = () => {
   const { meetingInformation: {
@@ -49,7 +49,7 @@ const Functioning = () => {
       setOtherCommunitySymptoms,
     },
   }
-  } = getState()
+  } = useAppState()
 
   const replaceText = (text: string) => {
     return text.replace('[CLIENT]', clientInitials)
@@ -103,7 +103,7 @@ const Functioning = () => {
               />} label={replaceText(symptom)} key={'pos-' + symptom} />
             )}
             <FormLabel>Other Occupational Symptoms</FormLabel>
-            <TextField disabled={!occupationAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherSelfCareSymptoms || clientInitials} onChange={(e) => setOtherOccupationSymptoms(e.target.value)} />
+            <TextField disabled={!occupationAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherOccupationSymptoms || clientInitials} onChange={(e) => setOtherOccupationSymptoms(e.target.value)} />
           </Stack>
 
           <FormControlLabel control={<Checkbox

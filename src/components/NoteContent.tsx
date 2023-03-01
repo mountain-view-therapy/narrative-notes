@@ -3,7 +3,7 @@ import { Box } from "@mui/system"
 import dayjs from 'dayjs-ext'
 import timeZonePlugin from 'dayjs-ext/plugin/timeZone'
 import { observer } from "mobx-react-lite"
-import { getState } from "../state/provider"
+import { useAppState } from "../state/provider"
 
 const NoteContent = () => {
 
@@ -82,7 +82,7 @@ const NoteContent = () => {
         recommendationForMovingForward,
         frequencyChangeExplanation,
         nextMeeting,
-    } } = getState()
+    } } = useAppState()
 
     dayjs.extend(timeZonePlugin).locale('cs')
 

@@ -2,7 +2,7 @@ import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField,
 import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
 import { possibleRecommendationsForMovingForward } from '../../state/constants';
-import { getState } from '../../state/provider';
+import { useAppState } from '../../state/provider';
 import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
 import dayjs from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -17,7 +17,7 @@ const NextMeeting = () => {
       setFrequencyChangeExplanation,
       nextMeeting,
       setNextMeeting,
-    } } = getState()
+    } } = useAppState()
 
   return (
     <Container>

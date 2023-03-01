@@ -1,13 +1,13 @@
 import { Button, Dialog, Snackbar, Typography } from '@mui/material'
 import { useState } from 'react'
 import { observer } from 'mobx-react-lite';
-import { getState } from '../state/provider';
+import { useAppState } from '../state/provider';
 import { Box, Stack } from '@mui/system';
 
 
 const ResetStateButton = () => {
 
-    const { resetNoteState } = getState()
+    const { resetNoteState } = useAppState()
     const [snackBarOpen, setSnackbarOpen] = useState(false)
     const [dialogOpen, setDialogOpen] = useState(false)
 
