@@ -3,9 +3,8 @@ import { Box, Container, Stack } from '@mui/system';
 import { observer } from 'mobx-react-lite';
 import { possibleRecommendationsForMovingForward } from '../../state/constants';
 import { getState } from '../../state/provider';
-import { useState } from 'react';
 import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
@@ -19,10 +18,6 @@ const NextMeeting = () => {
       nextMeeting,
       setNextMeeting,
     } } = getState()
-
-  const [value, setValue] = useState<Dayjs | null>(
-    dayjs('2018-01-01T00:00:00.000Z'),
-  );
 
   return (
     <Container>

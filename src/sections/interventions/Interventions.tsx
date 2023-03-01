@@ -41,7 +41,7 @@ const Interventions = () => {
         </Stack>
         {
           possibleInterventions.map((intervention, index) => (
-            < Stack flexDirection='row' key={intervention.text}>
+            < Stack flexDirection='row' key={`possible-intervention-${index}`}>
               <FormControlLabel control={<Checkbox
                 checked={Boolean(interventions.find(i => i.possibleInterventionsIndex === index))}
                 onChange={(e) => setIntervention(index, e.target.checked)}
@@ -57,8 +57,8 @@ const Interventions = () => {
         <Stack flexDirection='column' spacing={1} marginTop={3}>
           <Stack flexDirection='column' >
             {otherInterventions.map((otherIntervention, idx) =>
-              <Stack flexDirection='row' alignItems='center'>
-                <TextField label={`Other Intervention ${idx + 1}`} fullWidth style={{ margin: 3, }} value={otherInterventions[idx]} onChange={(e) => setOtherIntervention(idx, e.target.value)} />
+              <Stack flexDirection='row' alignItems='center' key={`other-intervention-${idx}`}>
+                <TextField label={`Other Intervention ${idx + 1}`} fullWidth style={{ margin: 3, }} value={otherIntervention} onChange={(e) => setOtherIntervention(idx, e.target.value)} />
                 <Button
                   variant='contained'
                   style={{ height: 30 }}

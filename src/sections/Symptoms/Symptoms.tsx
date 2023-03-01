@@ -88,9 +88,9 @@ const Symptoms = () => {
 
             <Stack flexDirection='column' spacing={1}>
               <Stack flexDirection='column' >
-                {otherSymptoms.map((othersymptom, idx) =>
-                  <Stack flexDirection='row' alignItems='center'>
-                    <TextField label={`Other Symptom ${idx + 1}`} style={{ margin: 3, fontSize: 12 }} value={otherSymptoms[idx]} onChange={(e) => setOtherSymptom(idx, e.target.value)} />
+                {otherSymptoms.map((otherSymptom, idx) =>
+                  <Stack flexDirection='row' alignItems='center' key={`other-symptom-${idx}`}>
+                    <TextField label={`Other Symptom ${idx + 1}`} style={{ margin: 3, fontSize: 12 }} value={otherSymptom} onChange={(e) => setOtherSymptom(idx, e.target.value)} />
                     <Button
                       variant='contained'
                       style={{ height: 30 }}

@@ -5,9 +5,10 @@ import { Box, Stack } from "@mui/system"
 export interface TimePickerProps {
     value: string;
     onChange: (time: string) => void;
+    debug?: boolean;
 }
 
-const TimePicker = ({ value, onChange }: TimePickerProps) => {
+const TimePicker = ({ value, onChange, debug = false }: TimePickerProps) => {
     const  result = value.match(/(\d\d):(\d\d) ([A,P]M)/);
 
     let [match, hour, minute, ampm] = [' ', '12', '00', 'AM']
@@ -17,7 +18,9 @@ const TimePicker = ({ value, onChange }: TimePickerProps) => {
 
     }
 
-    console.log({match, hour, minute, ampm})
+    if (debug) {
+        console.log(match)
+    }
 
     const handleChangeHour = (event: SelectChangeEvent) => {
         onChange(event.target.value + ":" + minute + " " + ampm)

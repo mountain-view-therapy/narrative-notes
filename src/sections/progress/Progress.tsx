@@ -42,7 +42,7 @@ const Progress = () => {
         </Stack>
         {
           possibleProgressions.map((progress, index) => (
-            < Stack flexDirection='row' key={progress.text}>
+            < Stack flexDirection='row' key={`progress-${index}`}>
               <FormControlLabel control={<Checkbox
                 checked={Boolean(progressions.find(i => i.possibleProgressIndex === index))}
                 onChange={(e) => setProgress(index, e.target.checked)}
@@ -58,8 +58,8 @@ const Progress = () => {
       <Stack flexDirection='column' spacing={1} marginTop={3}>
           <Stack flexDirection='column' >
             {otherProgressions.map((otherProgression, idx) =>
-              <Stack flexDirection='row' alignItems='center'>
-                <TextField label={`Other Progression ${idx + 1}`} fullWidth style={{ margin: 3, }} value={otherProgressions[idx]} onChange={(e) => setOtherProgression(idx, e.target.value)} />
+              <Stack flexDirection='row' alignItems='center' key={`otherPrgression-${idx}`}>
+                <TextField label={`Other Progression ${idx + 1}`} fullWidth style={{ margin: 3, }} value={otherProgression} onChange={(e) => setOtherProgression(idx, e.target.value)} />
                 <Button
                   variant='contained'
                   style={{ height: 30 }}

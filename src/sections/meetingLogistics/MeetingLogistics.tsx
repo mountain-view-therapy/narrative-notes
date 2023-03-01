@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite';
 import { getState } from '../../state/provider';
 import { possibleCptCodes } from '../../state/constants';
 import TimePicker from '../../components/TimePicker';
-import { useState } from 'react';
 
 const MeetingLogistics = () => {
   const { meetingInformation: {

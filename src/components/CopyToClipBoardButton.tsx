@@ -9,13 +9,15 @@ import { getState } from '../state/provider';
 const turndownService = new TurndownService()
 
 const CopyToClipboardButton = () => {
-    const [open, setOpen] = useState(false)
     const { meetingInformation: {
         meetingLogistics: {
             startTime,
             endTime,
         }
     } } = getState();
+
+    const [open, setOpen] = useState(false)
+
     const handleClick = () => {
         setOpen(true)
         const html = renderToString(<NoteContent />)
