@@ -103,7 +103,7 @@ const Functioning = () => {
               />} label={replaceText(symptom)} key={'pos-' + symptom} />
             )}
             <FormLabel>Other Occupational Symptoms</FormLabel>
-            <TextField disabled={!occupationAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherOccupationSymptoms} onChange={(e) => setOtherOccupationSymptoms(e.target.value)} />
+            <TextField disabled={!occupationAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherSelfCareSymptoms || clientInitials} onChange={(e) => setOtherOccupationSymptoms(e.target.value)} />
           </Stack>
 
           <FormControlLabel control={<Checkbox
@@ -122,7 +122,7 @@ const Functioning = () => {
               />} label={replaceText(symptom)} key={'pas-' + symptom} />
             )}
             <FormLabel>Other Academic Symptoms</FormLabel>
-            <TextField disabled={!academicAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherAcademicSymptoms} onChange={(e) => setOtherAcademicSymptoms(e.target.value)} />
+            <TextField disabled={!academicAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherAcademicSymptoms || clientInitials} onChange={(e) => setOtherAcademicSymptoms(e.target.value)} />
           </Stack>
 
           <FormControlLabel control={<Checkbox
@@ -141,7 +141,7 @@ const Functioning = () => {
               />} label={replaceText(symptom)} key={'pis-' + symptom} />
             )}
             <FormLabel>Other Interpersonal Symptoms</FormLabel>
-            <TextField disabled={!interpersonalAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherInterpersonalSymptoms} onChange={(e) => setOtherInterpersonalSymptoms(e.target.value)} />
+            <TextField disabled={!interpersonalAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherInterpersonalSymptoms || clientInitials} onChange={(e) => setOtherInterpersonalSymptoms(e.target.value)} />
           </Stack>
 
           <FormControlLabel control={<Checkbox
@@ -160,7 +160,7 @@ const Functioning = () => {
               />} label={replaceText(symptom)} key={'pcs' + symptom} />
             )}
             <FormLabel>Other Community Symptoms</FormLabel>
-            <TextField disabled={!communitylAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherCommunitySymptoms} onChange={(e) => setOtherCommunitySymptoms(e.target.value)} />
+            <TextField disabled={!communitylAffected} style={{ margin: 3, width: 350, fontSize: 12 }} value={otherCommunitySymptoms || clientInitials} onChange={(e) => setOtherCommunitySymptoms(e.target.value)} />
           </Stack>
       </Stack>
     </Container >
