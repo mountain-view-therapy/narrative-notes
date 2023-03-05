@@ -218,25 +218,44 @@ export const possibleProgressions = [
         prompt: "[list tactics identified]"
     },
     {
-        text: "[CLIENT] developed and/or practiced strategies that counter the effects and tactics of [PROBLEM] including [REPLACEMENT]",
-        prompt: "[list strategies]"
-    },
-    {
         text: "[CLIENT] identified and verbalized past experiences that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[name experiences]",
+    },
+    {
+        text: "[CLIENT] identified people that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
+        prompt: "[name people]",
+    },
+    {
+        text: "[CLIENT] identified situations that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
+        prompt: "[name situations]",
     },
     {
         text: "[CLIENT] identified and verbalized cultural discourses that support and sustain their relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[name discourses]",
     },
     {
-        text: "[CLIENT] identified and verbalized a rich description of their values/preferences in relationship to [PROBLEM] including [REPLACEMENT]",
+        text: "[CLIENT] named and verbalized a rich description of their values/preferences in relationship to [PROBLEM] including [REPLACEMENT]",
         prompt: "[name values/preferences]",
     },
-    { text: "[CLIENT] named and richly described a re-authored preferred narrative that supports their stated values/preferences and does not support [PROBLEM]’s narrative." },
+    {
+        text: "[CLIENT] named and richly decribed strategies that counter [PROBLEM] including [REPLACEMENT]",
+        prompt: "[list strategies]"
+    },
+    {
+        text: "[CLIENT] practiced strategies that counter [PROBLEM] including [REPLACEMENT]",
+        prompt: "[list strategies]"
+    },
+    {
+        text: "[CLIENT] named and richly decribed times when [PROBLEM] had less influence including [REPLACEMENT]",
+        prompt: "[name times when problem had less influence]"
+    },
     {
         text: "[CLIENT] identified and verbalized actions they have taken to support their preferred narrative including [REPLACEMENT]",
         prompt: "[list actions]",
+    },
+    {
+        text: "[CLIENT] identified and verbalized situations that support their preferred narrative including [REPLACEMENT]",
+        prompt: "[list situations]",
     },
     {
         text: "[CLIENT] identified [REPLACEMENT] as a person who will support their preferred narrative.",
@@ -247,24 +266,37 @@ export const possibleProgressions = [
         prompt: "[name group of people]",
     },
     {
-        text: "[CLIENT]  connected with [REPLACEMENT] to help support their preferred narrative.",
-        prompt: "[name person]."
-    },
-    {
         text: "[CLIENT] identified and verbalized past experiences that support their preferred narrative including [REPLACEMENT]",
         prompt: "[list experiences]",
     },
     {
-        text: "[CLIENT] identified and verbalized situations that support their preferred narrative including [REPLACEMENT]",
-        prompt: "[list situations]",
+        text: "[CLIENT] considered their how their preferred narrative fits with their cultural context ([REPLACEMENT]).",
+        prompt: "[name discouses discussed]",
     },
     {
-        text: "[CLIENT] identified and verbalized cultural discourses that support their preferred narrative including [REPLACEMENT]",
-        prompt: "[list discourses]",
+        text: "[CLIENT] considered how their preferred narrative fits with their cultural context ([REPLACEMENT]).",
+        prompt: "[name discouses discussed]",
+    },
+
+    { text: "[CLIENT] named and richly described their preferred narrative that incorporates their stated values and preferences." },
+    {
+        text: "[CLIENT] reported the were able to counter [PROBLEM] by ([REPLACEMENT]).",
+        prompt: "[how where they able to counter the problem?]",
+    },
+    {
+        text: "[CLIENT] connected with [REPLACEMENT] to help support their preferred narrative.",
+        prompt: "[name person/people]."
     },
     {
         text: "[CLIENT] learned and implemented behavioral strategies to exert acute control over relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[list strategies].",
+    },
+    {
+        text: "[CLIENT] spent the majority of the meeting sharing accounts of living their preferred story including [REPLACEMENT]",
+        prompt: "[accounts of living their preferred story].",
+    },
+    {
+        text: "[CLIENT] consistently spoke about themselves through the lens of their preferred story.",
     },
     {
         text: "[CLIENT] reported connection to their preferred stories as a means to decrease the [PROBLEM]’s influence.",
