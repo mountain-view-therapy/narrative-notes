@@ -36,7 +36,7 @@ const Interventions = () => {
       </Box>
       <Stack marginBottom={3}>
         <Stack flexDirection='row' justifyContent='space-between'>
-          <TextField label='Identified Problem' style={{ margin: 3, width: 400, fontSize: 12 }} value={identifiedProblem} onChange={(e) => setIdentifedProblem(e.target.value)} />
+          <TextField label='Identified Issue' style={{ margin: 3, width: 400, fontSize: 12 }} value={identifiedProblem} onChange={(e) => setIdentifedProblem(e.target.value)} />
           <TextField label="Client's Initials" value={clientInitials} onChange={(e) => setClientInitials(e.target.value)} style={{ width: 200 }} />
         </Stack>
         {
