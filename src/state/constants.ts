@@ -207,7 +207,7 @@ export const possibleInterventions = [
 
 export const possibleProgressions = [
     {
-        text: "[CLIENT] has maintained current level of fuctioning in realtion to [PROBLEM]’s influence.",
+        text: "[CLIENT] has maintained current level of functioning in realtion to [PROBLEM]’s influence.",
     },
     { text: "[CLIENT] consistently speaks about [PROBLEM] in externalized language during therapy meetings.", },
     {
@@ -243,7 +243,7 @@ export const possibleProgressions = [
         prompt: "[name values/preferences]",
     },
     {
-        text: "[CLIENT] named and richly decribed strategies that counter [PROBLEM] including [REPLACEMENT]",
+        text: "[CLIENT] named and richly described strategies that counter [PROBLEM] including [REPLACEMENT]",
         prompt: "[list strategies]"
     },
     {
