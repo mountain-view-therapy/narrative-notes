@@ -25,20 +25,24 @@ const ResetStateButton = () => {
                 onClose={() => setDialogOpen(false)}
             >
                 <Box padding={3}>
-                    <Typography>Do you really want to reset the note and lose any changes?</Typography>
-                    <Stack flexDirection='row' justifyContent='space-evenly' padding={3}>
-                        <Button
-                            variant='contained'
-                            onClick={() => handleClick()}
-                        >
-                            Reset Note
-                        </Button>
-                        <Button
-                            variant='contained'
-                            onClick={() => setDialogOpen(false)}
-                        >
-                            Dont Reset Note
-                        </Button>
+                    <Stack flexDirection="column" alignItems="center">
+                        <Typography color="red" fontWeight={800}> DON'T FORGET TO UPDATE THE CPT CODE IN YOUR CALENDAR</Typography>
+                        <Typography>Do you really want to reset the note and lose any changes?</Typography>
+                        <Stack flexDirection='row' justifyContent='space-evenly' padding={3} >
+                            <Button
+                                variant='contained'
+                                onClick={() => handleClick()}
+                                style={{marginRight: 15}}
+                            >
+                                Reset Note
+                            </Button>
+                            <Button
+                                variant='contained'
+                                onClick={() => setDialogOpen(false)}
+                            >
+                                Dont Reset Note
+                            </Button>
+                        </Stack>
                     </Stack>
                 </Box>
             </Dialog>
