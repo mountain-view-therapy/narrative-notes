@@ -171,23 +171,23 @@ export const possibleInterventions = [
     { text: "Used deconstruction questions to help [CLIENT] explore the history of their relationship with [PROBLEM]." },
     { text: "Helped [CLIENT] identify cultural discourse and societal norms that may be supporting [PROBLEM]." },
     { text: "Invited [CLIENT] to take a stance on their relationship with [PROBLEM]. Used deconstruction questions to help them richly describe their values and preferences that  justify their stance." },
-    { text: "Used Narrative practice of double listening to identify unique outcomes invite [CLIENT] to richly describe situation where [PROBLEM] has less influence. " },
+    { text: "Used Narrative practice of double listening to identify unique outcomes and invite [CLIENT] to richly describe situations where [PROBLEM] has less influence. " },
     { text: "Used Re-Authoring to invite [CLIENT] to richly describe their agency in evading [PROBLEM]’s influence." },
     { text: "Used Narrative practice of Re-Authoring to invite [CLIENT] into preferred story development." },
     {
-        text: "Used Re-Authoring questions to identify name for preferred narrative, [REPLACEMENT].",
+        text: "Used Re-Authoring questions to identify a name for preferred narrative, [REPLACEMENT].",
         prompt: "[key word or phrase for emerging preferred narrative]",
     },
-    { text: "Used Re-Authoring questions to invite  [CLIENT] to identify their actions that support their preferred narrative." },
+    { text: "Used Re-Authoring questions to invite  [CLIENT] to identify their actions supporting their preferred narrative." },
     { text: "Used Re-Authoring questions to invite [CLIENT] to identify people that support their preferred narrative." },
     { text: "Used Re-Authoring questions to invite [CLIENT] to identify situations that support their preferred narrative." },
-    { text: "Used Re-Authoring questions to invite [CLIENT] consider how their preferred narrative fits with their cultural context" },
+    { text: "Used Re-Authoring questions to invite [CLIENT] to consider how their preferred narrative fits with their cultural context" },
     { text: "Used Re-Authoring questions to invite [CLIENT] to identify past experiences that support their preferred narrative." },
     { text: "Used Re-Authoring questions to invite [CLIENT] to make meaning of their life through the lens of their preferred narrative" },
     { text: "Used Re-Authoring questions to invite [CLIENT] to imagine the possibilities of living their preferred narrative" },
     { text: "Invited [CLIENT] to reflect on the juxtaposition between their preferred narrative and [PROBLEM]’s narrative." },
     {
-        text: "Used Narrative practice of Re-membering Conversations to invoke the presences/memory of [REPLACEMENT] to thicken their preferred narrative.",
+        text: "Used Narrative practice of Re-membering Conversations to invoke the presence/memory of [REPLACEMENT] to thicken their preferred narrative.",
         prompt: "[name person “re-membered”]",
     },
     { text: "Worked with [CLIENT] to cultivate strategies to counter [PROBLEM]'s influence." },
@@ -207,7 +207,7 @@ export const possibleInterventions = [
 
 export const possibleProgressions = [
     {
-        text: "[CLIENT] has maintained current level of functioning in realtion to [PROBLEM]’s influence.",
+        text: "[CLIENT] has maintained current level of functioning in relation to [PROBLEM]’s influence.",
     },
     { text: "[CLIENT] consistently speaks about [PROBLEM] in externalized language during therapy meetings.", },
     {
@@ -215,7 +215,7 @@ export const possibleProgressions = [
         prompt: "[state name]",
     },
     {
-        text: "[CLIENT] identified and verbalized effects of [PROBLEM] including [REPLACEMENT]",
+        text: "[CLIENT] identified and verbalized the effects of [PROBLEM] including [REPLACEMENT]",
         prompt: "[list effects identified]",
     },
     {
@@ -275,10 +275,10 @@ export const possibleProgressions = [
         prompt: "[list experiences]",
     },
     {
-        text: "[CLIENT] considered how their preferred narrative fits with their cultural context ([REPLACEMENT]).",
+        text: "[CLIENT] considered how their preferred narrative fits their cultural context ([REPLACEMENT]).",
         prompt: "[name discouses discussed]",
     },
-    { text: "[CLIENT] named and richly described their preferred narrative that incorporates their stated values and preferences." },
+    { text: "[CLIENT] named and richly described their preferred narrative incorporating their stated values and preferences." },
     {
         text: "[CLIENT] reported the were able to counter [PROBLEM] by ([REPLACEMENT]).",
         prompt: "[how where they able to counter the problem?]",
@@ -299,7 +299,7 @@ export const possibleProgressions = [
         text: "[CLIENT] consistently spoke about themselves through the lens of their preferred story.",
     },
     {
-        text: "[CLIENT] reported connection to their preferred stories as a means to decrease [PROBLEM]’s influence.",
+        text: "[CLIENT] reported a connection to their preferred stories as a means to decrease [PROBLEM]’s influence.",
     },
 
 ]
