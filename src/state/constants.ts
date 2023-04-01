@@ -183,7 +183,7 @@ export const possibleInterventions = [
     { text: "Used Re-Authoring questions to invite [CLIENT] to identify situations that support their preferred narrative." },
     { text: "Used Re-Authoring questions to invite [CLIENT] consider how their preferred narrative fits with their cultural context" },
     { text: "Used Re-Authoring questions to invite [CLIENT] to identify past experiences that support their preferred narrative." },
-    { text: "Used Re-Authoring questions to invite [CLIENT] to making meaning of their life through the lens of their preferred narrative" },
+    { text: "Used Re-Authoring questions to invite [CLIENT] to make meaning of their life through the lens of their preferred narrative" },
     { text: "Used Re-Authoring questions to invite [CLIENT] to imagine the possibilities of living their preferred narrative" },
     { text: "Invited [CLIENT] to reflect on the juxtaposition between their preferred narrative and [PROBLEM]’s narrative." },
     {
@@ -251,7 +251,7 @@ export const possibleProgressions = [
         prompt: "[list strategies]"
     },
     {
-        text: "[CLIENT] named and richly decribed times when [PROBLEM] had less influence including [REPLACEMENT]",
+        text: "[CLIENT] named and richly described times when [PROBLEM] had less influence including [REPLACEMENT]",
         prompt: "[name times when problem had less influence]"
     },
     {
