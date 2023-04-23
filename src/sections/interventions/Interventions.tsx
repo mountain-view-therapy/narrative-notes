@@ -27,6 +27,33 @@ const Interventions = () => {
     return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]', interventions.find(i => i.possibleInterventionsIndex === index)?.replacementText || "[REPLACE ME]")
   }
 
+  let section = "";
+
+  const displayInterventions = (intervention: { text: string, prompt?: string, section: string }, index: number) => {
+    let showSectionHeading = false
+    if (section !== intervention.section) {
+      section = intervention.section
+      showSectionHeading = true
+    }
+    return (
+      <>
+        {showSectionHeading && <Typography fontSize={30} fontWeight={800} marginY={4}>{intervention.section}</Typography>}
+        <Stack flexDirection='row' key={`possible-intervention-${index}`}>
+          <FormControlLabel control={<Checkbox
+            checked={Boolean(interventions.find(i => i.possibleInterventionsIndex === index)?.checked)}
+            onChange={(e) => setIntervention(index, e.target.checked)}
+            inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
+          />} label={replaceText(intervention.text, index)}
+          />
+          {intervention.prompt && Boolean(interventions.find(i => i.possibleInterventionsIndex === index)) &&
+            <TextField label={intervention.prompt} style={{ margin: 3, width: 350, fontSize: 12 }} value={interventions.find(i => i.possibleInterventionsIndex === index)?.replacementText} onChange={(e) => setInterventionReplacementText(index, e.target.value)} />
+          }
+        </Stack>
+      </>
+    )
+  }
+
+
   return (
     <Container>
       <Box>
@@ -41,17 +68,7 @@ const Interventions = () => {
         </Stack>
         {
           possibleInterventions.map((intervention, index) => (
-            < Stack flexDirection='row' key={`possible-intervention-${index}`}>
-              <FormControlLabel control={<Checkbox
-                checked={Boolean(interventions.find(i => i.possibleInterventionsIndex === index)?.checked)}
-                onChange={(e) => setIntervention(index, e.target.checked)}
-                inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
-              />} label={replaceText(intervention.text, index)}
-              />
-              {intervention.prompt && Boolean(interventions.find(i => i.possibleInterventionsIndex === index)) &&
-                <TextField label={intervention.prompt} style={{ margin: 3, width: 350, fontSize: 12 }} value={interventions.find(i => i.possibleInterventionsIndex === index)?.replacementText} onChange={(e) => setInterventionReplacementText(index, e.target.value)} />
-              }
-            </Stack>
+            displayInterventions(intervention, index)
           ))
         }
         <Stack flexDirection='column' spacing={1} marginTop={3}>
