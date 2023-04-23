@@ -186,10 +186,12 @@ export const possibleInterventions = [
     { text: "Used Re-Authoring questions to invite [CLIENT] to make meaning of their life through the lens of their preferred narrative" },
     { text: "Used Re-Authoring questions to invite [CLIENT] to imagine the possibilities of living their preferred narrative" },
     { text: "Invited [CLIENT] to reflect on the juxtaposition between their preferred narrative and [PROBLEM]’s narrative." },
+    { text: "Used Narrative practice of Re-membering to help [CLIENT] to identify people that support their preferred story." },
     {
         text: "Used Narrative practice of Re-membering Conversations to invoke the presence/memory of [REPLACEMENT] to thicken their preferred narrative.",
         prompt: "[name person “re-membered”]",
     },
+    { text: "Use Narrative practice of Outsider-Witnessing to create circumsatnces where [CLIENT] can experience acknowledgment of/resonance with their experience." },
     { text: "Worked with [CLIENT] to cultivate strategies to counter [PROBLEM]'s influence." },
     {
         text: "Worked with [CLIENT] to develop a concrete preferred action plan in relation to [REPLACEMENT].",
