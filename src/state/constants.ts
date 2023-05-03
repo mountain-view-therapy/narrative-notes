@@ -165,7 +165,7 @@ export type PossibleCommunitySymptom = typeof possibleCommunitySymptoms[number]
 
 export const possibleInterventions = [
     { section: "Deconstruction", text: "Used/promoted externalized language to give [CLIENT] space to take a position on their relationship with [PROBLEM]." },
-    { section: "Deconstruction", text: "Used deconstruction questions to help [CLIENT] name the problem, [PROBLEM]." },
+    { section: "Deconstruction", text: "Used deconstruction questions to help [CLIENT] name the issue, [PROBLEM]." },
     { section: "Deconstruction", text: "Used deconstruction questions to help [CLIENT] identify the effects of [PROBLEM]." },
     { section: "Deconstruction", text: "Used deconstruction questions to help [CLIENT] identify the tactics of [PROBLEM]." },
     { section: "Deconstruction", text: "Used deconstruction questions to help [CLIENT] explore the history of their relationship with [PROBLEM]." },
@@ -182,10 +182,10 @@ export const possibleInterventions = [
     { section: "Re-authoring", text: "Used Re-Authoring questions to invite  [CLIENT] to identify their actions supporting their preferred narrative." },
     { section: "Re-authoring", text: "Used Re-Authoring questions to invite [CLIENT] to identify people that support their preferred narrative." },
     { section: "Re-authoring", text: "Used Re-Authoring questions to invite [CLIENT] to identify situations that support their preferred narrative." },
-    { section: "Re-authoring", text: "Used Re-Authoring questions to invite [CLIENT] to consider how their preferred narrative fits with their cultural context" },
+    { section: "Re-authoring", text: "Used Re-Authoring questions to invite [CLIENT] to consider how their preferred narrative fits with their cultural context." },
     { section: "Re-authoring", text: "Used Re-Authoring questions to invite [CLIENT] to identify past experiences that support their preferred narrative." },
     { section: "Re-authoring", text: "Used Re-Authoring questions to invite [CLIENT] to make meaning of their life through the lens of their preferred narrative" },
-    { section: "Re-authoring", text: "Used Re-Authoring questions to invite [CLIENT] to imagine the possibilities of living their preferred narrative" },
+    { section: "Re-authoring", text: "Used Re-Authoring questions to invite [CLIENT] to imagine the possibilities of living their preferred narrative." },
     { section: "Re-authoring", text: "Invited [CLIENT] to reflect on the juxtaposition between their preferred narrative and [PROBLEM]’s narrative." },
     { section: "Remembering", text: "Used Narrative practice of Re-membering to help [CLIENT] to identify people that support their preferred story." },
     {
@@ -202,11 +202,11 @@ export const possibleInterventions = [
     },
     { section: "Behavioral", text: "Referred to resources to learn meditation/mindfulness. Incorporated the use of these skills in preferred story development." },
     { section: "Administrative", text: "Referred [CLIENT] to physician for medical evaluation. " },
-    { section: "Administrative", text: "Reviewed intake paperwork, explained practice policies, HIPAA privacy policies, and patient rights, and obtained informed consent for therapy." },
+    { section: "Administrative", text: "Reviewed intake paperwork, explained practice policies, HIPAA privacy policies and patient rights, insurance benefits and copay, and obtained informed consent for therapy." },
     { section: "Administrative", text: "Reviewed Clinical Formulation" },
     { section: "Administrative", text: "Reviewed Treatment Plan" },
     { section: "Administrative", text: "Reviewed intake questionnaire" },
-    { section: "Administrative", text: "Started work on CANS assessment with [CLIENT] and parent. Will complete within 21 days" },
+    { section: "Administrative", text: "Started work on CANS assessment with [CLIENT] and parent. Will complete within 21 days." },
     { section: "Administrative", text: "Completed CANS assessment" },
 ]
 
@@ -285,7 +285,7 @@ export const possibleProgressions = [
     },
     { text: "[CLIENT] named and richly described their preferred narrative incorporating their stated values and preferences." },
     {
-        text: "[CLIENT] reported the were able to counter [PROBLEM] by ([REPLACEMENT]).",
+        text: "[CLIENT] reported the were able to counter [PROBLEM] by [REPLACEMENT].",
         prompt: "[how where they able to counter the problem?]",
     },
     {
