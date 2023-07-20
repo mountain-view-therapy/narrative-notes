@@ -78,15 +78,21 @@ export const possibleAnxietySymptoms = [
     "excessive worry that is difficult to control",
     "constantly feeling on edge",
     "restlessness",
+    "being easily fatigued",
+    "difficulty concentrating",
+    "mind going blank",
+    "general state of irritability",
+    "muscle tension",
     "racing thoughts",
     "insomnia",
+    "trouble falling asleep",
+    "trouble staying asleep",
+    "unsatisfying sleep",
     "shortness of breath",
     "heart palpitations",
     "dry mouth",
-    "difficulty concentrating",
-    "trouble falling asleep",
-    "trouble staying asleep",
-    "general state of irritability",
+
+
 ]
 export type PossibleAnxietySymptom = typeof possibleAnxietySymptoms[number]
 
@@ -94,6 +100,10 @@ export const possibleDepressionSymptoms = [
     "depressed mood",
     "irritable mood",
     "diminished interest or enjoyment in activities",
+    "weight loss",
+    "weight gain",
+    "decreased appetite",
+    "increased appetite",
     "sleeplessness",
     "hypersomnia",
     "fatigue/lack of energy",
@@ -108,6 +118,7 @@ export const possibleDepressionSymptoms = [
 export type PossibleDepressionSymptom = typeof possibleDepressionSymptoms[number]
 
 export const possiblePTSDSymptoms = [
+    "Exposure to traumatic event",
     "intrusive thoughts or memories of the traumatic event",
     "difficulty sleeping",
     "nightmares",
@@ -119,6 +130,15 @@ export const possiblePTSDSymptoms = [
     "feelings of guilt/shame",
     "feelings of hopelessness",
     "intense distress when exposed to reminders of the traumatic event",
+    "inability to remember aspects of traumatic event",
+    "persistent and exaggerated negative beliefs about self",
+    "self-blame for traumatic event",
+    "persistent negative emotional state",
+    "Markedly diminished interest or participation in significant activities",
+    "Feelings of detachment or estrangement from others",
+    "Persistent inability to experience positive emotions"
+
+
 ]
 export type PossiblePTSDSymptom = typeof possiblePTSDSymptoms[number]
 
