@@ -232,99 +232,107 @@ export const possibleInterventions = [
 
 export const possibleProgressions = [
     {
-        text: "[CLIENT] has maintained current level of functioning in relation to [PROBLEM]’s influence.",
+        section: "Objective 1", text: "[CLIENT] has maintained current level of functioning in relation to [PROBLEM]’s influence.",
     },
-    { text: "[CLIENT] consistently speaks about [PROBLEM] in externalized language during therapy meetings.", },
+    {   section: "Objective 1", text: "[CLIENT] consistently speaks about [PROBLEM] in externalized language during therapy meetings.", },
     {
-        text: "[CLIENT] identified and verbalized an experience-near name for the problem, [REPLACEMENT].",
+        section: "Objective 1", text: "[CLIENT] identified and verbalized an experience-near name for the problem, [REPLACEMENT].",
         prompt: "[state name]",
     },
     {
-        text: "[CLIENT] described the effects of [PROBLEM] including [REPLACEMENT]",
+        section: "Objective 1", text: "[CLIENT] described the effects of [PROBLEM] including [REPLACEMENT]",
         prompt: "[list effects identified]",
     },
     {
-        text: "[CLIENT] described tactics used by [PROBLEM] including [REPLACEMENT]",
+        section: "Objective 1", text: "[CLIENT] described tactics used by [PROBLEM] including [REPLACEMENT]",
         prompt: "[list tactics identified]"
     },
     {
-        text: "[CLIENT] described past experiences that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
+        section: "Objective 1", text: "[CLIENT] described past experiences that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[name experiences]",
     },
     {
-        text: "[CLIENT] identified people that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
+        section: "Objective 1", text: "[CLIENT] identified people that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[name people]",
     },
     {
-        text: "[CLIENT] described situations that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
+        section: "Objective 1", text: "[CLIENT] described situations that support or sustain the problematic relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[name situations]",
     },
     {
-        text: "[CLIENT] described cultural discourses that support and sustain their relationship with [PROBLEM] including [REPLACEMENT]",
+        section: "Objective 1", text: "[CLIENT] described cultural discourses that support and sustain their relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[name discourses]",
     },
     {
-        text: "[CLIENT] named and richly described  their values/preferences in relationship to [PROBLEM] including [REPLACEMENT]",
+        section: "Objective 1", text: "[CLIENT] named and richly described  their values/preferences in relationship to [PROBLEM] including [REPLACEMENT]",
         prompt: "[name values/preferences]",
     },
+
+
+
+    
     {
-        text: "[CLIENT] named and richly described strategies that counter [PROBLEM] including [REPLACEMENT]",
-        prompt: "[list strategies]"
-    },
-    {
-        text: "[CLIENT] practiced strategies that counter [PROBLEM] including [REPLACEMENT]",
-        prompt: "[list strategies]"
-    },
-    {
-        text: "[CLIENT] named and richly described times when [PROBLEM] had less influence including [REPLACEMENT]",
+        section: "Objective 2", text: "[CLIENT] named and richly described times when [PROBLEM] had less influence including [REPLACEMENT]",
         prompt: "[name times when problem had less influence]"
     },
     {
-        text: "[CLIENT] described actions they have taken to support their preferred narrative including [REPLACEMENT]",
+        section: "Objective 2", text: "[CLIENT] described actions they have taken to support their preferred narrative including [REPLACEMENT]",
         prompt: "[list actions]",
     },
     {
-        text: "[CLIENT] described situations that support their preferred narrative including [REPLACEMENT]",
+        section: "Objective 2", text: "[CLIENT] described situations that support their preferred narrative including [REPLACEMENT]",
         prompt: "[list situations]",
     },
     {
-        text: "[CLIENT] identified [REPLACEMENT] as a person who will support their preferred narrative.",
+        section: "Objective 2", text: "[CLIENT] identified [REPLACEMENT] as a person who will support their preferred narrative.",
         prompt: "[name person]",
     },
     {
-        text: "[CLIENT] identified [REPLACEMENT] as people who will support their preferred narrative.",
+        section: "Objective 2", text: "[CLIENT] identified [REPLACEMENT] as people who will support their preferred narrative.",
         prompt: "[name group of people]",
     },
     {
-        text: "[CLIENT] described past experiences that support their preferred narrative including [REPLACEMENT]",
+        section: "Objective 2", text: "[CLIENT] described past experiences that support their preferred narrative including [REPLACEMENT]",
         prompt: "[list experiences]",
     },
     {
-        text: "[CLIENT] considered how their preferred narrative fits their cultural context ([REPLACEMENT]).",
+        section: "Objective 2", text: "[CLIENT] considered how their preferred narrative fits their cultural context ([REPLACEMENT]).",
         prompt: "[name discouses discussed]",
     },
-    { text: "[CLIENT] named and richly described their preferred narrative incorporating their stated values and preferences." },
     {
-        text: "[CLIENT] reported the were able to counter [PROBLEM] by [REPLACEMENT].",
+        section: "Objective 2", text: "[CLIENT] named and richly described strategies that counter [PROBLEM] including [REPLACEMENT]",
+        prompt: "[list strategies]"
+    },
+    {
+        section: "Objective 2", text: "[CLIENT] practiced strategies that counter [PROBLEM] including [REPLACEMENT]",
+        prompt: "[list strategies]"
+    },
+    {  section: "Objective 2", text: "[CLIENT] named and richly described their preferred narrative incorporating their stated values and preferences." },
+   
+   
+   
+   
+    {
+        section: "Objective 3", text: "[CLIENT] reported the were able to counter [PROBLEM] by [REPLACEMENT].",
         prompt: "[how where they able to counter the problem?]",
     },
     {
-        text: "[CLIENT] connected with [REPLACEMENT] to help support their preferred narrative.",
+        section: "Objective 3", text: "[CLIENT] connected with [REPLACEMENT] to help support their preferred narrative.",
         prompt: "[name person/people]."
     },
     {
-        text: "[CLIENT] learned and implemented behavioral strategies to exert acute control over relationship with [PROBLEM] including [REPLACEMENT]",
+        section: "Objective 3", text: "[CLIENT] learned and implemented behavioral strategies to exert acute control over relationship with [PROBLEM] including [REPLACEMENT]",
         prompt: "[list strategies].",
     },
     {
-        text: "[CLIENT] spent shared accounts of living their preferred story including [REPLACEMENT]",
+        section: "Objective 3", text: "[CLIENT] spent shared accounts of living their preferred story including [REPLACEMENT]",
         prompt: "[accounts of living their preferred story].",
     },
     {
-        text: "[CLIENT] consistently spoke about themselves through the lens of their preferred story.",
+        section: "Objective 3", text: "[CLIENT] consistently spoke about themselves through the lens of their preferred story.",
     },
     {
-        text: "[CLIENT] reported a connection to their preferred stories as a means to decrease [PROBLEM]’s influence.",
+        section: "Objective 3", text: "[CLIENT] reported a connection to their preferred stories as a means to decrease [PROBLEM]’s influence.",
     },
 
 ]
