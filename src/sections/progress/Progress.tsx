@@ -27,6 +27,30 @@ const Progress = () => {
       return text.replace('[PROBLEM]', identifiedProblem).replace('[CLIENT]', clientInitials).replace('[REPLACEMENT]',progressions.find(i => i.possibleProgressIndex === index)?.replacementText || "[REPLACE ME]")
       }
 
+      let section = "";
+
+      const displayProgression = (progression: { text: string, prompt?: string, section: string }, index: number) => {
+        let showSectionHeading = false
+        if (section !== progression.section) {
+          section = progression.section
+          showSectionHeading = true
+        }
+        return (
+          <>
+            {showSectionHeading && <Typography fontSize={30} fontWeight={800} marginY={4}>{progression.section}</Typography>}
+            < Stack flexDirection='row' key={`progress-${index}`}>
+              <FormControlLabel control={<Checkbox
+                checked={Boolean(progressions.find(i => i.possibleProgressIndex === index)?.checked)}
+                onChange={(e) => setProgress(index, e.target.checked)}
+                inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
+              />} label={replaceText(progression.text, index)} />
+              {progression.prompt && Boolean(progressions.find(i => i.possibleProgressIndex === index)) &&
+                <TextField label={progression.prompt} style={{ margin: 3, width: 350, fontSize: 12 }} value={progressions.find(i => i.possibleProgressIndex === index)?.replacementText} onChange={(e) => setProgressReplacementText(index, e.target.value)} />
+              }
+            </Stack>
+          </>
+        )
+      }
 
   return (
     <Container>
@@ -42,16 +66,7 @@ const Progress = () => {
         </Stack>
         {
           possibleProgressions.map((progress, index) => (
-            < Stack flexDirection='row' key={`progress-${index}`}>
-              <FormControlLabel control={<Checkbox
-                checked={Boolean(progressions.find(i => i.possibleProgressIndex === index)?.checked)}
-                onChange={(e) => setProgress(index, e.target.checked)}
-                inputProps={{ 'aria-label': 'self-care-affected-checkbox' }}
-              />} label={replaceText(progress.text, index)} />
-              {progress.prompt && Boolean(progressions.find(i => i.possibleProgressIndex === index)) &&
-                <TextField label={progress.prompt} style={{ margin: 3, width: 350, fontSize: 12 }} value={progressions.find(i => i.possibleProgressIndex === index)?.replacementText} onChange={(e) => setProgressReplacementText(index, e.target.value)} />
-              }
-            </Stack>
+            displayProgression(progress, index)
           ))
         }
       </Stack >
