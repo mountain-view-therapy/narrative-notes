@@ -1,12 +1,10 @@
 import { Button, Snackbar } from '@mui/material'
 import { useState } from 'react'
-import TurndownService from 'turndown'
-import { renderToString } from "react-dom/server";
+import { renderToString } from "react-dom/server"
 import NoteContent from './NoteContent';
 import { observer } from 'mobx-react-lite';
-import { useAppState } from '../state/provider';
+import { useAppState } from '../state/provider'
 
-const turndownService = new TurndownService()
 
 const CopyToClipboardButton = () => {
     const { meetingInformation: {
@@ -18,11 +16,13 @@ const CopyToClipboardButton = () => {
 
     const [open, setOpen] = useState(false)
 
-    const handleClick = () => {
+    const handleClick = async () => {
         setOpen(true)
         const html = renderToString(<NoteContent />)
-        const markdown = turndownService.turndown(html)
-        navigator.clipboard.writeText(markdown)
+        const type = "text/html";
+        const blob = new Blob([html], { type })
+        const data = [new ClipboardItem({ [type]: blob })]
+        await navigator.clipboard.write(data)
     }
 
     return (
@@ -31,7 +31,7 @@ const CopyToClipboardButton = () => {
                 variant='contained'
                 onClick={handleClick}
                 disabled={!startTime || !endTime}
-                >
+            >
                 Copy Note
             </Button>
             <Snackbar
