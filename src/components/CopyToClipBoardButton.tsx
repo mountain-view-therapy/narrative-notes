@@ -19,9 +19,14 @@ const CopyToClipboardButton = () => {
     const handleClick = async () => {
         setOpen(true)
         const html = renderToString(<NoteContent />)
-        const type = "text/html";
-        const blob = new Blob([html], { type })
-        const data = [new ClipboardItem({ [type]: blob })]
+        const htmlBlob = new Blob([html], { type: "text/html" })
+        const textBlob = new Blob([ html.replace(/<[^>]*>/g, '').replace(';ensp;', '')], { type: "text/plain" })
+        const data = [
+            new ClipboardItem({
+                "text/html": htmlBlob,
+                "text/plain": textBlob,
+            }),
+        ]
         await navigator.clipboard.write(data)
     }
 

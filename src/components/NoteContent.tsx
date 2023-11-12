@@ -219,7 +219,7 @@ const NoteContent = () => {
                     <div>
                         <b>Issues discussed in this meeting include: </b>
                     </div>
-                    <p dangerouslySetInnerHTML={{ __html: sanitizeHtml(problems.replace(/ /g, '&nbsp;').replace(/\n/g, '<br />')) }} />
+                    <p dangerouslySetInnerHTML={{ __html: sanitizeHtml(problems.replace(/ /g, '&ensp;').replace(/\n/g, '<br />')) }} />
                 </div>
             }
             {(anxietySymptoms.length || depressionSymptoms.length || ptsdSymptoms.length || otherSymptoms.length > 1 || otherSymptoms[0].length > 0) &&
@@ -332,7 +332,7 @@ const NoteContent = () => {
             {nextMeeting &&
                 <p><b>Next meeting :</b> {new Date(nextMeeting).toLocaleString("en-US", { timeStyle: "full", dateStyle: "full" })}</p>
             }
-            <p dangerouslySetInnerHTML={{ __html: sanitizeHtml(frequencyChangeExplanation.replace(/ /g, '&nbsp;').replace(/\n/g, '<br />')) }} />
+            <p dangerouslySetInnerHTML={{ __html: sanitizeHtml(frequencyChangeExplanation.replace(/ /g, '&ensp;').replace(/\n/g, '<br />')) }} />
         </div >
     )
 
