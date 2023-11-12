@@ -4,6 +4,7 @@ import dayjs from 'dayjs-ext'
 import timeZonePlugin from 'dayjs-ext/plugin/timeZone'
 import { observer } from "mobx-react-lite"
 import { useAppState } from "../state/provider"
+import sanitizeHtml from 'sanitize-html';
 
 const NoteContent = () => {
 
@@ -101,7 +102,7 @@ const NoteContent = () => {
 
                 <Typography>Missing Fields</Typography>
                 <ul>
-                        <li>Start and End Time in <a href="/narrative-notes/#/meeting-logistics">Meeting Logistics tab</a></li>
+                    <li>Start and End Time in <a href="/narrative-notes/#/meeting-logistics">Meeting Logistics tab</a></li>
                 </ul>
             </Box>
         )
@@ -218,7 +219,7 @@ const NoteContent = () => {
                     <div>
                         <b>Issues discussed in this meeting include: </b>
                     </div>
-                    <pre style={{ width: 504, whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif' }}>{problems}</pre>
+                    <p dangerouslySetInnerHTML={{ __html: sanitizeHtml(problems.replace(/ /g, '&nbsp;').replace(/\n/g, '<br />')) }} />
                 </div>
             }
             {(anxietySymptoms.length || depressionSymptoms.length || ptsdSymptoms.length || otherSymptoms.length > 1 || otherSymptoms[0].length > 0) &&
@@ -256,17 +257,17 @@ const NoteContent = () => {
                             ptsdSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
                         }
                         {(otherSymptoms.length > 1 || otherSymptoms[0].length > 0) &&
-                           ( (otherSymptoms && groupSymptomsTogether) ? (
-                            <li>Other Symptoms<ul>
-                                {
-                                    otherSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
-                                }
-                            </ul></li>
-                        )
-                            :
-                            otherSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
+                            ((otherSymptoms && groupSymptomsTogether) ? (
+                                <li>Other Symptoms<ul>
+                                    {
+                                        otherSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
+                                    }
+                                </ul></li>
+                            )
+                                :
+                                otherSymptoms.map(symptom => <li key={symptom}>{symptom}</li>)
 
-                        )}
+                            )}
                     </ul>
                 </div>
             }
@@ -331,8 +332,7 @@ const NoteContent = () => {
             {nextMeeting &&
                 <p><b>Next meeting :</b> {new Date(nextMeeting).toLocaleString("en-US", { timeStyle: "full", dateStyle: "full" })}</p>
             }
-            <pre style={{ width: 504, whiteSpace: "pre-wrap", overflowWrap: "break-word", fontSize: 16, fontWeight: 400, fontFamily: 'sans-serif' }}>{frequencyChangeExplanation}</pre>
-
+            <p dangerouslySetInnerHTML={{ __html: sanitizeHtml(frequencyChangeExplanation.replace(/ /g, '&nbsp;').replace(/\n/g, '<br />')) }} />
         </div >
     )
 
